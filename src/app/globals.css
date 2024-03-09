@@ -78,30 +78,24 @@
   padding: 0;
   margin: 0;
 }
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+@font-face {
+  font-family: "SEN medium";
+  src: url("/public/fonts/Sen-Medium.woff2") format("woff2");
+  font-weight: 800;
+  color: white !important;
+}
+@font-face {
+  font-family: "SEN bold";
+  src: url("/public/fonts/Sen-Bold.woff2") format("woff2");
+  font-weight: 800;
+  color: white !important;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: black;
+  font-family: "SEN bold", sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.sen-bold{
+  font-family: "SEN bold", sans-serif;
 }
