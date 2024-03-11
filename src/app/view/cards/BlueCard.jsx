@@ -6,6 +6,7 @@ import IconButton from "../../components/IconButton";
 import { FaArrowRight } from "react-icons/fa6";
 import Text from "../../components/Text";
 import useIsTab from "../../hooks/useIsTab";
+import useIsBig from "../../hooks/useIsBig";
 
 const MoveFromLeft = keyframes`
   from {
@@ -27,9 +28,11 @@ const Container = styled.div`
   transition: all 0.4s ease-in-out;
   @media only screen and (max-width: 1240px) {
     margin: 10px 7px;
+    max-width: 1000px;
   }
   @media screen and (max-width: 720px) {
     padding: 2rem;
+   
   }
 
   &:hover {
@@ -39,12 +42,13 @@ const Container = styled.div`
 
 const BlueCard = () => {
   const isTab = useIsTab();
+  const isBig = useIsBig()
   return (
-    <Container width={isTab ? "1000px" : "720px"}>
+    <Container width={isBig ? "1040px" : "720px"}>
       <Flex justify={"space-between"}>
         <Text
           size={"35px"}
-          maxWidth={isTab ? "220px" : "220px"}
+          maxWidth={isBig ? "220px" : "220px"}
           fontFamily={"bold"}
         >
           Get part of this now!

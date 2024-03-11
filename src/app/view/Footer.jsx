@@ -13,6 +13,7 @@ const HeaderWrapper = styled.div`
   width: 100%;
   height: 50px;
   position: relative;
+  margin-top: 20px;
   @media screen and (max-width: 720px) {
     height: 80px;
   }
