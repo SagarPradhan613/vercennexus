@@ -19,6 +19,7 @@ import Card from "../view/cards/ConnectedCard";
 import BlueCard from "../view/cards/BlueCard";
 import { SliderCarousal } from "../view/Slider";
 import useIsBig from "../hooks/useIsBig";
+import { FaArrowDown } from "react-icons/fa6";
 
 const MoveFromLeft = keyframes`
   from {
@@ -62,7 +63,7 @@ const Landing = () => {
   const isTab = useIsTab();
   const isBig = useIsBig();
   return (
-    <Section>
+    <div className="gradient-background">
       <Header />
       <Flex direction={"column"} gap={isTab ? "3rem" : "10rem"}>
         <Flex
@@ -114,14 +115,15 @@ const Landing = () => {
               gap={isMobile ? "1rem" : "2rem"}
             >
               <RegisterButton>
-                Register Now
+                How to Join?
                 <IconButton
                   bg={COLORS.blue}
                   color={COLORS.white}
                   width={"40px"}
                   icon={"20px"}
+                  toLeft={false}
                 >
-                  <FaArrowRight />
+                  <FaArrowDown />
                 </IconButton>
               </RegisterButton>
               <Button
@@ -144,17 +146,17 @@ const Landing = () => {
           <MoveFromLeftWrapper>
             {isBig ? (
               <SliderCarousal>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <Card title={"Engage"} />
+                <Card title={"Snapshot"} />
+                <Card title={"Lottery"} />
+                <Card title={"Contibute"} />
               </SliderCarousal>
             ) : (
               <Flex gap={"0px"}>
-                <Card />
-                <Card />
-                <Card />
-                <Card isTail={false} />
+                <Card title={"Engage"} />
+                <Card title={"Snapshot"} />
+                <Card title={"Lottery"} />
+                <Card title={"Contibute"} isTail={false} />
               </Flex>
             )}
           </MoveFromLeftWrapper>
@@ -165,7 +167,7 @@ const Landing = () => {
         </Flex>
       </Flex>
       <Footer />
-    </Section>
+    </div>
   );
 };
 

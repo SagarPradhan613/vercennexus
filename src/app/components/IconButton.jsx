@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled, { keyframes } from "styled-components";
 import { COLORS } from "../utils/colors";
+import Flex from "./Flex";
 
 const StyledButton = styled.button`
   display: flex;
@@ -18,11 +19,20 @@ const StyledButton = styled.button`
   border: none;
   font-size: ${({ icon }) => icon || "25px"};
   overflow: hidden;
+
   &:hover {
-    & > * {
-      transform: translateX(45px);
-      transition: transform 1s ease; /* Added transition property here */
-    }
+    ${({ toLeft }) => toLeft && `
+      & > * {
+        transform: translateX(45px);
+        transition: transform 1s ease;
+      }
+    `}
+    ${({ toLeft }) => !toLeft && `
+      & > * {
+        transform: translateY(45px);
+        transition: transform 1s ease;
+      }
+    `}
   }
 `;
 
@@ -36,6 +46,7 @@ function IconButton({
   ref,
   icon,
   disabled = false,
+  toLeft = true,
 }) {
   return (
     <StyledButton
@@ -47,6 +58,7 @@ function IconButton({
       onClick={onClick}
       disabled={disabled}
       ref={ref}
+      toLeft={toLeft}
     >
       {children}
     </StyledButton>

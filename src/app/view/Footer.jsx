@@ -26,7 +26,7 @@ const BgWrapp = styled.div`
 
 const Background = styled.div`
   width: 490px;
-  height: 85px;
+  height: 92px;
   position: relative;
   @media screen and (max-width: 720px) {
     width: 350px;

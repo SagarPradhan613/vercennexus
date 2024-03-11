@@ -101,12 +101,11 @@ body {
 }
 
 .gradient-background {
-  animation: gradient 15s ease infinite;
-  background-size: 400% 400%;
+  animation: rotateGradient 5s linear infinite;
   min-height: 95vh;
   background: linear-gradient(
     115.03deg,
-    #ffffff 6.54%,
+    #ffffff 0.54%,
     #0075ff 27.97%,
     rgba(0, 70, 153, 0.25) 119.25%
   );
@@ -119,27 +118,18 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
 }
 
-@-webkit-keyframes gradient {
+@keyframes rotateGradient {
   0% {
-    background-position: 0 50%;
+    background-position: 0 0;
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 20% 20%;
   }
   100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+    background-position: 0 0;
   }
 }

@@ -15,7 +15,7 @@ const HeaderWrapper = styled.div`
 const BgWrapp = styled.div`
   position: absolute;
   top: -2px;
-  left: 10%;
+  left: 5%;
   @media screen and (max-width: 720px) {
     left: 2%;
   }

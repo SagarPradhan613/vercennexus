@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
   border: none;
   border-radius: 45px;
-  padding: .5rem .5rem .5rem 2rem;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
   font-family: "SEN bold";
@@ -25,6 +25,8 @@ const StyledButton = styled.button`
     font-size: 15px;
   }
   &:hover {
+    background: ${({ hoverbg }) => hoverbg || COLORS.black};
+    color: ${({ hovercolor }) => hovercolor || COLORS.white};
   }
   @font-face {
     font-family: "SEN bold";

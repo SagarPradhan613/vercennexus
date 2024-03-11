@@ -16,7 +16,6 @@ const MoveFromLeft = keyframes`
   }
 `;
 
-
 const Container = styled.div`
   border-radius: 35px;
   padding: 3rem;
@@ -25,14 +24,18 @@ const Container = styled.div`
   max-width: ${({ width }) => width || "fit-content"};
   margin: 0px;
   animation: ${MoveFromLeft} 1s;
+  transition: all 0.4s ease-in-out;
   @media only screen and (max-width: 1240px) {
     margin: 10px 7px;
   }
   @media screen and (max-width: 720px) {
     padding: 2rem;
   }
-`;
 
+  &:hover {
+    background-color: ${COLORS.black};
+  }
+`;
 
 const BlueCard = () => {
   const isTab = useIsTab();

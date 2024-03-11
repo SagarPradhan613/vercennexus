@@ -26,6 +26,8 @@ const StyledButton = styled.button`
     font-size: 15px;
   }
   &:hover {
+    background: ${({ hoverbg }) => hoverbg || COLORS.white};
+    color: ${({ hovercolor }) => hovercolor || COLORS.black};
   }
   @font-face {
     font-family: "SEN bold";
@@ -37,6 +39,8 @@ function Button({
   children,
   bg,
   color,
+  hoverbg,
+  hovercolor,
   fullWidth,
   bordercolor,
   onClick,
@@ -47,6 +51,8 @@ function Button({
     <StyledButton
       bg={bg}
       color={color}
+      hoverbg={hoverbg}
+      hovercolor={hovercolor}
       fullWidth={fullWidth}
       borderColor={bordercolor}
       onClick={onClick}
