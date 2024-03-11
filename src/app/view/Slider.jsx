@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+"use client"
+
 import { useState } from "react";
 import ReactSimplyCarousel from "react-simply-carousel";
 
