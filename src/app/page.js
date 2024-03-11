@@ -1,3 +1,4 @@
+"use client"
 
 import Landing from "./pages";
 
