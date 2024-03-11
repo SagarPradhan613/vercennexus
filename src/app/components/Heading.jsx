@@ -11,11 +11,13 @@ const StyledText = styled.h1`
   text-align: ${({ align }) => align || "start"};
   white-space: ${({ overflow }) => (overflow ? "nowrap" : "normal")};
   margin: ${({ m }) => m || "0px"};
+  line-height: ${({lineHeight}) => lineHeight};
   @media only screen and (max-width: 1300px) and (min-width: 720px) {
     font-size: ${({ size }) => size || "75px"};
   }
   @media screen and (max-width: 720px) {
     font-size: 55px;
+    line-height: 60px;
   }
   @font-face {
     font-family: "SEN bold";
@@ -33,6 +35,7 @@ const Heading = ({
   hover = false,
   overflow = false,
   m,
+  lineHeight
 }) => {
   return (
     <StyledText
@@ -44,6 +47,7 @@ const Heading = ({
       hover={hover}
       overflow={overflow}
       m={m}
+      lineHeight={lineHeight}
       className="sen-bold"
     >
       {children}

@@ -5,7 +5,7 @@ function useIsBig() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 2540); 
+      setIsMobile(window.innerWidth <= 1380); 
     };
 
     // Initial check

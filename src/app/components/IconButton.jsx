@@ -12,12 +12,17 @@ const StyledButton = styled.button`
   height: ${({ width }) => width || "50px"};
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 1s ease;
   position: relative;
   z-index: 10;
   border: none;
   font-size: ${({ icon }) => icon || "25px"};
+  overflow: hidden;
   &:hover {
+    & > * {
+      transform: translateX(45px);
+      transition: transform 1s ease; /* Added transition property here */
+    }
   }
 `;
 

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Heading from "../components/Heading";
 import Flex from "../components/Flex";
 import IconButton from "../components/IconButton";
@@ -13,23 +13,45 @@ import Button from "../components/Button";
 import RegisterButton from "../components/RegisterButton";
 import useIsMobile from "../hooks/useIsMobile";
 import useIsTab from "../hooks/useIsTab";
+import Header from "../view/Header";
+import Footer from "../view/Footer";
+import Card from "../view/cards/ConnectedCard";
+import BlueCard from "../view/cards/BlueCard";
+import { SliderCarousal } from "../view/Slider";
+import useIsBig from "../hooks/useIsBig";
+
+const MoveFromLeft = keyframes`
+  from {
+    transform: translateX(-1000px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+`;
+
+const MoveFromLeftWrapper = styled.div`
+  animation: ${MoveFromLeft} 1s;
+`;
 
 const Section = styled.div`
-  height: 95vh;
-  background-color: black;
-  background-image: url("/Images/background-main.svg");
+  min-height: 95vh;
+  background: linear-gradient(
+    115.03deg,
+    #ffffff 6.54%,
+    #0075ff 27.97%,
+    rgba(0, 70, 153, 0.25) 119.25%
+  );
   background-repeat: no-repeat;
   background-size: cover;
   margin: 1rem;
   border-radius: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 `;
 
-const HeadWrapper = styled.div`
-  position: absolute;
-  left: 14%;
-  top: -14px;
-`;
 const IconButtonWrapper = styled.div`
   margin-right: 4rem;
   margin-top: 1rem;
@@ -38,36 +60,33 @@ const IconButtonWrapper = styled.div`
 const Landing = () => {
   const isMobile = useIsMobile();
   const isTab = useIsTab();
+  const isBig = useIsBig();
   return (
     <Section>
-      <HeadWrapper>
-        <Image
-          src={"/Images/nexus-icon.svg"}
-          width={100}
-          height={100}
-          alt="icon"
-        />
-      </HeadWrapper>
-      <Flex>
+      <Header />
+      <Flex direction={"column"} gap={isTab ? "3rem" : "10rem"}>
         <Flex
           justify={isTab ? "center" : "space-between"}
-          width={"100%"}
+          width={"95%"}
           maxWidth={"1440px"}
-          p={"0rem 3rem"}
           direction={isTab ? "column" : "row"}
         >
           <Flex
             direction={"column"}
             items={isMobile ? " start" : isTab ? "center" : "start"}
-            gap={"1px"}
+            gap={"0px"}
             height={isTab ? "fit-content" : "100%"}
           >
-            <Heading>Empowering</Heading>
-            <Heading>Innovation</Heading>
-            <Flex height={"fit-content"}>
-              <Heading>Futures</Heading>
+            <Heading lineHeight={"85px"}>Empowering</Heading>
+            <Heading lineHeight={"85px"}>Innovation</Heading>
+            <Flex height={"fit-content"} gap={isMobile ? "1rem" : "3rem"}>
+              <Heading lineHeight={"45px"}>Futures</Heading>
               <IconButtonWrapper>
-                <IconButton width={"65px"} icon={"25px"} color={COLORS.blue}>
+                <IconButton
+                  width={isMobile ? "35px" : "65px"}
+                  icon={isMobile ? "20px" : "25px"}
+                  color={COLORS.blue}
+                >
                   <FaArrowRight />
                 </IconButton>
               </IconButtonWrapper>
@@ -77,17 +96,23 @@ const Landing = () => {
             direction={"column"}
             height={isTab ? "fit-content" : "100%"}
             items={isMobile ? " start" : isTab ? "center" : "start"}
+            m={isTab ? "0px" : "0px 50px 0px 0px"}
           >
             <Text
               align={isMobile ? " start" : isTab ? "center" : "start"}
-              maxWidth={isMobile ? "250px" : "500px"}
+              maxWidth={isMobile ? "380px" : "500px"}
               size={"25px"}
               color={COLORS.light}
+              m={isMobile ? "0px 0px 0px 15px" : "0px"}
             >
               We provide straight forward tools that maximize financial
               opportunities. forward tools
             </Text>
-            <Flex height={"fit-content"} mt={"7rem"} gap={"2rem"}>
+            <Flex
+              height={"fit-content"}
+              mt={"5rem"}
+              gap={isMobile ? "1rem" : "2rem"}
+            >
               <RegisterButton>
                 Register Now
                 <IconButton
@@ -109,7 +134,37 @@ const Landing = () => {
             </Flex>
           </Flex>
         </Flex>
+        <Flex
+          justify={"space-between"}
+          items={isBig ? "center" : "start"}
+          width={"100%"}
+          maxWidth={"1440px"}
+          direction={isBig ? "column" : "row"}
+        >
+          <MoveFromLeftWrapper>
+            {isBig ? (
+              <SliderCarousal>
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+              </SliderCarousal>
+            ) : (
+              <Flex gap={"0px"}>
+                <Card />
+                <Card />
+                <Card />
+                <Card isTail={false} />
+              </Flex>
+            )}
+          </MoveFromLeftWrapper>
+
+          <Flex width={"100%"}>
+            <BlueCard />
+          </Flex>
+        </Flex>
       </Flex>
+      <Footer />
     </Section>
   );
 };

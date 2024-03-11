@@ -96,6 +96,50 @@ body {
   font-family: "SEN bold", sans-serif;
 }
 
-.sen-bold{
+.sen-bold {
   font-family: "SEN bold", sans-serif;
+}
+
+.gradient-background {
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  min-height: 95vh;
+  background: linear-gradient(
+    115.03deg,
+    #ffffff 6.54%,
+    #0075ff 27.97%,
+    rgba(0, 70, 153, 0.25) 119.25%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1rem;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
