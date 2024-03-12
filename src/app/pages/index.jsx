@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Heading from "../components/Heading";
@@ -74,36 +76,38 @@ const Landing = () => {
     // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
   }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
-
-  const cursor = document.querySelector(".cursor");
-
-  document.addEventListener("mousemove", (e) => {
-    cursor?.setAttribute(
-      "style",
-      "top: " + (e.pageY - 20) + "px; left: " + (e.pageX - 20) + "px;"
-    );
-    if (e.target.tagName.toLowerCase() === "button") {
+  if (typeof window !== 'undefined') {
+    const cursor = document.querySelector(".cursor");
+  
+    document.addEventListener("mousemove", (e) => {
       cursor?.setAttribute(
         "style",
-        "top: " +
-          (e.pageY - 20) +
-          "px; left: " +
-          (e.pageX - 20) +
-          "px; background-color: " +
-          (e.target.tagName.toLowerCase() === "button"
-            ? "#0075FF"
-            : "transparent") +
-          ";"
+        "top: " + (e.pageY - 20) + "px; left: " + (e.pageX - 20) + "px;"
       );
-    }
-  });
-
-  document.addEventListener("click", (e) => {
-    cursor?.classList.add("expand");
-    setTimeout(() => {
-      cursor?.classList.remove("expand");
-    }, 500);
-  });
+      if (e.target.tagName.toLowerCase() === "button") {
+        cursor?.setAttribute(
+          "style",
+          "top: " +
+            (e.pageY - 20) +
+            "px; left: " +
+            (e.pageX - 20) +
+            "px; background-color: " +
+            (e.target.tagName.toLowerCase() === "button"
+              ? "#0075FF"
+              : "transparent") +
+            ";"
+        );
+      }
+    });
+  
+    document.addEventListener("click", (e) => {
+      cursor?.classList.add("expand");
+      setTimeout(() => {
+        cursor?.classList.remove("expand");
+      }, 500);
+    });
+  }
+  
   return (
     <div className="gradient-background">
       <div class="cursor"></div>
