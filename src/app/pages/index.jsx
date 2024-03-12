@@ -115,14 +115,15 @@ const Landing = () => {
       <Flex direction={"column"} gap={isTab ? "3rem" : "10rem"}>
         <Flex
           justify={isTab ? "center" : "space-between"}
-          items={isMobile ? "start" : "center"}
+          items={isMobile ? "center" : "start"}
           width={"95%"}
           maxWidth={"1440px"}
           direction={isTab ? "column" : "row"}
+          m={isTab && !isMobile ? "0px 0px 0px 100px" : "0px"}
         >
           <Flex
             direction={"column"}
-            items={isMobile ? " start" : isTab ? "center" : "start"}
+            items={"start"}
             gap={"0px"}
             height={isTab ? "fit-content" : "100%"}
             m={isMobile ? "0px 0px 0px 0px" : "0px"}
@@ -145,7 +146,7 @@ const Landing = () => {
                 <IconButtonWrapper>
                   <IconButton
                     width={isMobile ? "35px" : "65px"}
-                    icon={isMobile ? "20px" : "35px"}
+                    icon={isMobile ? "25px" : "30px"}
                     color={COLORS.blue}
                     hoverbg={COLORS.black}
                     hovercolor={COLORS.white}
@@ -159,12 +160,12 @@ const Landing = () => {
           <Flex
             direction={"column"}
             height={isTab ? "fit-content" : "100%"}
-            items={isMobile ? " start" : isTab ? "center" : "start"}
+            items={"start"}
             m={isMobile ? "0px 0px 0px 0px" : "45px 0px 0px 0px"}
           >
             <Text
-              align={isMobile ? " start" : isTab ? "center" : "start"}
-              maxWidth={isMobile ? "430px" : "500px"}
+              align={"start"}
+              maxWidth={isMobile ? "275px" : "500px"}
               size={"25px"}
               color={COLORS.light}
             >

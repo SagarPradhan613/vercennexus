@@ -14,7 +14,7 @@ const HeaderWrapper = styled.div`
   height: 50px;
   position: relative;
   margin-top: 20px;
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 520px) {
     height: 80px;
   }
 `;
@@ -29,7 +29,7 @@ const Background = styled.div`
   width: 490px;
   height: 92px;
   position: relative;
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 520px) {
     width: 350px;
     height: 65px;
   }
@@ -40,7 +40,7 @@ const IconWrapper = styled.div`
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 520px) {
     left: 55%;
   }
 `;
@@ -66,7 +66,7 @@ const Footer = () => {
               <Text
                 color={COLORS.light}
                 overflow={true}
-                size={isMobile ? "15px" : "20px"}
+                size={'20px'}
               >
                 Follow on our socials
               </Text>

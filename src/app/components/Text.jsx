@@ -12,6 +12,7 @@ const StyledText = styled.h1`
   white-space: ${({ overflow }) => (overflow ? "nowrap" : "normal")};
   margin: ${({ m }) => m || "0px"};
   @media screen and (max-width: 720px) {
+    font-size: 18px;
   }
   @font-face {
     font-family: "bold";

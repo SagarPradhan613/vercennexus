@@ -20,6 +20,10 @@ const StyledButton = styled.button`
   font-size: ${({ icon }) => icon || "25px"};
   overflow: hidden;
 
+  @media only screen and (max-width: 520px) {
+
+  }
+
   ${({ toLeft }) =>
     toLeft &&
     `

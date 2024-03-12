@@ -23,6 +23,7 @@ const StyledButton = styled.button`
   z-index: 10;
   @media only screen and (max-width: 520px) {
     font-size: 15px;
+    padding: 0.2rem 0.2rem 0.2rem 1rem;
   }
   &:hover {
     background: ${({ hoverbg }) => hoverbg || COLORS.black};
