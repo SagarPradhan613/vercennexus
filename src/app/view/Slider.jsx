@@ -6,12 +6,18 @@ import ReactSimplyCarousel from "react-simply-carousel";
 export const SliderCarousal = ({ children }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
+  const [show, setShow] = useState(1);
+
+  setInterval(() => {
+    show === 1 ? setShow(3) : setShow(1);
+  }, 100);
+
   return (
     <ReactSimplyCarousel
       activeSlideIndex={activeSlideIndex}
       onRequestChange={setActiveSlideIndex}
-      itemsToShow={1}
-      itemsToScroll={1}
+      itemsToShow={3}
+      itemsToScroll={show}
       forwardBtnProps={{
         //here you can also pass className, or any other button element attributes
         style: {
@@ -20,7 +26,7 @@ export const SliderCarousal = ({ children }) => {
           display: "none",
           position: "relative",
         },
-    
+
         children: <button>Next</button>,
       }}
       backwardBtnProps={{
@@ -30,7 +36,7 @@ export const SliderCarousal = ({ children }) => {
           border: "none",
           display: "none",
         },
-   
+
         children: <button>Prev</button>,
       }}
       responsiveProps={[
