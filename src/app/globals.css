@@ -133,3 +133,24 @@ body {
     background-position: 0 0;
   }
 }
+
+.swiftup {
+  opacity: 1;
+  animation: swift-up 0.5s ease-in-out forwards;
+}
+
+@keyframes swift-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Start from a lower position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move to the correct position */
+  }
+}
+
+.swiftupdisable {
+  opacity: 0;
+}
+

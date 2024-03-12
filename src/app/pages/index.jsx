@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Heading from "../components/Heading";
 import Flex from "../components/Flex";
@@ -59,6 +59,21 @@ const Landing = () => {
   const isMobile = useIsMobile();
   const isTab = useIsTab();
   const isBig = useIsBig();
+  const [textAnim, setTextAnim] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextAnim((prev) => [...prev, 1]);
+    }, 500);
+
+    // Clear the interval when the array length reaches 3
+    if (textAnim.length === 3) {
+      clearInterval(interval);
+    }
+    console.log(textAnim);
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(interval);
+  }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
   return (
     <div className="gradient-background">
       <Header />
@@ -76,20 +91,26 @@ const Landing = () => {
             height={isTab ? "fit-content" : "100%"}
             m={isMobile ? "0px 50px 0px 0px" : "0px"}
           >
-            <Heading lineHeight={"85px"}>Empowering</Heading>
-            <Heading lineHeight={"85px"}>Innovation</Heading>
-            <Flex height={"fit-content"} gap={isMobile ? "1rem" : "3rem"}>
-              <Heading lineHeight={"45px"}>Futures</Heading>
-              <IconButtonWrapper>
-                <IconButton
-                  width={isMobile ? "35px" : "65px"}
-                  icon={isMobile ? "20px" : "25px"}
-                  color={COLORS.blue}
-                >
-                  <FaArrowRight />
-                </IconButton>
-              </IconButtonWrapper>
-            </Flex>
+            <div className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}>
+              <Heading lineHeight={"85px"}>Empowering</Heading>
+            </div>
+            <div className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}>
+              <Heading lineHeight={"85px"}>Innovation</Heading>
+            </div>
+            <div className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}>
+              <Flex height={"fit-content"} gap={isMobile ? "1rem" : "3rem"}>
+                <Heading lineHeight={"45px"}>Futures</Heading>
+                <IconButtonWrapper>
+                  <IconButton
+                    width={isMobile ? "35px" : "65px"}
+                    icon={isMobile ? "20px" : "25px"}
+                    color={COLORS.blue}
+                  >
+                    <FaArrowRight />
+                  </IconButton>
+                </IconButtonWrapper>
+              </Flex>
+            </div>
           </Flex>
           <Flex
             direction={"column"}
