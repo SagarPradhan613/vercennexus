@@ -74,6 +74,7 @@ const Landing = () => {
             items={isMobile ? " start" : isTab ? "center" : "start"}
             gap={"0px"}
             height={isTab ? "fit-content" : "100%"}
+            m={isMobile ? "0px 50px 0px 0px" : "0px"}
           >
             <Heading lineHeight={"85px"}>Empowering</Heading>
             <Heading lineHeight={"85px"}>Innovation</Heading>
@@ -101,7 +102,7 @@ const Landing = () => {
               maxWidth={isMobile ? "380px" : "500px"}
               size={"25px"}
               color={COLORS.light}
-              m={isMobile ? "0px 0px 0px 15px" : "0px"}
+              // m={isMobile ? "0px 0px 0px 15px" : "0px"}
             >
               We provide straight forward tools that maximize financial
               opportunities. forward tools

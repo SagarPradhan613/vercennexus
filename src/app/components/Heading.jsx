@@ -12,10 +12,10 @@ const StyledText = styled.h1`
   white-space: ${({ overflow }) => (overflow ? "nowrap" : "normal")};
   margin: ${({ m }) => m || "0px"};
   line-height: ${({lineHeight}) => lineHeight};
-  @media only screen and (max-width: 1300px) and (min-width: 720px) {
+  @media only screen and (max-width: 1300px) and (min-width: 768px) {
     font-size: ${({ size }) => size || "75px"};
   }
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 768px) {
     font-size: 55px;
     line-height: 60px;
   }
