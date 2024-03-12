@@ -203,3 +203,15 @@ body {
     opacity: 0;
   }
 }
+
+.movefromleft {
+  animation: moverfromleft 1s ease-in;
+}
+@keyframes moverfromleft {
+  from {
+    transform: translateX(-1000px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}

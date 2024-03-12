@@ -30,6 +30,7 @@ const MoveFromLeft = keyframes`
 `;
 
 const MoveFromLeftWrapper = styled.div`
+  position: relative;
   animation: ${MoveFromLeft} 1s;
 `;
 
@@ -206,23 +207,23 @@ const Landing = () => {
           maxWidth={"1440px"}
           direction={isBig ? "column" : "row"}
         >
-          <MoveFromLeftWrapper>
-            {isBig ? (
-              <SliderCarousal>
-                <Card title={"Engage"} />
-                <Card title={"Snapshot"} />
-                <Card title={"Lottery"} />
-                <Card title={"Contribute"} isTail={false} />
-              </SliderCarousal>
-            ) : (
+          {isBig ? (
+            <SliderCarousal>
+              <Card title={"Engage"} />
+              <Card title={"Snapshot"} />
+              <Card title={"Lottery"} />
+              <Card title={"Contribute"} isTail={false} />
+            </SliderCarousal>
+          ) : (
+            <MoveFromLeftWrapper>
               <Flex gap={"0px"}>
                 <Card title={"Engage"} />
                 <Card title={"Snapshot"} />
                 <Card title={"Lottery"} />
                 <Card title={"Contribute"} isTail={false} />
               </Flex>
-            )}
-          </MoveFromLeftWrapper>
+            </MoveFromLeftWrapper>
+          )}
 
           <Flex width={"100%"}>
             <BlueCard />
