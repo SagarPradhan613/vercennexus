@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
@@ -76,9 +76,9 @@ const Landing = () => {
     // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
   }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const cursor = document.querySelector(".cursor");
-  
+
     document.addEventListener("mousemove", (e) => {
       cursor?.setAttribute(
         "style",
@@ -99,7 +99,7 @@ const Landing = () => {
         );
       }
     });
-  
+
     document.addEventListener("click", (e) => {
       cursor?.classList.add("expand");
       setTimeout(() => {
@@ -107,7 +107,7 @@ const Landing = () => {
       }, 500);
     });
   }
-  
+
   return (
     <div className="gradient-background">
       <div class="cursor"></div>
@@ -115,6 +115,7 @@ const Landing = () => {
       <Flex direction={"column"} gap={isTab ? "3rem" : "10rem"}>
         <Flex
           justify={isTab ? "center" : "space-between"}
+          items={isMobile ? "start" : "center"}
           width={"95%"}
           maxWidth={"1440px"}
           direction={isTab ? "column" : "row"}
@@ -124,7 +125,7 @@ const Landing = () => {
             items={isMobile ? " start" : isTab ? "center" : "start"}
             gap={"0px"}
             height={isTab ? "fit-content" : "100%"}
-            m={isMobile ? "0px 50px 0px 0px" : "0px"}
+            m={isMobile ? "0px 0px 0px 0px" : "0px"}
           >
             <div
               className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
@@ -144,8 +145,10 @@ const Landing = () => {
                 <IconButtonWrapper>
                   <IconButton
                     width={isMobile ? "35px" : "65px"}
-                    icon={isMobile ? "20px" : "25px"}
+                    icon={isMobile ? "20px" : "35px"}
                     color={COLORS.blue}
+                    hoverbg={COLORS.black}
+                    hovercolor={COLORS.white}
                   >
                     <FaArrowRight />
                   </IconButton>
@@ -157,10 +160,11 @@ const Landing = () => {
             direction={"column"}
             height={isTab ? "fit-content" : "100%"}
             items={isMobile ? " start" : isTab ? "center" : "start"}
+            m={isMobile ? "0px 0px 0px 0px" : "0px"}
           >
             <Text
               align={isMobile ? " start" : isTab ? "center" : "start"}
-              maxWidth={isMobile ? "380px" : "500px"}
+              maxWidth={isMobile ? "430px" : "500px"}
               size={"25px"}
               color={COLORS.light}
             >
@@ -207,14 +211,14 @@ const Landing = () => {
                 <Card title={"Engage"} />
                 <Card title={"Snapshot"} />
                 <Card title={"Lottery"} />
-                <Card title={"Contibute"} isTail={false} />
+                <Card title={"Contribute"} isTail={false} />
               </SliderCarousal>
             ) : (
               <Flex gap={"0px"}>
                 <Card title={"Engage"} />
                 <Card title={"Snapshot"} />
                 <Card title={"Lottery"} />
-                <Card title={"Contibute"} isTail={false} />
+                <Card title={"Contribute"} isTail={false} />
               </Flex>
             )}
           </MoveFromLeftWrapper>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import styled from "styled-components";
@@ -21,6 +21,25 @@ const Connector = styled.div`
   width: 10px;
   height: 20px;
   background-color: ${COLORS.white};
+  clip-path: polygon(
+    0 0,
+    0% 20%,
+    0 51%,
+    0% 80%,
+    0 100%,
+    50% 70%,
+    100% 100%,
+    100% 80%,
+    100% 51%,
+    100% 20%,
+    100% 0,
+    50% 30%
+  );
+`;
+const ConnectorDisable = styled.div`
+  width: 10px;
+  height: 20px;
+  background-color: ${COLORS.transperant};
   clip-path: polygon(
     0 0,
     0% 20%,
@@ -72,7 +91,7 @@ function ConnectedCard({ isTail = true, title }) {
           </Text>
         </Flex>
       </Container>
-      {isTail && <Connector />}
+      {isTail ? <Connector /> : <ConnectorDisable />}
     </Flex>
   );
 }

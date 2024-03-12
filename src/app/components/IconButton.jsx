@@ -20,16 +20,31 @@ const StyledButton = styled.button`
   font-size: ${({ icon }) => icon || "25px"};
   overflow: hidden;
 
-  &:hover {
-    ${({ toLeft }) => toLeft && `
+  ${({ toLeft }) =>
+    toLeft &&
+    `
       & > * {
-        transform: translateX(45px);
+        transform: translateX(-31px);
         transition: transform 1s ease;
       }
     `}
-    ${({ toLeft }) => !toLeft && `
+
+  &:hover {
+    background: ${({ hoverbg }) => hoverbg || COLORS.white};
+    color: ${({ hovercolor }) => hovercolor || COLORS.black};
+    ${({ toLeft }) =>
+      toLeft &&
+      `
       & > * {
-        transform: translateY(45px);
+        transform: translateX(31px);
+        transition: transform 1s ease;
+      }
+    `}
+    ${({ toLeft }) =>
+      !toLeft &&
+      `
+      & > * {
+        transform: translateY(31px);
         transition: transform 1s ease;
       }
     `}
@@ -40,6 +55,8 @@ function IconButton({
   children,
   bg,
   color,
+  hoverbg,
+  hovercolor,
   width,
   bordercolor,
   onClick,
@@ -52,6 +69,8 @@ function IconButton({
     <StyledButton
       bg={bg}
       color={color}
+      hoverbg={hoverbg}
+      hovercolor={hovercolor}
       width={width}
       icon={icon}
       borderColor={bordercolor}
@@ -60,7 +79,14 @@ function IconButton({
       ref={ref}
       toLeft={toLeft}
     >
-      {children}
+      {toLeft ? (
+        <Flex direction={toLeft ? "row" : "column"} gap={"2rem"}>
+          {children}
+          {children}
+        </Flex>
+      ) : (
+        <>{children}</>
+      )}
     </StyledButton>
   );
 }
