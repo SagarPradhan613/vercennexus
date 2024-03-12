@@ -4,7 +4,7 @@ import { COLORS } from "../utils/colors";
 
 const StyledText = styled.h1`
   font-family: "SEN bold";
-  font-size: ${({ size }) => size || "95px"};
+  font-size: ${({ size }) => size || "100px"};
   font-weight: ${({ weight }) => weight || 400};
   max-width: ${({ maxWidth }) => maxWidth || "100%"};
   color: ${({ color }) => color || COLORS.white};

@@ -130,18 +130,18 @@ const Landing = () => {
             <div
               className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
             >
-              <Heading lineHeight={"85px"}>Empowering</Heading>
+              <Heading lineHeight={"90px"}>Empowering</Heading>
             </div>
             <div
               className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
             >
-              <Heading lineHeight={"85px"}>Innovation</Heading>
+              <Heading lineHeight={"90px"}>Innovation</Heading>
             </div>
             <div
               className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}
             >
               <Flex height={"fit-content"} gap={isMobile ? "1rem" : "3rem"}>
-                <Heading lineHeight={"45px"}>Futures</Heading>
+                <Heading lineHeight={"90px"}>Futures</Heading>
                 <IconButtonWrapper>
                   <IconButton
                     width={isMobile ? "35px" : "65px"}
@@ -160,7 +160,7 @@ const Landing = () => {
             direction={"column"}
             height={isTab ? "fit-content" : "100%"}
             items={isMobile ? " start" : isTab ? "center" : "start"}
-            m={isMobile ? "0px 0px 0px 0px" : "0px"}
+            m={isMobile ? "0px 0px 0px 0px" : "45px 0px 0px 0px"}
           >
             <Text
               align={isMobile ? " start" : isTab ? "center" : "start"}
