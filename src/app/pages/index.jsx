@@ -64,7 +64,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setTextAnim((prev) => [...prev, 1]);
-    }, 500);
+    }, 250);
 
     // Clear the interval when the array length reaches 3
     if (textAnim.length === 3) {
@@ -74,8 +74,39 @@ const Landing = () => {
     // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
   }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
+
+  const cursor = document.querySelector(".cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    cursor?.setAttribute(
+      "style",
+      "top: " + (e.pageY - 20) + "px; left: " + (e.pageX - 20) + "px;"
+    );
+    if (e.target.tagName.toLowerCase() === "button") {
+      cursor?.setAttribute(
+        "style",
+        "top: " +
+          (e.pageY - 20) +
+          "px; left: " +
+          (e.pageX - 20) +
+          "px; background-color: " +
+          (e.target.tagName.toLowerCase() === "button"
+            ? "#0075FF"
+            : "transparent") +
+          ";"
+      );
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    cursor?.classList.add("expand");
+    setTimeout(() => {
+      cursor?.classList.remove("expand");
+    }, 500);
+  });
   return (
     <div className="gradient-background">
+      <div class="cursor"></div>
       <Header />
       <Flex direction={"column"} gap={isTab ? "3rem" : "10rem"}>
         <Flex
@@ -91,13 +122,19 @@ const Landing = () => {
             height={isTab ? "fit-content" : "100%"}
             m={isMobile ? "0px 50px 0px 0px" : "0px"}
           >
-            <div className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}>
+            <div
+              className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
+            >
               <Heading lineHeight={"85px"}>Empowering</Heading>
             </div>
-            <div className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}>
+            <div
+              className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
+            >
               <Heading lineHeight={"85px"}>Innovation</Heading>
             </div>
-            <div className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}>
+            <div
+              className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}
+            >
               <Flex height={"fit-content"} gap={isMobile ? "1rem" : "3rem"}>
                 <Heading lineHeight={"45px"}>Futures</Heading>
                 <IconButtonWrapper>
@@ -116,14 +153,12 @@ const Landing = () => {
             direction={"column"}
             height={isTab ? "fit-content" : "100%"}
             items={isMobile ? " start" : isTab ? "center" : "start"}
-            m={isTab ? "0px" : "0px 50px 0px 0px"}
           >
             <Text
               align={isMobile ? " start" : isTab ? "center" : "start"}
               maxWidth={isMobile ? "380px" : "500px"}
               size={"25px"}
               color={COLORS.light}
-              // m={isMobile ? "0px 0px 0px 15px" : "0px"}
             >
               We provide straight forward tools that maximize financial
               opportunities. forward tools
@@ -168,7 +203,7 @@ const Landing = () => {
                 <Card title={"Engage"} />
                 <Card title={"Snapshot"} />
                 <Card title={"Lottery"} />
-                <Card title={"Contibute"} />
+                <Card title={"Contibute"} isTail={false} />
               </SliderCarousal>
             ) : (
               <Flex gap={"0px"}>
