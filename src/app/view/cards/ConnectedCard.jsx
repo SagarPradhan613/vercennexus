@@ -9,6 +9,7 @@ import IconButton from "../../components/IconButton";
 import { FaArrowRight } from "react-icons/fa6";
 import Text from "../../components/Text";
 import useIsTab from "../../hooks/useIsTab";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const Container = styled.div`
   border-radius: 35px;
@@ -58,6 +59,7 @@ const ConnectorDisable = styled.div`
 
 function ConnectedCard({ isTail = true, title }) {
   const isTab = useIsTab();
+  const isMobile = useIsMobile();
   const [hover, setHover] = useState(false);
   return (
     <Flex gap={"0px"}>
@@ -91,7 +93,8 @@ function ConnectedCard({ isTail = true, title }) {
           </Text>
         </Flex>
       </Container>
-      {isTail ? <Connector /> : <ConnectorDisable />}
+
+      {isTail && !isMobile ? <Connector /> : <ConnectorDisable />}
     </Flex>
   );
 }
