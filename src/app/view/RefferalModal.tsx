@@ -162,7 +162,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
               onClick={() => { copy(window.location.protocol + '//' + window.location.host + "?refId=" + _id); handleOpen; } }  hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} ref={undefined}>
                 {_id}
 
-                {copied ? <FileDownloadDoneIcon sx={{ color: COLORS.White }} /> : <CopyAllIcon sx={{ color: COLORS.White }} />}
+                {copied ? <FileDownloadDoneIcon sx={{ color: COLORS.white }} /> : <CopyAllIcon sx={{ color: COLORS.white }} />}
 
               </Button>
               <Box sx={{
