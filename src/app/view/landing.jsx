@@ -126,10 +126,10 @@ const Landing = () => {
         >
           <Flex
             direction={"column"}
-            items={isMobile ? "start" : isTab ? "center" : "start"}
+            items={isMobile ? "center" : isTab ? "center" : "start"}
             gap={"0px"}
             height={isTab ? "fit-content" : "100%"}
-            m={isMobile ? "0px 0px 0px 40px" : "0px"}
+            m={isMobile ? "0px 0px 0px 0px" : "0px"}
           >
             <div
               className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
@@ -150,7 +150,7 @@ const Landing = () => {
                 gap={isMobile ? "1rem" : "3rem"}
                 m={
                   isMobile
-                    ? "0px 0px 0px 0px"
+                    ? "0px 0px 0px 60px"
                     : isTab
                     ? "0px 0px 0px 60px"
                     : "0px"
@@ -177,11 +177,11 @@ const Landing = () => {
             items={isTab ? "center" : "start"}
           >
             <Text
-              align={"start"}
+              align={isMobile ? "center" : isTab ? "center" : "start"}
               maxWidth={isMobile ? "300px" : "500px"}
               size={"25px"}
               color={COLORS.light}
-              m={isMobile ? "0px 0px 10px 0px" : "0px 0px 30px 0px"}
+              m={isMobile ? "0px 0px 10px 0px" : "0px 0px 30px 0px"} 
             >
               Community backed launches with perfectly crafted tools infused
               into an innovative platform.
@@ -214,7 +214,7 @@ const Landing = () => {
               />
               <Card
                 title={"Contribute"}
-                description={"Random lottery gets distributed"}
+                description={"Winners contribute in launches"}
                 isTail={false}
               />
             </SliderCarousal>
@@ -235,7 +235,7 @@ const Landing = () => {
                 />
                 <Card
                   title={"Contribute"}
-                  description={"Random lottery gets distributed"}
+                  description={"Winners contribute in launches"}
                   isTail={false}
                 />
               </Flex>

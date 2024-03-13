@@ -325,7 +325,7 @@ const SignIn = () => {
             </Box>
             <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
               {profile && (
-                <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
+                <Flex  justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={'.5rem'} height={undefined} z={undefined} left={undefined}>
                   <RegisterButton onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
                     Disconnect
                     <IconButton
@@ -344,7 +344,7 @@ const SignIn = () => {
                     color={COLORS.white}
                     fullWidth={true}
                     onClick={() => setIsmodal(true)} hoverbg={undefined} hovercolor={undefined} ref={undefined}              >
-                    Referal Details
+                    Referrals Details
                   </Button>
                 </Flex>
 
@@ -355,7 +355,7 @@ const SignIn = () => {
         </Flex>
       ) : (
         <>
-          <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={undefined}>Sign up</Text>
+          <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'}>Sign up</Text>
           <Box mb="1rem">
             <Text color={COLORS.light} size="15px" fontFamily="SEN Bold" align={isMobile ? 'center' : 'center'} maxWidth={isMobile ? '250px' : '300px'} weight={undefined} m={undefined}>Your Nexus experience is one click away</Text>
           </Box>

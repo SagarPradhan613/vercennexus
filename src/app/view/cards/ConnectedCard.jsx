@@ -89,7 +89,7 @@ function ConnectedCard({ isTail = true, title,description }) {
             maxWidth={"190px"}
             size={"15px"}
           >
-            We provide straight forward tools forward
+          {description}
           </Text>
         </Flex>
       </Container>

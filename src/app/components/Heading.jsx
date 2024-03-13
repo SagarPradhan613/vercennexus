@@ -17,7 +17,7 @@ const StyledText = styled.h1`
     font-size: ${({ size }) => size || "75px"};
   }
   @media screen and (max-width: 520px) {
-    font-size: 45px;
+    font-size: 40px;
     line-height: 50px;
   }
   @font-face {
