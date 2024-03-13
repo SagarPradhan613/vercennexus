@@ -147,7 +147,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
             <Box display={'flex'}>
               <img src="/Images/modal-main.svg" width={isMobile ? '150px' : '90%'} />
               <Box display={{ sm: 'none', xs: 'block' }} mt={'1.5rem'}>
-                <Heading size="60px" >Refer More <br /> Members</Heading>
+                <Heading size="60px" >Refer More <br /> Members</Heading> 
               </Box>
             </Box>
           </Grid>
