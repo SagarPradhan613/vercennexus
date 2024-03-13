@@ -35,178 +35,178 @@ const style = {
 };
 
 const SignIn = () => {
-  const searchParams = useSearchParams();
-  const [isModal, setIsModal] = useState<any>(false);
-  const refId = searchParams.get('refId');
+  // const searchParams = useSearchParams();
+  // const [isModal, setIsModal] = useState<any>(false);
+  // const refId = searchParams.get('refId');
 
-  const [referrals, setReferrals] = useState<any>([]);
-  const [profile, setProfile] = useState<any>(null);
-  const [web3auth, setWeb3auth] = useState<any>(null);
-  const [provider, setProvider] = useState<any>(null);
-  const [errorText, setErrorText] = useState<any>(null);
-  const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID;
-  const API_URL: any = process.env.NEXT_PUBLIC_API_URL;
-  const [accessToken, setAccessToken] = useState<any>(localStorage.getItem('access_token'));
-  const [copied, setCopied] = useState<any>(false);
-  const isMobile = useIsMobile();
+  // const [referrals, setReferrals] = useState<any>([]);
+  // const [profile, setProfile] = useState<any>(null);
+  // const [web3auth, setWeb3auth] = useState<any>(null);
+  // const [provider, setProvider] = useState<any>(null);
+  // const [errorText, setErrorText] = useState<any>(null);
+  // const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID;
+  // const API_URL: any = process.env.NEXT_PUBLIC_API_URL;
+  // const [accessToken, setAccessToken] = useState<any>(localStorage.getItem('access_token'));
+  // const [copied, setCopied] = useState<any>(false);
+  // const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const init = async () => {
-      try {
-        const web3authInstance = new Web3Auth({
-          clientId,
-          web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,
-          chainConfig: {
-            chainNamespace: CHAIN_NAMESPACES.EIP155,
-            chainId: "0x1",
-            rpcTarget: "https://rpc.ankr.com/eth",
-          },
-        });
+  // useEffect(() => {
+  //   const init = async () => {
+  //     try {
+  //       const web3authInstance = new Web3Auth({
+  //         clientId,
+  //         web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,
+  //         chainConfig: {
+  //           chainNamespace: CHAIN_NAMESPACES.EIP155,
+  //           chainId: "0x1",
+  //           rpcTarget: "https://rpc.ankr.com/eth",
+  //         },
+  //       });
 
-        await web3authInstance.initModal();
-        setWeb3auth(web3authInstance);
+  //       await web3authInstance.initModal();
+  //       setWeb3auth(web3authInstance);
 
-        if (web3authInstance.status === "connected") {
-          setProvider(web3authInstance.provider);
-          loginSignup(web3authInstance, web3authInstance.provider);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  //       if (web3authInstance.status === "connected") {
+  //         setProvider(web3authInstance.provider);
+  //         loginSignup(web3authInstance, web3authInstance.provider);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-    init();
-  }, []);
+  //   init();
+  // }, []);
 
-  useEffect(() => {
-    if (web3auth) {
-      loginSignup(web3auth, web3auth.provider);
-    }
-  }, [web3auth?.status]);
+  // useEffect(() => {
+  //   if (web3auth) {
+  //     loginSignup(web3auth, web3auth.provider);
+  //   }
+  // }, [web3auth?.status]);
 
-  useEffect(() => {
-    getUser();
-  }, [accessToken]);
+  // useEffect(() => {
+  //   getUser();
+  // }, [accessToken]);
 
-  useEffect(() => {
-    if (refId) {
-      getReferer();
-    }
-  }, [refId]);
+  // useEffect(() => {
+  //   if (refId) {
+  //     getReferer();
+  //   }
+  // }, [refId]);
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 10000);
-  };
+  // const copyToClipboard = (text: string) => {
+  //   navigator.clipboard.writeText(text);
+  //   setCopied(true);
+  //   setTimeout(() => setCopied(false), 10000);
+  // };
 
-  const getReferer = async () => {
-    try {
-      const config = {
-        method: "get",
-        url: `${API_URL}/get/referer?id=${refId}`,
-        maxBodyLength: Infinity,
-        headers: { "Content-Type": "application/json" }
-      };
+  // const getReferer = async () => {
+  //   try {
+  //     const config = {
+  //       method: "get",
+  //       url: `${API_URL}/get/referer?id=${refId}`,
+  //       maxBodyLength: Infinity,
+  //       headers: { "Content-Type": "application/json" }
+  //     };
 
-      const response = await axios.request(config);
-      if (response.data.status === "OK") {
-        // setProfile(response.data.profile);
-      } else if (response.data.status === "NOT OK") {
-        setErrorText(response.data.message);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     const response = await axios.request(config);
+  //     if (response.data.status === "OK") {
+  //       // setProfile(response.data.profile);
+  //     } else if (response.data.status === "NOT OK") {
+  //       setErrorText(response.data.message);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const getUser = async () => {
-    try {
-      const config = {
-        method: "get",
-        url: `${API_URL}/get/me?token=${accessToken}`,
-        maxBodyLength: Infinity,
-        headers: { "Content-Type": "application/json" }
-      };
+  // const getUser = async () => {
+  //   try {
+  //     const config = {
+  //       method: "get",
+  //       url: `${API_URL}/get/me?token=${accessToken}`,
+  //       maxBodyLength: Infinity,
+  //       headers: { "Content-Type": "application/json" }
+  //     };
 
-      const response = await axios.request(config);
-      if (response.data.status === "OK") {
-        setProfile(response.data.profile);
-        setReferrals(response.data.referrals);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     const response = await axios.request(config);
+  //     if (response.data.status === "OK") {
+  //       setProfile(response.data.profile);
+  //       setReferrals(response.data.referrals);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const isConnected = async () => {
-    if (!web3auth) {
-      console.log("web3auth not initialized yet");
-      return false;
-    }
-    return web3auth.status === "connected";
-  };
+  // const isConnected = async () => {
+  //   if (!web3auth) {
+  //     console.log("web3auth not initialized yet");
+  //     return false;
+  //   }
+  //   return web3auth.status === "connected";
+  // };
 
-  const login = async () => {
-    const isConnectedStatus = await isConnected();
-    if (isConnectedStatus) {
-      loginSignup(web3auth, provider);
-      return;
-    }
-    try {
-      const web3authProvider = await web3auth?.connect();
-      setProvider(web3authProvider);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const login = async () => {
+  //   const isConnectedStatus = await isConnected();
+  //   if (isConnectedStatus) {
+  //     loginSignup(web3auth, provider);
+  //     return;
+  //   }
+  //   try {
+  //     const web3authProvider = await web3auth?.connect();
+  //     setProvider(web3authProvider);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const loginSignup = async (web3authInstance: Web3Auth, providerInstance: IProvider | null) => {
-    const userInfo = await web3authInstance?.getUserInfo();
-    const ethAddress:any = (await providerInstance?.request({ method: "eth_accounts" })) || "";
-    if (userInfo) {
-      try {
-        const config = {
-          method: "post",
-          url: `${API_URL}/login`,
-          maxBodyLength: Infinity,
-          headers: { "Content-Type": "application/json" },
-          data: {
-            email: userInfo?.email,
-            fullName: userInfo?.name,
-            address: ethAddress[0],
-            referredBy: refId || 0
-          }
-        };
+  // const loginSignup = async (web3authInstance: Web3Auth, providerInstance: IProvider | null) => {
+  //   const userInfo = await web3authInstance?.getUserInfo();
+  //   const ethAddress:any = (await providerInstance?.request({ method: "eth_accounts" })) || "";
+  //   if (userInfo) {
+  //     try {
+  //       const config = {
+  //         method: "post",
+  //         url: `${API_URL}/login`,
+  //         maxBodyLength: Infinity,
+  //         headers: { "Content-Type": "application/json" },
+  //         data: {
+  //           email: userInfo?.email,
+  //           fullName: userInfo?.name,
+  //           address: ethAddress[0],
+  //           referredBy: refId || 0
+  //         }
+  //       };
 
-        const response = await axios.request(config);
-        if (response.data.status === "OK") {
-          localStorage.setItem('access_token', response.data.access_token);
-          setAccessToken(response.data.access_token);
-          getUser();
-        } else if (response.data.status === "NOT OK") {
-          setErrorText(response.data.message);
-          await web3authInstance?.logout();
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
+  //       const response = await axios.request(config);
+  //       if (response.data.status === "OK") {
+  //         localStorage.setItem('access_token', response.data.access_token);
+  //         setAccessToken(response.data.access_token);
+  //         getUser();
+  //       } else if (response.data.status === "NOT OK") {
+  //         setErrorText(response.data.message);
+  //         await web3authInstance?.logout();
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // };
 
-  const logout = async () => {
-    const isConnectedStatus = await isConnected();
-    if (isConnectedStatus) {
-      await web3auth?.logout();
-      setProvider(null);
-      localStorage.clear();
-      setProfile(false);
-    }
-  };
+  // const logout = async () => {
+  //   const isConnectedStatus = await isConnected();
+  //   if (isConnectedStatus) {
+  //     await web3auth?.logout();
+  //     setProvider(null);
+  //     localStorage.clear();
+  //     setProfile(false);
+  //   }
+  // };
 
-  const handleClose = () => {
-    setIsModal(false);
-  };
+  // const handleClose = () => {
+  //   setIsModal(false);
+  // };
 
   return (
 
