@@ -189,7 +189,7 @@ const SignIn = () => {
           await web3authInstance?.logout();
         }
       } catch (error) {
-        console.log(error);
+        console.log(error); 
       }
     }
   };
@@ -315,7 +315,7 @@ const SignIn = () => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <ReferralModal referrals={referrals} setIsModal={setIsModal} id={profile?._id} />
+              <ReferralModal referrals={referrals} setIsModal={setIsModal} _id={profile?._id} />
             </Box>
           </Modal>
         )}
