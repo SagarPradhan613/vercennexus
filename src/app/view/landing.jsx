@@ -172,9 +172,9 @@ const Landing = () => {
               We provide straight forward tools that maximize financial
               opportunities. forward tools
             </Text>
-            <Flex>
+       
             <SignInComponent />
-            </Flex>
+       
           </Flex>
         </Flex>
         <Flex

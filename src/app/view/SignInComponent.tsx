@@ -316,6 +316,7 @@ const SignIn = () => {
 
     <Box flexDirection="column" justifyContent="start" alignItems="start" >
       {web3auth?.status === "connected" ? (
+        <Flex direction={'column'} items={'start'} justify={undefined}  maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined} >
         <>
           <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align="center" weight={undefined} maxWidth={undefined} m={undefined}>Whitelisted!</Text>
           <Box maxWidth={isMobile ? '270px' : '100%'} width={'100%'}>
@@ -354,6 +355,8 @@ const SignIn = () => {
             </Button>
           </Flex>
         </>
+
+        </Flex>
       ) : (
         <>
           <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>Sign up</Text>
@@ -399,7 +402,7 @@ const SignIn = () => {
         </>
       )}
       <Box mt="1rem">
-        <Text color={COLORS.darkLight} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
+        <Text color={COLORS.white} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
       </Box>
       {isModal && (
         <Modal
@@ -415,7 +418,7 @@ const SignIn = () => {
       )}
     </Box>
 
-  );
+  ); 
 };
 
-export default SignIn;
+export default SignIn; 
