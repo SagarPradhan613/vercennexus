@@ -209,14 +209,11 @@ const SignIn = () => {
   };
 
   return (
-    <Flex
-      height="fit-content"
-      mt={web3auth?.status === "connected" ? "2rem" : "2rem"}
-      gap={isMobile ? "1rem" : "2rem"} justify={undefined} items={undefined}  direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} z={undefined} left={undefined}    >
-      <Flex direction="column" justify="start" items="start"  maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
+   
+      <Box flexDirection="column" justifyContent="start" alignItems="start" >
         {web3auth?.status === "connected" ? (
           <>
-            <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align="center"  weight={undefined} maxWidth={undefined} m={undefined}>Whitelisted!</Text>
+            <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align="center" weight={undefined} maxWidth={undefined} m={undefined}>Whitelisted!</Text>
             <Box maxWidth={isMobile ? '270px' : '100%'} width={'100%'}>
 
               <Button
@@ -224,14 +221,14 @@ const SignIn = () => {
                 bg={COLORS.transperant}
                 color={COLORS.white}
                 fullWidth={true}
-                onClick={() => setIsModal(true)}  hoverbg={undefined} hovercolor={undefined} ref={undefined}              >
-               Referal Details
+                onClick={() => setIsModal(true)} hoverbg={undefined} hovercolor={undefined} ref={undefined}              >
+                Referal Details
               </Button>
             </Box>
-            <Flex justify={undefined} items={undefined}  direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
+            <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
               {profile && (
                 <>
-                  <RegisterButton onClick={logout}  bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
+                  <RegisterButton onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
                     Disconnect
                     <IconButton
                       bg={COLORS.blue}
@@ -239,7 +236,7 @@ const SignIn = () => {
                       width="40px"
                       icon="20px"
                       toLeft={false}
-                      isHover={false}  hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
+                      isHover={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
                       <IoMdLogOut />
                     </IconButton>
                   </RegisterButton>
@@ -248,48 +245,48 @@ const SignIn = () => {
               <Button
                 bordercolor={COLORS.white}
                 bg={COLORS.transperant}
-                color={COLORS.white}  hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}              >
+                color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}              >
                 Read Docs
               </Button>
             </Flex>
           </>
         ) : (
           <>
-            <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align={isMobile ? 'start' : 'start'}  weight={undefined} maxWidth={undefined} m={undefined}>Sign up</Text>
+            <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>Sign up</Text>
             <Box mb="1rem">
-              <Text color={COLORS.light} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} maxWidth={isMobile ? '250px' : '300px'}  weight={undefined} m={undefined}>Your Nexus experience is one click away</Text>
+              <Text color={COLORS.light} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} maxWidth={isMobile ? '250px' : '300px'} weight={undefined} m={undefined}>Your Nexus experience is one click away</Text>
             </Box>
             <Box >
               {errorText && (
-                <Text color={"red"} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'}  weight={undefined} maxWidth={undefined} m={undefined}>{errorText}</Text>
+                <Text color={"red"} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>{errorText}</Text>
               )}
             </Box>
             <Box mt="0rem">
               {errorText && refId ? (
                 <Button
-                    bordercolor={COLORS.white}
-                    bg={COLORS.transperant}
-                    color={COLORS.white}  hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                >
+                  bordercolor={COLORS.white}
+                  bg={COLORS.transperant}
+                  color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                >
                   Please try a valid referral code
                 </Button>
 
               ) : (
-                <Flex justify={undefined} items={undefined}  direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
-                  <RegisterButton onClick={login}  bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
+                <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
+                  <RegisterButton onClick={login} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
                     Register Now
                     <IconButton
-                          bg={COLORS.blue}
-                          color={COLORS.white}
-                          width="40px"
-                          icon="20px"
-                          toLeft={false}  hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
+                      bg={COLORS.blue}
+                      color={COLORS.white}
+                      width="40px"
+                      icon="20px"
+                      toLeft={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
                       <FaArrowDown />
                     </IconButton>
                   </RegisterButton>
                   <Button
-                        bordercolor={COLORS.white}
-                        bg={COLORS.transperant}
-                        color={COLORS.white}  hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                  >
+                    bordercolor={COLORS.white}
+                    bg={COLORS.transperant}
+                    color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                  >
                     Read Docs
                   </Button>
                 </Flex>
@@ -298,7 +295,7 @@ const SignIn = () => {
           </>
         )}
         <Box mt="1rem">
-          <Text color={COLORS.Dark_Light} size="15px" align="start"  weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
+          <Text color={COLORS.Dark_Light} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
         </Box>
         {isModal && (
           <Modal
@@ -312,8 +309,8 @@ const SignIn = () => {
             </Box>
           </Modal>
         )}
-      </Flex>
-    </Flex>
+      </Box>
+    
   );
 };
 
