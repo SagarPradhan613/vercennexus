@@ -36,22 +36,7 @@ const style = {
 };
 
 const SignIn = () => {
-  const [viewMore, setViewMore] = useState(false)
-  const isBig = useIsTab()
-  const searchParams = useSearchParams()
-  const [isModal, setIsmodal] = useState<boolean>(false);
-  const refId = searchParams.get('refId');
 
-  const [referrals, setReferrals] = useState<any>([]);
-  const [profile, setProfile] = useState<any>(null);
-  const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
-  const [provider, setProvider] = useState<any>(null);
-  const [errorText, setErrorText] = useState<any>(null);
-  const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
-  const isMobile = useIsMobile()
-  const API_URL = process.env.NEXT_PUBLIC_API_URL
-  const [access_token, setAccessToken] = useState<string | null>(localStorage?.getItem('access_token'));
-  const [copied, setCopied] = useState(false)
 
 
 
