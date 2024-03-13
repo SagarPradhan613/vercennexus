@@ -38,9 +38,9 @@ const style = {
 const SignIn = () => {
   const [viewMore, setViewMore] = useState(false)
   const isBig = useIsTab()
-  const searchParams = useSearchParams()
+
   const [isModal, setIsmodal] = useState<boolean>(false);
-  const refId = searchParams.get('refId');
+
 
   const [referrals, setReferrals] = useState<any>([]);
   const [profile, setProfile] = useState<any>(null);
