@@ -19,6 +19,7 @@ import BlueCard from "../view/cards/BlueCard";
 import { SliderCarousal } from "../view/Slider";
 import useIsBig from "../hooks/useIsBig";
 import { FaArrowDown } from "react-icons/fa6";
+import SignInComponent from "../view/SignInComponent";
 
 const MoveFromLeft = keyframes`
   from {
@@ -111,9 +112,10 @@ const Landing = () => {
 
   return (
     <div className="gradient-background">
-      <div class="cursor"></div>
+      {!isMobile && <div class="cursor"></div>}
+
       <Header />
-      <Flex direction={"column"} gap={isTab ? "3rem" : "10rem"}>
+      <Flex direction={"column"} gap={isTab ? "3rem" : "5rem"}>
         <Flex
           justify={isTab ? "center" : "space-between"}
           items={isMobile ? "center" : "start"}
@@ -162,7 +164,7 @@ const Landing = () => {
             direction={"column"}
             height={isTab ? "fit-content" : "100%"}
             items={"start"}
-            m={isMobile ? "0px 0px 0px 0px" : "45px 0px 0px 0px"}
+            m={isMobile ? "0px 0px 0px 40px" : "45px 0px 0px 0px"}
           >
             <Text
               align={"start"}
@@ -173,31 +175,7 @@ const Landing = () => {
               We provide straight forward tools that maximize financial
               opportunities. forward tools
             </Text>
-            <Flex
-              height={"fit-content"}
-              mt={"5rem"}
-              gap={isMobile ? "1rem" : "2rem"}
-            >
-              <RegisterButton>
-                How to Join?
-                <IconButton
-                  bg={COLORS.blue}
-                  color={COLORS.white}
-                  width={"40px"}
-                  icon={"20px"}
-                  toLeft={false}
-                >
-                  <FaArrowDown />
-                </IconButton>
-              </RegisterButton>
-              <Button
-                bordercolor={COLORS.white}
-                bg={COLORS.transperant}
-                color={COLORS.white}
-              >
-                Read Docs
-              </Button>
-            </Flex>
+            <SignInComponent />
           </Flex>
         </Flex>
         <Flex

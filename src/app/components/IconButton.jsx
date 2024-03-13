@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { COLORS } from "../utils/colors";
 import Flex from "./Flex";
 
@@ -20,12 +20,9 @@ const StyledButton = styled.button`
   font-size: ${({ icon }) => icon || "25px"};
   overflow: hidden;
 
-  @media only screen and (max-width: 520px) {
-
-  }
-
-  ${({ toLeft }) =>
+  ${({ toLeft, isHover }) =>
     toLeft &&
+   
     `
       & > * {
         transform: translateX(-31px);
@@ -36,22 +33,24 @@ const StyledButton = styled.button`
   &:hover {
     background: ${({ hoverbg }) => hoverbg || COLORS.white};
     color: ${({ hovercolor }) => hovercolor || COLORS.black};
-    ${({ toLeft }) =>
+    ${({ toLeft, isHover }) =>
       toLeft &&
+      isHover &&
       `
-      & > * {
-        transform: translateX(31px);
-        transition: transform 1s ease;
-      }
-    `}
-    ${({ toLeft }) =>
+        & > * {
+          transform: translateX(31px);
+          transition: transform 1s ease;
+        }
+      `}
+    ${({ toLeft, isHover }) =>
       !toLeft &&
+      isHover &&
       `
-      & > * {
-        transform: translateY(31px);
-        transition: transform 1s ease;
-      }
-    `}
+        & > * {
+          transform: translateY(31px);
+          transition: transform 1s ease;
+        }
+      `}
   }
 `;
 
@@ -62,12 +61,10 @@ function IconButton({
   hoverbg,
   hovercolor,
   width,
-  bordercolor,
   onClick,
-  ref,
   icon,
-  disabled = false,
   toLeft = true,
+  isHover = true,
 }) {
   return (
     <StyledButton
@@ -77,20 +74,11 @@ function IconButton({
       hovercolor={hovercolor}
       width={width}
       icon={icon}
-      borderColor={bordercolor}
       onClick={onClick}
-      disabled={disabled}
-      ref={ref}
       toLeft={toLeft}
+      isHover={isHover}
     >
-      {toLeft ? (
-        <Flex direction={toLeft ? "row" : "column"} gap={"2rem"}>
-          {children}
-          {children}
-        </Flex>
-      ) : (
-        <>{children}</>
-      )}
+      {toLeft ? <Flex direction="row" gap="2rem">{children} {children}</Flex> : children}
     </StyledButton>
   );
 }

@@ -6,9 +6,6 @@ import ReactSimplyCarousel from "react-simply-carousel";
 export const SliderCarousal = ({ children }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
-  setInterval(() => {
-    show === 1 ? setShow(3) : setShow(1);
-  }, 100);
 
   return (
     <ReactSimplyCarousel
@@ -47,7 +44,7 @@ export const SliderCarousal = ({ children }) => {
       speed={400}
       easing="linear"
     >
-     {children}
+      {children}
     </ReactSimplyCarousel>
   );
 };
