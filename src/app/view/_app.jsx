@@ -16,7 +16,7 @@ import Card from "../view/cards/ConnectedCard";
 import BlueCard from "../view/cards/BlueCard";
 import { SliderCarousal } from "../view/Slider";
 import useIsBig from "../hooks/useIsBig";
-import SignInComponent from "../view/SignInComponent";
+import SignInComponent from "../view/TestComponent";
 
 const MoveFromLeft = keyframes`
   from {
