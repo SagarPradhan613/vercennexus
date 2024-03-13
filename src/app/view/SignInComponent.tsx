@@ -312,7 +312,7 @@ const SignIn = () => {
               bg={COLORS.transperant}
               color={COLORS.white}
               fullWidth={true}
-              onClick={() => setIsModal(true)} hoverbg={undefined} hovercolor={undefined} ref={undefined}              >
+              onClick={() => setIsmodal(true)} hoverbg={undefined} hovercolor={undefined} ref={undefined}              >
               Referal Details
             </Button>
           </Box>
