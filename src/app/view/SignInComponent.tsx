@@ -54,74 +54,6 @@ const SignIn = () => {
   const [copied, setCopied] = useState(false)
 
 
-  useEffect(() => {
-    // setWeb3auth(1)
-    // console.log(web3auth); 
-
-
-
-
-
-
-  }, []);
-
-
-  useEffect(() => {
-
-
-
-  }, [web3auth?.status])
-
-
-  useEffect(() => {
-
-  }, [access_token])
-
-  useEffect(() => {
-
-  }, [refId])
-
-  const copy = (text: any) => {
-
-  }
-
-  const getReferer = async () => {
-
-
-
-  }
-
-  const getUser = async () => {
-
-
-
-  }
-
-
-  const isConnected = async () => {
-
-  };
-
-  const login = async () => {
-
-
-
-  }
-
-  const loginSignup = async (_web3auth: Web3Auth | null, _provider: IProvider | null | undefined) => {
-
-  }
-
-  const logout = async () => {
-
-
-
-  }
-
-
-  const handleClose = () => {
-
-  }
 
 
 
@@ -132,18 +64,7 @@ const SignIn = () => {
       <Box mt="1rem">
         <Text color={COLORS.darkLight} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
       </Box>
-      {isModal && (
-        <Modal
-          open={isModal}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <ReferralModal referrals={referrals} setIsmodal={setIsmodal} id={profile?._id} />
-          </Box>
-        </Modal>
-      )}
+
     </Box>
   );
 };
