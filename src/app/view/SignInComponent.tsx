@@ -36,18 +36,18 @@ const style = {
 
 const SignIn = () => {
   const searchParams = useSearchParams();
-  const [isModal, setIsModal] = useState(false);
+  const [isModal, setIsModal] = useState<any>(false);
   const refId = searchParams.get('refId');
 
-  const [referrals, setReferrals] = useState([]);
-  const [profile, setProfile] = useState(null);
-  const [web3auth, setWeb3auth] = useState(null);
-  const [provider, setProvider] = useState(null);
-  const [errorText, setErrorText] = useState(null);
-  const clientId = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID;
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
-  const [copied, setCopied] = useState(false);
+  const [referrals, setReferrals] = useState<any>([]);
+  const [profile, setProfile] = useState<any>(null);
+  const [web3auth, setWeb3auth] = useState<any>(null);
+  const [provider, setProvider] = useState<any>(null);
+  const [errorText, setErrorText] = useState<any>(null);
+  const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID;
+  const API_URL: any = process.env.NEXT_PUBLIC_API_URL;
+  const [accessToken, setAccessToken] = useState<any>(localStorage.getItem('access_token'));
+  const [copied, setCopied] = useState<any>(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -94,7 +94,7 @@ const SignIn = () => {
     }
   }, [refId]);
 
-  const copyToClipboard = (text) => {
+  const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 10000);
@@ -161,9 +161,9 @@ const SignIn = () => {
     }
   };
 
-  const loginSignup = async (web3authInstance, providerInstance) => {
+  const loginSignup = async (web3authInstance: Web3Auth, providerInstance: IProvider | null) => {
     const userInfo = await web3authInstance?.getUserInfo();
-    const ethAddress = (await providerInstance?.request({ method: "eth_accounts" })) || "";
+    const ethAddress:any = (await providerInstance?.request({ method: "eth_accounts" })) || "";
     if (userInfo) {
       try {
         const config = {
@@ -209,108 +209,108 @@ const SignIn = () => {
   };
 
   return (
-   
-      <Box flexDirection="column" justifyContent="start" alignItems="start" >
-        {web3auth?.status === "connected" ? (
-          <>
-            <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align="center" weight={undefined} maxWidth={undefined} m={undefined}>Whitelisted!</Text>
-            <Box maxWidth={isMobile ? '270px' : '100%'} width={'100%'}>
 
+    <Box flexDirection="column" justifyContent="start" alignItems="start" >
+      {web3auth?.status === "connected" ? (
+        <>
+          <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align="center" weight={undefined} maxWidth={undefined} m={undefined}>Whitelisted!</Text>
+          <Box maxWidth={isMobile ? '270px' : '100%'} width={'100%'}>
+
+            <Button
+              bordercolor={COLORS.white}
+              bg={COLORS.transperant}
+              color={COLORS.white}
+              fullWidth={true}
+              onClick={() => setIsModal(true)} hoverbg={undefined} hovercolor={undefined} ref={undefined}              >
+              Referal Details
+            </Button>
+          </Box>
+          <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
+            {profile && (
+              <>
+                <RegisterButton onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
+                  Disconnect
+                  <IconButton
+                    bg={COLORS.blue}
+                    color={COLORS.white}
+                    width="40px"
+                    icon="20px"
+                    toLeft={false}
+                    isHover={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
+                    <IoMdLogOut />
+                  </IconButton>
+                </RegisterButton>
+              </>
+            )}
+            <Button
+              bordercolor={COLORS.white}
+              bg={COLORS.transperant}
+              color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}              >
+              Read Docs
+            </Button>
+          </Flex>
+        </>
+      ) : (
+        <>
+          <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>Sign up</Text>
+          <Box mb="1rem">
+            <Text color={COLORS.light} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} maxWidth={isMobile ? '250px' : '300px'} weight={undefined} m={undefined}>Your Nexus experience is one click away</Text>
+          </Box>
+          <Box >
+            {errorText && (
+              <Text color={"red"} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>{errorText}</Text>
+            )}
+          </Box>
+          <Box mt="0rem">
+            {errorText && refId ? (
               <Button
                 bordercolor={COLORS.white}
                 bg={COLORS.transperant}
-                color={COLORS.white}
-                fullWidth={true}
-                onClick={() => setIsModal(true)} hoverbg={undefined} hovercolor={undefined} ref={undefined}              >
-                Referal Details
+                color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                >
+                Please try a valid referral code
               </Button>
-            </Box>
-            <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
-              {profile && (
-                <>
-                  <RegisterButton onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
-                    Disconnect
-                    <IconButton
-                      bg={COLORS.blue}
-                      color={COLORS.white}
-                      width="40px"
-                      icon="20px"
-                      toLeft={false}
-                      isHover={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
-                      <IoMdLogOut />
-                    </IconButton>
-                  </RegisterButton>
-                </>
-              )}
-              <Button
-                bordercolor={COLORS.white}
-                bg={COLORS.transperant}
-                color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}              >
-                Read Docs
-              </Button>
-            </Flex>
-          </>
-        ) : (
-          <>
-            <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>Sign up</Text>
-            <Box mb="1rem">
-              <Text color={COLORS.light} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} maxWidth={isMobile ? '250px' : '300px'} weight={undefined} m={undefined}>Your Nexus experience is one click away</Text>
-            </Box>
-            <Box >
-              {errorText && (
-                <Text color={"red"} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>{errorText}</Text>
-              )}
-            </Box>
-            <Box mt="0rem">
-              {errorText && refId ? (
+
+            ) : (
+              <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
+                <RegisterButton onClick={login} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
+                  Register Now
+                  <IconButton
+                    bg={COLORS.blue}
+                    color={COLORS.white}
+                    width="40px"
+                    icon="20px"
+                    toLeft={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
+                    <FaArrowDown />
+                  </IconButton>
+                </RegisterButton>
                 <Button
                   bordercolor={COLORS.white}
                   bg={COLORS.transperant}
-                  color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                >
-                  Please try a valid referral code
+                  color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                  >
+                  Read Docs
                 </Button>
-
-              ) : (
-                <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
-                  <RegisterButton onClick={login} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
-                    Register Now
-                    <IconButton
-                      bg={COLORS.blue}
-                      color={COLORS.white}
-                      width="40px"
-                      icon="20px"
-                      toLeft={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
-                      <FaArrowDown />
-                    </IconButton>
-                  </RegisterButton>
-                  <Button
-                    bordercolor={COLORS.white}
-                    bg={COLORS.transperant}
-                    color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                  >
-                    Read Docs
-                  </Button>
-                </Flex>
-              )}
-            </Box>
-          </>
-        )}
-        <Box mt="1rem">
-          <Text color={COLORS.Dark_Light} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
-        </Box>
-        {isModal && (
-          <Modal
-            open={isModal}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <ReferralModal referrals={referrals} setIsmodal={setIsModal} id={profile?._id} />
-            </Box>
-          </Modal>
-        )}
+              </Flex>
+            )}
+          </Box>
+        </>
+      )}
+      <Box mt="1rem">
+        <Text color={COLORS.darkLight} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
       </Box>
-    
+      {isModal && (
+        <Modal
+          open={isModal}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <ReferralModal referrals={referrals} setIsmodal={setIsModal} id={profile?._id} />
+          </Box>
+        </Modal>
+      )}
+    </Box>
+
   );
 };
 
