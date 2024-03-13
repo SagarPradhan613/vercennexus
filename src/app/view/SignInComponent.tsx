@@ -100,41 +100,29 @@ const SignIn = () => {
       }
     };
 
-   
+ 
 
 
   }, []);
 
 
   useEffect(() => {
-    try {
-
-      if (web3auth) {
-        loginSignup(web3auth, web3auth?.provider);
-      }
-    }
-    catch (e) {
-      console.log(e);
-    }
+  
 
 
   }, [web3auth?.status])
 
 
   useEffect(() => {
-    getUser()
+   
   }, [access_token])
 
   useEffect(() => {
-    if (refId) {
-      getReferer()
-    }
+
   }, [refId])
 
   const copy = (text: any) => {
-    navigator.clipboard.writeText(text)
-    setCopied(true)
-    setTimeout(() => { setCopied(false) }, 10000)
+
   }
 
   const getReferer = async () => {
@@ -174,130 +162,33 @@ const SignIn = () => {
   const getUser = async () => {
 
 
-    try {
-      let config = {
-        method: "get",
-        url: API_URL + `/get/me?token=${access_token}`,
-        maxBodyLength: Infinity,
-        headers: {
-          "Content-Type": "application/json"
-        }
-      };
-
-      axios
-        .request(config)
-        .then((response) => {
-          if (response.data.status === "OK") {
-            setProfile(response.data.profile)
-            setReferrals(response.data.referrals)
-          }
-        })
-        .catch((error) => {
-
-          console.log("axios", error);
-          // setStatusText("Internal Error");
-        });
-    } catch (e) {
-      console.log(e);
-
-    }
+    
   }
 
 
   const isConnected = async () => {
-    if (!web3auth) {
-      console.log("web3auth not initialized yet");
-      return false;
-    }
-    return web3auth.status === "connected";
+
   };
 
   const login = async () => {
-    const _isConnected = await isConnected();
-    // alert(_isConnected)
-    if (_isConnected) {
-      // alert("Already loggedin");
-      loginSignup(web3auth, provider)
-      return;
-    }
-    try {
-      const web3authProvider = await web3auth?.connect();
-      setProvider(web3authProvider);
-      // loginSignup(web3auth,web3authProvider)
-    }
-    catch (e) {
-      console.log(e)
-    }
+    
 
 
   }
 
   const loginSignup = async (_web3auth: Web3Auth | null, _provider: IProvider | null | undefined) => {
-    const userInfo = await _web3auth?.getUserInfo();
-    // const accounts = await provider?.();
 
-    const eth_address: string = await _provider?.request({ method: "eth_accounts" }) || "";
-    if (userInfo) {
-
-      try {
-        let config = {
-          method: "post",
-          url: API_URL + `/login`,
-          maxBodyLength: Infinity,
-          headers: {
-            "Content-Type": "application/json"
-          },
-          data: {
-            email: userInfo?.email,
-            fullName: userInfo?.name,
-            address: eth_address[0],
-            referredBy: refId || 0
-          },
-        };
-
-        axios
-          .request(config)
-          .then(async (response) => {
-            if (response.data.status === "OK") {
-              localStorage.setItem('access_token', response.data.access_token)
-              setAccessToken(response.data.access_token)
-              getUser()
-            }
-            if (response.data.status === "NOT OK") {
-              setErrorText(response.data.message)
-              await web3auth?.logout();
-
-            }
-          })
-          .catch((error) => {
-
-            console.log("axios", error);
-            // setStatusText("Internal Error");
-          });
-      } catch (e) {
-        console.log(e);
-
-      }
-    }
   }
 
   const logout = async () => {
-    const _isConnected = await isConnected();
 
-    if (_isConnected) {
-      await web3auth?.logout();
-      setProvider(null);
-      localStorage.clear()
-      setProfile(false)
-      return;
-    }
 
 
   }
 
 
   const handleClose = () => {
-    setIsmodal(false)
+ 
   }
 
 
