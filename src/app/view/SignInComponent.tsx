@@ -211,7 +211,7 @@ const SignIn = () => {
   return (
 
     <Box flexDirection="column" justifyContent="start" alignItems="start" >
-      {web3auth?.status === "connected" ? (
+      {/* {web3auth?.status === "connected" ? (
         <>
           <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align="center" weight={undefined} maxWidth={undefined} m={undefined}>Whitelisted!</Text>
           <Box maxWidth={isMobile ? '270px' : '100%'} width={'100%'}>
@@ -293,7 +293,8 @@ const SignIn = () => {
             )}
           </Box>
         </>
-      )}
+      )} */}
+     <h1>hai</h1>
       <Box mt="1rem">
         <Text color={COLORS.darkLight} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
       </Box>

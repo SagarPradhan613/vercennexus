@@ -1,9 +1,9 @@
 "use client"
 
-import Landing from "./pages";
+import Main from "./pages";
 
 export default function Home() {
 
 
-  return <Landing />;
+  return <Main />;
 }
