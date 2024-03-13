@@ -157,7 +157,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
             </Box>
           </Grid>
           <Grid item lg={6} md={6} sm={6} xs={12}>
-            <Box maxWidth={isTab ? '100%' : '370px'} mt={isMobile ? '1rem' : '2rem'} display={'flex'} justifyContent={'center'} alignItems={{ xs: 'start', sm: 'start' }} gap={{ sm: '1rem', xs: '1rem' }} flexDirection={'column'} width={'100%'}>
+            <Box maxWidth={isTab ? '100%' : '370px'} mt={isMobile ? '1rem' : '2rem'} display={'flex'} justifyContent={'center'} alignItems={{  sm: 'start', xs: 'center' }} gap={{ sm: '1rem', xs: '1rem' }} flexDirection={'column'} width={'100%'}>
               <Box display={{ sm: 'block', xs: 'none' }}>
                 <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} >Refer More <br /> Members</Heading>
               </Box>
