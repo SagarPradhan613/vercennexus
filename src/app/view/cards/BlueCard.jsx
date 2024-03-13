@@ -48,10 +48,10 @@ const BlueCard = () => {
       <Flex justify={"space-between"}>
         <Text
           size={"35px"}
-          maxWidth={isBig ? "220px" : "220px"}
+          maxWidth={isBig ? "220px" : "135px"}
           fontFamily={"bold"}
         >
-          Get part of this now!
+          Coming Soon!
         </Text>
         <IconButton>
           <FaArrowRight />

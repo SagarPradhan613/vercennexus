@@ -115,105 +115,139 @@ const Landing = () => {
     <div className="gradient-background">
       {!isMobile && <div class="cursor"></div>}
 
-        <Header />
-        <Flex direction={"column"} gap={isTab ? "3rem" : "5rem"}>
+      <Header />
+      <Flex direction={"column"} gap={isTab ? "3rem" : "5rem"}>
+        <Flex
+          justify={isTab ? "center" : "space-between"}
+          items={isMobile ? "start" : isTab ? "center" : "start"}
+          width={"95%"}
+          maxWidth={"1440px"}
+          direction={isTab ? "column" : "row"}
+        >
           <Flex
-            justify={isTab ? "center" : "space-between"}
-            items={isMobile ? "center" : "start"}
-            width={"95%"}
-            maxWidth={"1440px"}
-            direction={isTab ? "column" : "row"}
-            m={isTab && !isMobile ? "0px 0px 0px 100px" : "0px"}
+            direction={"column"}
+            items={isMobile ? "start" : isTab ? "center" : "start"}
+            gap={"0px"}
+            height={isTab ? "fit-content" : "100%"}
+            m={isMobile ? "0px 0px 0px 40px" : "0px"}
           >
-            <Flex
-              direction={"column"}
-              items={"start"}
-              gap={"0px"}
-              height={isTab ? "fit-content" : "100%"}
-              m={isMobile ? "0px 0px 0px 0px" : "0px"}
+            <div
+              className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
             >
-              <div
-                className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
-              >
-                <Heading lineHeight={"90px"}>Empowering</Heading>
-              </div>
-              <div
-                className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
-              >
-                <Heading lineHeight={"90px"}>Innovation</Heading>
-              </div>
-              <div
-                className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}
-              >
-                <Flex height={"fit-content"} gap={isMobile ? "1rem" : "3rem"}>
-                  <Heading lineHeight={"90px"}>Futures</Heading>
-                  <IconButtonWrapper>
-                    <IconButton
-                      width={isMobile ? "35px" : "65px"}
-                      icon={isMobile ? "25px" : "30px"}
-                      color={COLORS.blue}
-                      hoverbg={COLORS.black}
-                      hovercolor={COLORS.white}
-                    >
-                      <FaArrowRight />
-                    </IconButton>
-                  </IconButtonWrapper>
-                </Flex>
-              </div>
-            </Flex>
-            <Flex
-              direction={"column"}
-              height={isTab ? "fit-content" : "100%"}
-              items={"start"}
-              m={isMobile ? "0px 0px 0px 40px" : "45px 0px 0px 0px"}
+              <Heading lineHeight={"90px"}>Nexus</Heading>
+            </div>
+            <div
+              className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
             >
-              <Text
-                align={"start"}
-                maxWidth={isMobile ? "275px" : "500px"}
-                size={"25px"}
-                color={COLORS.light}
-                m={"0px 0px 30px 0px"}
+              <Heading lineHeight={"90px"}>Leading</Heading>
+            </div>
+            <div
+              className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}
+            >
+              <Flex
+                height={"fit-content"}
+                justify={"space-between"}
+                gap={isMobile ? "1rem" : "3rem"}
+                m={
+                  isMobile
+                    ? "0px 0px 0px 0px"
+                    : isTab
+                    ? "0px 0px 0px 60px"
+                    : "0px"
+                }
               >
-                We provide straight forward tools that maximize financial
-                opportunities. forward tools
-              </Text>
-              <Suspense fallback={<SearchBarFallback />}>
-                <SignInComponent />
-              </Suspense>
-            </Flex>
+                <Heading lineHeight={"90px"}>Launches</Heading>
+                <IconButtonWrapper>
+                  <IconButton
+                    width={isMobile ? "35px" : "65px"}
+                    icon={isMobile ? "25px" : "30px"}
+                    color={COLORS.blue}
+                    hoverbg={COLORS.black}
+                    hovercolor={COLORS.white}
+                  >
+                    <FaArrowRight />
+                  </IconButton>
+                </IconButtonWrapper>
+              </Flex>
+            </div>
           </Flex>
           <Flex
-            justify={"space-between"}
-            items={isBig ? "center" : "start"}
-            width={"100%"}
-            maxWidth={"1440px"}
-            direction={isBig ? "column" : "row"}
+            direction={"column"}
+            height={isTab ? "fit-content" : "100%"}
+            items={isTab ? "center" : "start"}
           >
-            {isBig ? (
-              <SliderCarousal>
-                <Card title={"Engage"} />
-                <Card title={"Snapshot"} />
-                <Card title={"Lottery"} />
-                <Card title={"Contribute"} isTail={false} />
-              </SliderCarousal>
-            ) : (
-              <MoveFromLeftWrapper>
-                <Flex gap={"0px"}>
-                  <Card title={"Engage"} />
-                  <Card title={"Snapshot"} />
-                  <Card title={"Lottery"} />
-                  <Card title={"Contribute"} isTail={false} />
-                </Flex>
-              </MoveFromLeftWrapper>
-            )}
-
-            <Flex width={"100%"}>
-              <BlueCard />
-            </Flex>
+            <Text
+              align={"start"}
+              maxWidth={isMobile ? "300px" : "500px"}
+              size={"25px"}
+              color={COLORS.light}
+              m={isMobile ? "0px 0px 10px 0px" : "0px 0px 30px 0px"}
+            >
+              Community backed launches with perfectly crafted tools infused
+              into an innovative platform.
+            </Text>
+            <Suspense fallback={<SearchBarFallback />}>
+              <SignInComponent />
+            </Suspense>
           </Flex>
         </Flex>
-        <Footer />
-   
+        <Flex
+          justify={"space-between"}
+          items={isTab ? "center" : "start"}
+          width={"100%"}
+          maxWidth={"1440px"}
+          direction={isBig ? "column" : "row"}
+        >
+          {isBig ? (
+            <SliderCarousal>
+              <Card
+                title={"Engage"}
+                description={"Users engage in community"}
+              />
+              <Card
+                title={"Snapshot"}
+                description={"Competitors snapshots are taken"}
+              />
+              <Card
+                title={"Lottery"}
+                description={"Random lottery gets distributed"}
+              />
+              <Card
+                title={"Contribute"}
+                description={"Random lottery gets distributed"}
+                isTail={false}
+              />
+            </SliderCarousal>
+          ) : (
+            <MoveFromLeftWrapper>
+              <Flex gap={"0px"}>
+                <Card
+                  title={"Engage"}
+                  description={"Users engage in community"}
+                />
+                <Card
+                  title={"Snapshot"}
+                  description={"Competitors snapshots are taken"}
+                />
+                <Card
+                  title={"Lottery"}
+                  description={"Random lottery gets distributed"}
+                />
+                <Card
+                  title={"Contribute"}
+                  description={"Random lottery gets distributed"}
+                  isTail={false}
+                />
+              </Flex>
+            </MoveFromLeftWrapper>
+          )}
+
+          <Flex width={"100%"}>
+            <BlueCard />
+          </Flex>
+        </Flex>
+      </Flex>
+      <Footer />
     </div>
   );
 };

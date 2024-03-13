@@ -45,7 +45,7 @@ const IconWrapper = styled.div`
   }
 `;
 
-const Icon = styled.div`
+const Icon = styled.a`
   color: ${COLORS.white};
   cursor: pointer;
   transition: transform 1s ease;
@@ -63,25 +63,15 @@ const Footer = () => {
           <img src={"/Images/Bottom.png"} width={"100%"} />
           <IconWrapper>
             <Flex justify={"space-between"} width={"100%"}>
-              <Text
-                color={COLORS.light}
-                overflow={true}
-                size={'20px'}
-              >
+              <Text color={COLORS.light} overflow={true} size={"20px"}>
                 Follow on our socials
               </Text>
               <Flex>
-                <Icon>
-                  <MdOutlineWallet />
-                </Icon>
-                <Icon>
-                  <FaTelegramPlane />
-                </Icon>
-                <Icon>
+                <Icon href="https://twitter.com/NexusLaunchpad" target="_blank">
                   <FaXTwitter />
                 </Icon>
-                <Icon>
-                  <FaDiscord />
+                <Icon href="https://t.me/NexusLaunchpad" target="_blank">
+                  <FaTelegramPlane />
                 </Icon>
               </Flex>
             </Flex>

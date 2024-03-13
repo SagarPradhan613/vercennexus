@@ -57,7 +57,7 @@ const ConnectorDisable = styled.div`
   );
 `;
 
-function ConnectedCard({ isTail = true, title }) {
+function ConnectedCard({ isTail = true, title,description }) {
   const isTab = useIsTab();
   const isMobile = useIsMobile();
   const [hover, setHover] = useState(false);
