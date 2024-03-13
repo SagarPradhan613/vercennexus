@@ -50,11 +50,8 @@ const SignIn = () => {
   const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
   const isMobile = useIsMobile()
   const API_URL = process.env.NEXT_PUBLIC_API_URL
-  const [access_token, setAccessToken] = useState<string | null>(localStorage?.getItem('access_token'));
+
   const [copied, setCopied] = useState(false)
-
-
-
 
 
   return (
