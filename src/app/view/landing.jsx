@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Heading from "../components/Heading";
 import Flex from "../components/Flex";
@@ -55,6 +55,12 @@ const IconButtonWrapper = styled.div`
   margin-right: 4rem;
   margin-top: 1rem;
 `;
+
+function SearchBarFallback() {
+  return <>placeholder</>
+}
+ 
+
 
 const Landing = () => {
   const isMobile = useIsMobile();
@@ -172,8 +178,10 @@ const Landing = () => {
               We provide straight forward tools that maximize financial
               opportunities. forward tools
             </Text>
-       
+        <Suspense fallback={<SearchBarFallback />}>
             <SignInComponent />
+        </Suspense>
+      
        
           </Flex>
         </Flex>
