@@ -307,7 +307,7 @@ const SignIn = () => {
         <Box mt="1rem">
           <Text color={COLORS.Dark_Light} size="15px" align="start" >We do not store any personal information</Text>
         </Box>
-        {isModal && (
+        {/* {isModal && (
           <Modal
             open={isModal}
             onClose={handleClose}
@@ -318,7 +318,7 @@ const SignIn = () => {
               <ReferralModal referrals={referrals} setIsModal={setIsModal} _id={profile?._id} />
             </Box>
           </Modal>
-        )}
+        )} */}
       </Flex>
     </Flex>
   );
