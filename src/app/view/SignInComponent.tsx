@@ -189,7 +189,7 @@ const SignIn = () => {
           await web3authInstance?.logout();
         }
       } catch (error) {
-        console.log(error); 
+        console.log(error);
       }
     }
   };
@@ -307,7 +307,7 @@ const SignIn = () => {
         <Box mt="1rem">
           <Text color={COLORS.Dark_Light} size="15px" align="start" >We do not store any personal information</Text>
         </Box>
-        {/* {isModal && (
+        {isModal && (
           <Modal
             open={isModal}
             onClose={handleClose}
@@ -315,10 +315,10 @@ const SignIn = () => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <ReferralModal referrals={referrals} setIsModal={setIsModal} _id={profile?._id} />
+              <ReferralModal referrals={referrals} setIsmodal={setIsModal} id={profile?._id} />
             </Box>
           </Modal>
-        )} */}
+        )}
       </Flex>
     </Flex>
   );
