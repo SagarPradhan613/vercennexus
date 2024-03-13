@@ -295,7 +295,7 @@ const SignIn = () => {
         </>
       )} */}
      <h1>hai</h1>
-      <Box mt="1rem">
+      {/* <Box mt="1rem">
         <Text color={COLORS.darkLight} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
       </Box>
       {isModal && (
@@ -309,7 +309,7 @@ const SignIn = () => {
             <ReferralModal referrals={referrals} setIsmodal={setIsModal} id={profile?._id} />
           </Box>
         </Modal>
-      )}
+      )} */}
     </Box>
 
   );
