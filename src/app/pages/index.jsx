@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "../view/_app";
+import Hero from "../view/landing";
 
 function Main() {
   return (
