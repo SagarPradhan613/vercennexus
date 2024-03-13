@@ -58,47 +58,7 @@ const SignIn = () => {
     // setWeb3auth(1)
     // console.log(web3auth); 
 
-    const init = async () => {
-      try {
-        const web3auth = new Web3Auth({
-          clientId,
-          web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET, // import {WEB3AUTH_NETWORK} from "@web3auth/base";
-          chainConfig: {
-            chainNamespace: CHAIN_NAMESPACES.EIP155,
-            chainId: "0x1",
-            rpcTarget: "https://rpc.ankr.com/eth",
-          },
 
-          uiConfig: {
-            //   appName: "Nexus",
-            //   mode: "light", // light, dark or auto
-            //   loginMethodsOrder: ["google", "twitter", "facebook", "apple",],
-            //   logoLight: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
-            //   logoDark: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
-            //   defaultLanguage: "en", // en, de, ja, ko, zh, es, fr, pt, nl
-            //   loginGridCol: 3,
-            //   primaryButton: "socialLogin", // "externalLogin" | "socialLogin" | "emailLogin"
-          },
-        });
-        //   console.log(web3auth);
-
-        await web3auth.initModal();
-        setWeb3auth(web3auth);
-
-        if (web3auth.status === "connected") {
-          setProvider(web3auth.provider);
-          loginSignup(web3auth, web3auth.provider);
-
-          // getUserInfo();
-          // getAccounts();
-        }
-        else {
-          // await web3auth?.connect();
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
 
  
 
