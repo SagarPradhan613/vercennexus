@@ -102,7 +102,6 @@ body {
 
 .gradient-background {
   animation: rotateGradient 10s linear infinite;
-  transition: all 10s ease-out;
   min-height: 95vh;
   background: linear-gradient(
     115.03deg,
