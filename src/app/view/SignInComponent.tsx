@@ -312,106 +312,11 @@ const SignIn = () => {
   return (
     <>
       {
-        load ? (<>Load...</>) : (<Box flexDirection="column" justifyContent="start" alignItems="start" >
-          {web3auth?.status === "connected" ? (
-            <>
-              <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align="center" weight={undefined} maxWidth={undefined} m={undefined}>Whitelisted!</Text>
-              <Box maxWidth={isMobile ? '270px' : '100%'} width={'100%'}>
-
-                <Button
-                  bordercolor={COLORS.white}
-                  bg={COLORS.transperant}
-                  color={COLORS.white}
-                  fullWidth={true}
-                  onClick={() => setIsmodal(true)} hoverbg={undefined} hovercolor={undefined} ref={undefined}              >
-                  Referal Details
-                </Button>
-              </Box>
-              <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
-                {profile && (
-
-                  <RegisterButton onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
-                    Disconnect
-                    <IconButton
-                      bg={COLORS.blue}
-                      color={COLORS.white}
-                      width="40px"
-                      icon="20px"
-                      toLeft={false}
-                      isHover={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
-                      <IoMdLogOut />
-                    </IconButton>
-                  </RegisterButton>
-
-                )}
-                <Button
-                  bordercolor={COLORS.white}
-                  bg={COLORS.transperant}
-                  color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}              >
-                  Read Docs
-                </Button>
-              </Flex>
-            </>
-          ) : (
-            <>
-              <Text color={COLORS.white} fontFamily="SEN Bold" size="30px" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>Sign up</Text>
-              <Box mb="1rem">
-                <Text color={COLORS.light} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} maxWidth={isMobile ? '250px' : '300px'} weight={undefined} m={undefined}>Your Nexus experience is one click away</Text>
-              </Box>
-              <Box >
-                {errorText && (
-                  <Text color={"red"} size="15px" fontFamily="SEN Bold" align={isMobile ? 'start' : 'start'} weight={undefined} maxWidth={undefined} m={undefined}>{errorText}</Text>
-                )}
-              </Box>
-              <Box mt="0rem">
-                {errorText && refId ? (
-                  <Button
-                    bordercolor={COLORS.white}
-                    bg={COLORS.transperant}
-                    color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                >
-                    Please try a valid referral code
-                  </Button>
-
-                ) : (
-                  <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
-                    <RegisterButton onClick={login} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
-                      Register Now
-                      <IconButton
-                        bg={COLORS.blue}
-                        color={COLORS.white}
-                        width="40px"
-                        icon="20px"
-                        toLeft={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
-                        <FaArrowDown />
-                      </IconButton>
-                    </RegisterButton>
-                    <Button
-                      bordercolor={COLORS.white}
-                      bg={COLORS.transperant}
-                      color={COLORS.white} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} onClick={undefined} ref={undefined}                  >
-                      Read Docs
-                    </Button>
-                  </Flex>
-                )}
-              </Box>
-            </>
-          )}
-          <Box mt="1rem">
-            <Text color={COLORS.darkLight} size="15px" align="start" weight={undefined} maxWidth={undefined} m={undefined} fontFamily={undefined} >We do not store any personal information</Text>
+        load ? (<>Load...</>) : (
+          <Box flexDirection="column" justifyContent="start" alignItems="start" >
+            hai
           </Box>
-          {isModal && (
-            <Modal
-              open={isModal}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={style}>
-                <ReferralModal referrals={referrals} setIsmodal={setIsmodal} id={profile?._id} />
-              </Box>
-            </Modal>
-          )}
-        </Box>)
+        )
       }
 
     </>
