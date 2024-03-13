@@ -19,7 +19,7 @@ import BlueCard from "../view/cards/BlueCard";
 import { SliderCarousal } from "../view/Slider";
 import useIsBig from "../hooks/useIsBig";
 import { FaArrowDown } from "react-icons/fa6";
-import SignInComponent from "../view/SignInComponent";
+// import SignInComponent from "../view/SignInComponent";
 
 const MoveFromLeft = keyframes`
   from {
@@ -175,7 +175,7 @@ const Landing = () => {
               We provide straight forward tools that maximize financial
               opportunities. forward tools
             </Text>
-            <SignInComponent />
+           
           </Flex>
         </Flex>
         <Flex
