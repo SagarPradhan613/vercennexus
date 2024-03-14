@@ -267,14 +267,14 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
               }}>
                 <TwitterShareButton
                   url={FullURL}
-                  title={'Use my refferal code: '}
+                  title={'Use my referral code: '}
                   className="Demo__some-network__share-button"
                 >
                   <XIcon size={42} round />
                 </TwitterShareButton>
                 <TelegramShareButton
                   url={TitleLink + URL}
-                  title={'Use my refferal code: '}
+                  title={'Use my referral code: '}
                   className="Demo__some-network__share-button"
                 >
                   <TelegramIcon size={42} round />
