@@ -111,8 +111,17 @@ const Landing = () => {
     });
   }
 
+  const [opac, setOpac] = useState(0);
+
+  useEffect(() => {
+    setOpac(0);
+    setTimeout(() => {
+      setOpac(1);
+    }, 100);
+  }, []);
+
   return (
-    <div className="gradient-background">
+    <div className="gradient-background" style={{ opacity: opac }}>
       {!isMobile && <div class="cursor"></div>}
 
       <Header />
@@ -181,7 +190,7 @@ const Landing = () => {
               maxWidth={isMobile ? "300px" : "500px"}
               size={"25px"}
               color={COLORS.light}
-              m={isMobile ? "0px 0px 10px 0px" : "0px 0px 30px 0px"} 
+              m={isMobile ? "0px 0px 10px 0px" : "0px 0px 30px 0px"}
             >
               Community backed launches with perfectly crafted tools infused
               into an innovative platform.
