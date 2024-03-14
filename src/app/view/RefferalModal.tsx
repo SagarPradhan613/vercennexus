@@ -146,22 +146,24 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
     <div>
       <Box sx={{ backgroundColor: COLORS.blue }} borderRadius={'15px'}>
         <Grid container>
-          <Grid item lg={6} md={6} sm={6} xs={12}>
-            <Box display={isMobile ? 'flex' : 'block'}>
-         
-                <img src="/Images/modal-main.svg" width={isMobile ? '150px' : isTab ? '100%' : '100%'} />
-            
-              <Box display={{ sm: 'none', xs: 'block' }} mt={'1.5rem'}>
-                <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={isMobile ? 'start' : 'center'} m={undefined} lineHeight={undefined} >Refer More <br /> Members</Heading>
-              </Box>
+          <Grid item lg={6} md={6} sm={12} xs={12} >
+            <Box >
+              <Flex justify={undefined} items={undefined}  direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined} >
+                <Box width={{ xs: '150px', sm: '230px', md: '100%', lg: '100%' }}>
+                  <img src="/Images/modal-main.svg" width={'100%'} />
+                </Box>
+                <Box display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none' }} mt={'1.5rem'}>
+                  <Heading size={isMobile ? "40px" : "50px"} weight={undefined} maxWidth={undefined} color={undefined} align={isMobile ? 'start' : 'start'} m={undefined} lineHeight={undefined} >Referrr More <br /> Members</Heading>
+                </Box>
+              </Flex>
             </Box>
           </Grid>
-          <Grid item lg={6} md={6} sm={6} xs={12}>
-            <Box maxWidth={isTab ? '100%' : '370px'} mt={isMobile ? '1rem' : '2rem'} display={'flex'} justifyContent={'center'} alignItems={{  sm: 'start', xs: 'center' }} gap={{ sm: '1rem', xs: '1rem' }} flexDirection={'column'} width={'100%'}>
-              <Box display={{ sm: 'block', xs: 'none' }}>
-                <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} >Refer More <br /> Members</Heading>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Box maxWidth={isTab ? '100%' : '370px'} mt={{ xs: '1rem', sm: '0rem', md: '2rem', lg: '2rem' }} display={'flex'} justifyContent={'center'} alignItems={{ md: 'start', sm: 'center', xs: 'center' }} gap={{ sm: '1rem', xs: '1rem' }} flexDirection={'column'} width={'100%'}>
+              <Box display={{ xs: 'none', sm: 'none', md: 'block', lg: 'block' }}>
+                <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} >Referr More <br /> Members</Heading>
               </Box>
-              <Box width={isTab ? '80%' : '90%'}>
+              <Box width={{ xs: '90%', sm: '85%', md: '85%', lg: '100%' }}>
 
                 <Button bordercolor={COLORS.white}
                   bg={COLORS.transperant}
@@ -176,21 +178,23 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
               </Box>
               <Box sx={{
                 display: 'flex',
-                justifyContent: { sm: 'start', xs: 'center' }, 
+                justifyContent: 'space-between',
                 alignItems: 'center',
                 gap: '1rem',
                 border: '1px solid white',
                 padding: '20px 25px',
                 borderRadius: '25px',
-                width: { xs: '80%', sm: '85%', md: '85%', lg: '95%' },
+                width: { xs: '90%', sm: '85%', md: '85%', lg: '100%' },
                 marginBottom: '1rem',
-                flexDirection: isTab ? 'column' : 'row'
+                // flexDirection: { xs: 'column', sm: 'column', md: 'row', lg: 'row' }
               }}>
-                <Text size="35px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} fontFamily={undefined}>{referrals.length}</Text>
-                <Box mr={isTab ? '0rem' : '1rem'}>
-                  <Text maxWidth={isMobile ? '100%' : '100px'} size="18px" fontFamily="SEN bold" weight={undefined} color={undefined} align={isTab ? 'center' : 'start'} m={undefined}>Total
-                    Referrals </Text>
-                </Box>
+                <Flex justify={undefined} items={undefined}  direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
+                  <Text size="35px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} fontFamily={undefined}>{referrals.length}</Text>
+                  <Box mr={isTab ? '0rem' : '1rem'}>
+                    <Text maxWidth={isMobile ? '100%' : '100px'} size="18px" fontFamily="SEN bold" weight={undefined} color={undefined} align={isTab ? 'center' : 'start'} m={undefined}>Total
+                      Referrals </Text>
+                  </Box>
+                </Flex>
 
                 <Button
                   bordercolor={COLORS.white}
