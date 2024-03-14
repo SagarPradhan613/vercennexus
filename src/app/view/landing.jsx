@@ -112,16 +112,29 @@ const Landing = () => {
   }
 
   const [opac, setOpac] = useState(0);
-
+  
   useEffect(() => {
     setOpac(0);
     setTimeout(() => {
       setOpac(1);
     }, 100);
   }, []);
+  
+  const [grad, setGrad] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGrad((prevGrad) => !prevGrad);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="gradient-background" style={{ opacity: opac }}>
+    <div
+      className={grad ? "gradient-background" : "gradient-background1"}
+      style={{ opacity: opac }}
+    >
       {!isMobile && <div class="cursor"></div>}
 
       <Header />
