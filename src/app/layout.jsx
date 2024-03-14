@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <title>NEXUS | Leading Launches</title>
-        <link rel="icon" href={favicon} sizes="any" />
+        <link rel="icon" href="./favicon.ico" sizes="any" />
         <meta
           name="description"
           content="With a seamless and secure Web3 platform, Nexus is redefining the excellence of community backed launches with its perfectly crafted tools."
