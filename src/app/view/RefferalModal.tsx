@@ -163,7 +163,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
               <Box display={{ xs: 'none', sm: 'none', md: 'block', lg: 'block' }}>
                 <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} >Refer More <br /> Members</Heading>
               </Box>
-              <Box width={{ xs: '90%', sm: '85%', md: '85%', lg: '100%' }}>
+              <Box width={{ xs: '90%', sm: '85%', md: '85%', lg: '97%' }}>
 
                 <Button bordercolor={COLORS.white}
                   bg={COLORS.transperant}
@@ -172,7 +172,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                   onClick={() => { copy(window.location.protocol + '//' + window.location.host + "?refId=" + _id); handleOpen; }} hoverbg={undefined} hovercolor={undefined} fullWidth={true} ref={undefined}>
                   <Typography fontSize={isTab ? '13px' : '20px'} >{_id}</Typography>
 
-                  {copied ? <FileDownloadDoneIcon sx={{ color: COLORS.white }} /> : <CopyAllIcon sx={{ color: COLORS.white }} />}
+                  {copied ? <FileDownloadDoneIcon  /> : <CopyAllIcon  />}
 
                 </Button>
               </Box>
@@ -184,7 +184,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                 border: '1px solid white',
                 padding: '20px 25px',
                 borderRadius: '25px',
-                width: { xs: '90%', sm: '85%', md: '85%', lg: '100%' },
+                width: { xs: '90%', sm: '85%', md: '85%', lg: '97%' },
                 marginBottom: '1rem',
                 // flexDirection: { xs: 'column', sm: 'column', md: 'row', lg: 'row' }
               }}>
@@ -258,7 +258,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
               flexDirection: 'column',
               gap: '2rem'
             }}>
-              <Text color={COLORS.black} size={undefined} weight={undefined} maxWidth={undefined} align={undefined} m={undefined} fontFamily={undefined}>Share your Refferal code</Text>
+              <Text color={COLORS.black} size={undefined} weight={undefined} maxWidth={undefined} align={undefined} m={undefined} fontFamily={undefined}>Share your Referral code</Text>
               <Box sx={{
                 display: 'flex',
                 justifyContent: 'center',

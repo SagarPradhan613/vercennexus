@@ -22,10 +22,18 @@ const StyledButton = styled.button`
 
   ${({ toLeft, isHover }) =>
     toLeft &&
-   
     `
       & > * {
         transform: translateX(-31px);
+        transition: transform 1s ease;
+      }
+    `}
+
+  ${({ toLeft, isHover }) =>
+    !toLeft &&
+    `
+      & > * {
+        transform: translateY(-26px);
         transition: transform 1s ease;
       }
     `}
@@ -47,7 +55,7 @@ const StyledButton = styled.button`
       isHover &&
       `
         & > * {
-          transform: translateY(31px);
+          transform: translateY(26px);
           transition: transform 1s ease;
         }
       `}
@@ -78,7 +86,15 @@ function IconButton({
       toLeft={toLeft}
       isHover={isHover}
     >
-      {toLeft ? <Flex direction="row" gap="2rem">{children} {children}</Flex> : children}
+      {toLeft ? (
+        <Flex direction="row" gap="2rem">
+          {children} {children}
+        </Flex>
+      ) : (
+        <Flex direction="column" gap="2rem" height={'auto'}>
+          {children} {children}
+        </Flex>
+      )}
     </StyledButton>
   );
 }

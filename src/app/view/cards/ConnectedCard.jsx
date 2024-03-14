@@ -80,6 +80,7 @@ function ConnectedCard({ isTail = true, title,description }) {
           <IconButton
             bg={hover ? COLORS.white : COLORS.blue}
             color={hover ? COLORS.blue : COLORS.white}
+            isHover={false}
           >
             <FaArrowRight />
           </IconButton>

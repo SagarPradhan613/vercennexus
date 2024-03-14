@@ -138,7 +138,7 @@ const Landing = () => {
       <Flex direction={"column"} gap={isTab ? "3rem" : "5rem"}>
         <Flex
           justify={isTab ? "center" : "space-between"}
-          items={isMobile ? "start" : isTab ? "center" : "start"}
+          items={isMobile ? "center" : isTab ? "center" : "start"}
           width={"95%"}
           maxWidth={"1440px"}
           direction={isTab ? "column" : "row"}
