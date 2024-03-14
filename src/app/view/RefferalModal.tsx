@@ -153,7 +153,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                   <img src="/Images/modal-main.svg" width={'100%'} />
                 </Box>
                 <Box display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none' }} mt={'1.5rem'}>
-                  <Heading size={isMobile ? "40px" : "50px"} weight={undefined} maxWidth={undefined} color={undefined} align={isMobile ? 'start' : 'start'} m={undefined} lineHeight={undefined} >Referrr More <br /> Members</Heading>
+                  <Heading size={isMobile ? "40px" : "50px"} weight={undefined} maxWidth={undefined} color={undefined} align={isMobile ? 'start' : 'start'} m={undefined} lineHeight={undefined} >Refer More <br /> Members</Heading>
                 </Box>
               </Flex>
             </Box>
@@ -161,7 +161,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <Box maxWidth={isTab ? '100%' : '370px'} mt={{ xs: '1rem', sm: '0rem', md: '2rem', lg: '2rem' }} display={'flex'} justifyContent={'center'} alignItems={{ md: 'start', sm: 'center', xs: 'center' }} gap={{ sm: '1rem', xs: '1rem' }} flexDirection={'column'} width={'100%'}>
               <Box display={{ xs: 'none', sm: 'none', md: 'block', lg: 'block' }}>
-                <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} >Referr More <br /> Members</Heading>
+                <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} >Refer More <br /> Members</Heading>
               </Box>
               <Box width={{ xs: '90%', sm: '85%', md: '85%', lg: '100%' }}>
 
