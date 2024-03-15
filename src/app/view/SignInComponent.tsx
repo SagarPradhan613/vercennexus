@@ -356,7 +356,7 @@ const SignIn = () => {
         </Flex>
       ) : (
         <>
-          <Heading color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Sign up</Heading>
+          <Heading color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Sign Up</Heading>
           <Box mb="1rem">
             <Text color={COLORS.light} size="15px" fontFamily="SEN Bold" align={isMobile ? 'center' : 'center'} maxWidth={isMobile ? '250px' : '300px'} weight={undefined} m={undefined}>Your Nexus experience is one click away</Text>
           </Box>

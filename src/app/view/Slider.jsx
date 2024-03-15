@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import ReactSimplyCarousel from "react-simply-carousel";
+import useIsMobile from "../hooks/useIsMobile";
 
 export const SliderCarousal = ({ children }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-
+  const isMobile = useIsMobile();
 
   return (
     <ReactSimplyCarousel
@@ -13,6 +14,7 @@ export const SliderCarousal = ({ children }) => {
       onRequestChange={setActiveSlideIndex}
       itemsToShow={3}
       itemsToScroll={1}
+      centerMode={isMobile ? true : false}
       forwardBtnProps={{
         //here you can also pass className, or any other button element attributes
         style: {

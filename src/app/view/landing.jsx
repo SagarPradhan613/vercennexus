@@ -152,13 +152,15 @@ const Landing = () => {
           >
             <div
               className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
+             
             >
-              <Heading lineHeight={"90px"}>Nexus</Heading>
+              <Heading lineHeight={"90px"} isGradient={true}>Nexus</Heading>
             </div>
             <div
               className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
+           
             >
-              <Heading lineHeight={"90px"}>Leading</Heading>
+              <Heading lineHeight={"90px"} isGradient={true}>Leading</Heading>
             </div>
             <div
               className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}
@@ -175,7 +177,7 @@ const Landing = () => {
                     : "0px"
                 }
               >
-                <Heading lineHeight={"90px"}>Launches</Heading>
+                <Heading lineHeight={"90px"} isGradient={true}>Launches</Heading>
                 <IconButtonWrapper>
                   <IconButton
                     width={isMobile ? "35px" : "65px"}

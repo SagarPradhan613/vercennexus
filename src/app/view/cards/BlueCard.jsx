@@ -47,11 +47,11 @@ const BlueCard = () => {
     <Container width={isBig ? "1040px" : "720px"}>
       <Flex justify={"space-between"}>
         <Text
-          size={"35px"}
-          maxWidth={isBig ? "220px" : "135px"}
+          size={"30px"}
+          maxWidth={isBig ? "100%" : "200px"}
           fontFamily={"bold"}
         >
-          Coming Soon!
+          DAPP Coming Soon!
         </Text>
         <IconButton>
           <FaArrowRight />

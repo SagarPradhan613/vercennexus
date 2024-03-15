@@ -17,6 +17,10 @@ const Container = styled.div`
   background-color: ${({ bg }) => bg};
   min-width: ${({ width }) => width || "auto"};
   transition: all 0.4s ease-in-out;
+
+  @media screen and (max-width: 520px) {
+    padding: 1rem;
+  }
 `;
 const Connector = styled.div`
   width: 10px;
@@ -57,19 +61,19 @@ const ConnectorDisable = styled.div`
   );
 `;
 
-function ConnectedCard({ isTail = true, title,description }) {
+function ConnectedCard({ isTail = true, title, description }) {
   const isTab = useIsTab();
   const isMobile = useIsMobile();
   const [hover, setHover] = useState(false);
   return (
     <Flex gap={"0px"}>
       <Container
-        width={isTab ? "250px" : "250px"}
+        width={isTab ? "240px" : "250px"}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         bg={hover ? COLORS.blue : COLORS.white}
       >
-        <Flex direction={"column"} gap={"2em"}>
+        <Flex direction={"column"} gap={'1.5rem'}>
           <Text
             size={"30px"}
             color={hover ? COLORS.white : COLORS.black}
@@ -90,7 +94,7 @@ function ConnectedCard({ isTail = true, title,description }) {
             maxWidth={"190px"}
             size={"15px"}
           >
-          {description}
+            {description}
           </Text>
         </Flex>
       </Container>
