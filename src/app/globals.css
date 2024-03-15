@@ -168,8 +168,6 @@ body {
   }
 }
 
-
-
 .swiftup {
   opacity: 1;
   animation: swift-up 0.5s ease-in-out forwards;
@@ -251,12 +249,9 @@ body {
   }
 }
 
-
 .grad-text {
-  background: -webkit-linear-gradient(left, #62a4efc9, #ffffff);
-  background: -o-linear-gradient(left, #62a4efc9, #ffffff);
-  background: -moz-linear-gradient(left, #62a4efc9, #ffffff);
-  background: linear-gradient(to left, #62a4efc9, #ffffff);
+  background: -webkit-linear-gradient(right, #559ff5c9 1%, #ffffff 90%);
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

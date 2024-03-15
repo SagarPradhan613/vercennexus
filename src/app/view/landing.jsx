@@ -154,13 +154,13 @@ const Landing = () => {
               className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
              
             >
-              <Heading lineHeight={"80px"} isGradient={true} fontFamily={'extrabold'}>Nexus</Heading>
+              <Heading lineHeight={"80px"} isGradient={true} >Nexus</Heading>
             </div>
             <div
               className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
            
             >
-              <Heading lineHeight={"115px"} isGradient={true} fontFamily={'extrabold'}>Leading</Heading>
+              <Heading lineHeight={"115px"} isGradient={true} >Leading</Heading>
             </div>
             <div
               className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}
@@ -177,7 +177,7 @@ const Landing = () => {
                     : "0px"
                 }
               >
-                <Heading lineHeight={"80px"} isGradient={true} fontFamily={'extrabold'}>Launches</Heading>
+                <Heading lineHeight={"80px"} isGradient={true} >Launches</Heading>
                 <IconButtonWrapper>
                   <IconButton
                     width={isMobile ? "35px" : "65px"}
@@ -214,7 +214,7 @@ const Landing = () => {
         </Flex>
         <Flex
           justify={"space-between"}
-          items={isTab ? "center" : "start"}
+          items={isBig ? "center" : "start"}
           width={"100%"}
           maxWidth={"1440px"}
           direction={isBig ? "column" : "row"}
