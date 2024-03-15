@@ -8,16 +8,23 @@ export const SliderCarousal = ({ children }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const isMobile = useIsMobile();
   const carouselRef = useRef(null);
+  let touchStartY = 0;
 
   // Intersection Observer callback
   const handleIntersection = (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // If carousel is in viewport, attach event listener for scrolling
+        // If carousel is in viewport, attach event listeners for scrolling
         window.addEventListener("wheel", handleScroll);
+        if (isMobile) {
+          window.addEventListener("touchstart", handleTouchStart);
+          window.addEventListener("touchmove", handleTouchMove);
+        }
       } else {
-        // If carousel is not in viewport, remove event listener
+        // If carousel is not in viewport, remove event listeners
         window.removeEventListener("wheel", handleScroll);
+        window.removeEventListener("touchstart", handleTouchStart);
+        window.removeEventListener("touchmove", handleTouchMove);
       }
     });
   };
@@ -37,21 +44,40 @@ export const SliderCarousal = ({ children }) => {
     return () => {
       observer.disconnect();
       window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
   const handleScroll = (e) => {
-  
-      if (e.deltaY > 0) {
-        // Scrolling down
-        setActiveSlideIndex((prevIndex) =>
-          Math.min(prevIndex + 1, children.length - 1)
-        );
-      } else if (e.deltaY < 0) {
-        // Scrolling up
-        setActiveSlideIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-      }
-  
+    if (e.deltaY > 0) {
+      // Scrolling down
+      setActiveSlideIndex((prevIndex) =>
+        Math.min(prevIndex + 1, children.length - 1)
+      );
+    } else if (e.deltaY < 0) {
+      // Scrolling up
+      setActiveSlideIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    }
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartY = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e) => {
+    const touchMoveY = e.touches[0].clientY;
+    const deltaY = touchMoveY - touchStartY;
+
+    if (deltaY > 50) {
+      // Scrolling down
+      setActiveSlideIndex((prevIndex) =>
+        Math.min(prevIndex + 1, children.length - 1)
+      );
+    } else if (deltaY < -50) {
+      // Scrolling up
+      setActiveSlideIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    }
   };
 
   return (
