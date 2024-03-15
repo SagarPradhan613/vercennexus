@@ -209,8 +209,8 @@ const ReferralModal = (props: {accessToken: string | null,setCodes: any,setTotal
                 <Typography color={"white"} mb={"1rem"} fontSize={isTab ? '13px' : '20px'} >Remaining: {codes.length}/{totalCodes.length}</Typography>
 
                 {
-                  codes.length > 0 && codes.map((v ,) => {
-                    return   <Button bordercolor={COLORS.white}
+                  codes.length > 0 && codes.map((v: { code: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; } ,i: React.Key | null | undefined) => {
+                    return   <Button key={i} bordercolor={COLORS.white}
                     bg={COLORS.transperant}
                     color={COLORS.white}
   
