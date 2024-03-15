@@ -49,6 +49,8 @@ const SignIn = () => {
   const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
   const [provider, setProvider] = useState<any>(null);
   const [errorText, setErrorText] = useState<any>(null);
+  const [codes, setCodes] = useState<Array<string>>([]);
+  const [totalCodes, setTotalCodes] = useState<Array<string>>([]);
   const isMobile = useIsMobile()
 
 
@@ -56,7 +58,10 @@ const SignIn = () => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL
   const searchParams = useSearchParams()
   const refId = searchParams.get('refId');
+  const adminOverride = searchParams.get('adminOverride');
   const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [otp, setOtp] = React.useState("");
+  const [inviteError, setInviteError] = React.useState("");
 
   useEffect(() => {
     // Check if window object is defined (i.e., we're on the client side)
@@ -136,7 +141,10 @@ const SignIn = () => {
 
 
   useEffect(() => {
-    getUser()
+    if(accessToken){
+      getUser();
+      getCodes();
+    }
   }, [accessToken])
 
   useEffect(() => {
@@ -184,10 +192,45 @@ const SignIn = () => {
 
     }
   }
+  
+  const getCodes = async () => {
+    try {
+      let config = {
+        method: "get",
+        url: API_URL + `/get/codes?token=${accessToken}`,
+        maxBodyLength: Infinity,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+
+      axios
+        .request(config)
+        .then((response) => {
+          if (response.data.status === "OK") {
+            setCodes(response.data.data)
+            setTotalCodes(response.data.totalCodes)
+
+            // setReferrals(response.data.referrals)
+          }
+        })
+        .catch((error) => {
+
+          console.log("axios", error);
+          // setStatusText("Internal Error");
+        });
+    } catch (e) {
+      console.log(e);
+
+    }
+  }
+
 
   const getUser = async () => {
 
-
+    if(!accessToken){
+      return false;
+    }
     try {
       let config = {
         method: "get",
@@ -229,6 +272,7 @@ const SignIn = () => {
   const login = async () => {
     const _isConnected = await isConnected();
     // alert(_isConnected)
+    handleCloseInvite()
     if (_isConnected) {
       // alert("Already loggedin");
       loginSignup(web3auth, provider)
@@ -265,7 +309,7 @@ const SignIn = () => {
             email: userInfo?.email,
             fullName: userInfo?.name,
             address: eth_address[0],
-            referredBy: refId || 0
+            code: otp || 0
           },
         };
 
@@ -278,7 +322,7 @@ const SignIn = () => {
               getUser()
             }
             if (response.data.status === "NOT OK") {
-              setErrorText(response.data.message)
+              setErrorText(response.data.data)
               await web3auth?.logout();
 
             }
@@ -309,7 +353,45 @@ const SignIn = () => {
 
   }
 
+  const handleSubmit = () => {
+    console.log(otp);
+ 
 
+    if(otp == ""){
+      setInviteError("Please enter valid OTP.") 
+      return false;
+    }
+    try {
+      let config = {
+        method: "get",
+        url: API_URL + `/verify/codes?code=${otp}`,
+        maxBodyLength: Infinity,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+
+      axios
+        .request(config)
+        .then((response) => {
+          if (response.data.status === "OK") {
+            login()
+          }
+          if (response.data.status === "NOT OK") {
+            setInviteError(response.data.message) 
+          }
+        })
+        .catch((error) => {
+
+          console.log("axios", error);
+          // setStatusText("Internal Error");
+        });
+    } catch (e) {
+      console.log(e);
+
+    }
+  }
+ 
   const handleClose = () => {
     setIsmodal(false)
   }
@@ -322,7 +404,7 @@ const SignIn = () => {
   return (
 
     <Box border={'1px solid white'} p={'1rem'} borderRadius={'20px'} display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
-      {web3auth?.status === "connected" ? (
+      {(web3auth?.status === "connected" && profile) ? (
         <Flex direction={'column'} items={'center'} justify={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined} >
           <>
             <Heading fontFamily={undefined} color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Whitelisted!</Heading>
@@ -410,14 +492,14 @@ const SignIn = () => {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <ReferralModal referrals={referrals} setIsmodal={setIsmodal} id={profile?._id} />
+            <ReferralModal totalCodes={totalCodes} setTotalCodes={setTotalCodes} adminOverride={adminOverride} setCodes={setCodes} accessToken={accessToken} referrals={referrals} codes={codes} setIsmodal={setIsmodal} id={profile?._id} />
           </Box>
         </Modal>
       )}
 
       {
         openInvite && (
-          <InviteModal open={openInvite}  handleClose={handleCloseInvite} />
+          <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login}  handleClose={handleCloseInvite} />
         )
       }
     </Box>

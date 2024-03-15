@@ -24,16 +24,13 @@ const style = {
   borderRadius: "25px",
 };
 
-export default function BasicModal({ open, handleClose }) {
-  const [otp, setOtp] = React.useState("");
+export default function BasicModal({ open,login, handleSubmit,inviteError,  setOtp, otp ,  handleClose }) {
 
   const handleChange = (newValue) => {
     setOtp(newValue);
   };
 
-  const handleSubmit = () => {
-    console.log(otp);
-  };
+
   return (
     <div>
       <Modal
@@ -56,6 +53,9 @@ export default function BasicModal({ open, handleClose }) {
                 <FaArrowRight />
               </IconButton>
             </RegisterButton>
+
+            <span style={{color: "red"}}>{inviteError}</span>
+            <small>Already regsitered ? <span style={{textDecoration: "underline", cursor: "pointer"}} onClick={login}>Sign in</span></small>
           </Flex>
         </Box>
       </Modal>

@@ -80,6 +80,7 @@ import useIsMobile from "../hooks/useIsMobile";
 import Button from "../components/Button";
 import useIsTab from "../hooks/useIsTab";
 import Flex from "../components/Flex";
+import axios from "axios";
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -115,14 +116,20 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) => {
+const ReferralModal = (props: {accessToken: string | null,setCodes: any,setTotalCodes:any,totalCodes:any, adminOverride: any, setIsmodal: any, referrals: any, id: string , codes: any}) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
 
   const referrals = props.referrals;
-  const _id = props.id
+  const setCodes = props.setCodes ;
+  const setTotalCodes = props.setTotalCodes ;
+  const accessToken = props.accessToken ;
+  const totalCodes = props.totalCodes ;
+  const codes = props.codes;
+  const _id = props.id;
+  const adminOverride = props.adminOverride ; 
   console.log(referrals, 'ref');
 
   const URL = "/?refId=" + _id
@@ -140,6 +147,40 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
   }
   const shortener = (id: string) => {
     return id.slice(0, 5) + '...' + id.slice(-5);
+  }
+
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
+
+
+  const generateCodes = () => {
+    let url = adminOverride ? `/generate/codes?adminOverride=true&token=${accessToken}` : `/generate/codes?token=${accessToken}`
+    try {
+      let config = {
+        method: "post",
+        url: API_URL + url,
+        maxBodyLength: Infinity,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+
+      axios
+        .request(config)
+        .then((response) => {
+          if (response.data.status === "OK") { 
+            setCodes(response.data.codes);
+            setTotalCodes(response.data.totalCodes)
+          }
+        })
+        .catch((error) => {
+
+          console.log("axios", error);
+          // setStatusText("Internal Error");
+        });
+    } catch (e) {
+      console.log(e);
+
+    }
   }
 
   return (
@@ -164,17 +205,37 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                 <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} fontFamily={undefined} >Refer More <br /> Members</Heading>
               </Box>
               <Box width={{ xs: '90%', sm: '85%', md: '85%', lg: '97%' }}>
+                
+                <Typography color={"white"} mb={"1rem"} fontSize={isTab ? '13px' : '20px'} >Remaining: {codes.length}/{totalCodes.length}</Typography>
 
-                <Button bordercolor={COLORS.white}
-                  bg={COLORS.transperant}
-                  color={COLORS.white}
+                {
+                  codes.length > 0 && codes.map((v ,) => {
+                    return   <Button bordercolor={COLORS.white}
+                    bg={COLORS.transperant}
+                    color={COLORS.white}
+  
+                    onClick={() => { copy(v.code); handleOpen; }} hoverbg={undefined} hovercolor={undefined} fullWidth={true} ref={undefined}>
+                    <Typography fontSize={isTab ? '13px' : '20px'} >{v.code}</Typography>
+  
+                    {copied ? <FileDownloadDoneIcon  /> : <CopyAllIcon  />}
+  
+                  </Button>
 
-                  onClick={() => { copy(window.location.protocol + '//' + window.location.host + "?refId=" + _id); handleOpen; }} hoverbg={undefined} hovercolor={undefined} fullWidth={true} ref={undefined}>
-                  <Typography fontSize={isTab ? '13px' : '20px'} >{_id}</Typography>
+                  })
+                
+                }
 
-                  {copied ? <FileDownloadDoneIcon  /> : <CopyAllIcon  />}
-
-                </Button>
+                {
+                 ( codes.length == 0  || adminOverride)&&
+                  <Button bordercolor={COLORS.white}
+                    bg={COLORS.transperant}
+                    color={COLORS.white}
+  
+                    onClick={() => generateCodes()} hoverbg={undefined} hovercolor={undefined} fullWidth={true} ref={undefined}>
+                     Generate Invite Codes
+                  </Button>
+                }
+              
               </Box>
               <Box sx={{
                 display: 'flex',
