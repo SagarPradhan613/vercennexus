@@ -48,12 +48,12 @@ export const SliderCarousal = ({ children }) => {
         onRequestChange={setActiveSlideIndex}
         itemsToShow={3}
         itemsToScroll={1}
-        centerMode={isMobile ? true : false}
+        speed={1000}
         forwardBtnProps={{
           style: {
             background: "transparent",
             border: "none",
-            display: "none",
+            display: "none", 
           },
           children: <button>Next</button>,
         }}
@@ -68,11 +68,10 @@ export const SliderCarousal = ({ children }) => {
         responsiveProps={[
           {
             itemsToShow: 4,
-            itemsToScroll: 3,
+            itemsToScroll: 1,
             minWidth: 460,
           },
         ]}
-        speed={400}
         easing="linear"
       >
         {children}
