@@ -30,6 +30,7 @@ import useIsTab from "../hooks/useIsTab";
 import Flex from "../components/Flex";
 import axios from "axios";
 import styled from "styled-components";
+import { LuCopy } from "react-icons/lu";
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -47,7 +48,7 @@ const FlexWrap = styled.div`
 display: flex;
 justify-content: start;
 align-items: center;
-gap: 1rem;
+gap: .5rem;
 flex-wrap: wrap;
 `;
 
@@ -56,12 +57,42 @@ display: flex;
 justify-content: center;
 align-items: center;
 gap: .5rem;
-padding: .5rem 1rem;
+padding: .7rem 1rem;
 width: 100%;
-max-width: 100px;
+max-width: 114px;
 border-radius: 35px;
-border: none;
+border: 1px solid ${COLORS.white};
+background-color: ${COLORS.transperant};
+color: ${COLORS.white};
+cursor: pointer;
+transition: all 1s ease;
+&:hover{
+  background-color: ${COLORS.white};
+color: ${COLORS.black};
+}
+@media screen and (max-width: 520px) {
+  max-width: 93px;
+  }
 `
+
+const ReferCopyButton = ({ i, v, handleOpen }: any) => {
+  const [copied, setCopied] = useState(false)
+  const copy = (text: any) => {
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => { setCopied(false) }, 10000)
+  }
+  return (
+    <CodeButton key={i}
+      onClick={() => { copy(v.code); handleOpen; }}>
+      {v.code}
+      {copied ? <FileDownloadDoneIcon sx={{
+        fontSize: '13px'
+      }} /> : <LuCopy fontSize={'13px'} />}
+
+    </CodeButton>
+  )
+}
 
 const ReferralModal = (props: { accessToken: string | null, setCodes: any, setTotalCodes: any, totalCodes: any, adminOverride: any, setIsmodal: any, referrals: any, id: string, codes: any }) => {
   const [open, setOpen] = React.useState(false);
@@ -152,25 +183,18 @@ const ReferralModal = (props: { accessToken: string | null, setCodes: any, setTo
                 <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} fontFamily={undefined} >Refer More <br /> Members</Heading>
               </Box>
               <Box width={{ xs: '90%', sm: '85%', md: '85%', lg: '97%' }}>
+                <Box mb={'1rem'}>
 
-                <Typography color={"white"} mb={"1rem"} fontSize={isTab ? '13px' : '20px'} >Remaining: {codes.length}/{totalCodes.length}</Typography>
+                  <Text size={undefined} weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} fontFamily={undefined} >Remaining: {codes.length}/{totalCodes.length}</Text>
+                </Box>
+                <FlexWrap>
+                  {
+                    codes.length > 0 && codes.map((v: { code: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }, i: React.Key | null | undefined) => {
+                      return <ReferCopyButton Key={i} v={v} handleOpen={handleOpen} />
 
-                {
-                  codes.length > 0 && codes.map((v: { code: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }, i: React.Key | null | undefined) => {
-                    return <Button key={i} bordercolor={COLORS.white}
-                      bg={COLORS.transperant}
-                      color={COLORS.white}
-
-                      onClick={() => { copy(v.code); handleOpen; }} hoverbg={undefined} hovercolor={undefined} fullWidth={true} ref={undefined}>
-                      <Typography fontSize={isTab ? '13px' : '20px'} >{v.code}</Typography>
-
-                      {copied ? <FileDownloadDoneIcon /> : <CopyAllIcon />}
-
-                    </Button>
-
-                  })
-
-                }
+                    })
+                  }
+                </FlexWrap>
 
                 {
                   (codes.length == 0 || adminOverride) &&
