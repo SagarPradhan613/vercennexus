@@ -19,6 +19,7 @@ import Flex from "../components/Flex";
 import useIsMobile from "../hooks/useIsMobile";
 import useIsTab from "../hooks/useIsTab";
 import Heading from "../components/Heading";
+import InviteModal from './InviteModal'
 
 const style = {
   position: 'absolute',
@@ -313,20 +314,26 @@ const SignIn = () => {
     setIsmodal(false)
   }
 
+
+  const [openInvite, setOpenInvite] = React.useState(false);
+  const handleOpenInvite = () => setOpenInvite(true);
+  const handleCloseInvite = () => setOpenInvite(false);
+
   return (
 
     <Box border={'1px solid white'} p={'1rem'} borderRadius={'20px'} display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
       {web3auth?.status === "connected" ? (
         <Flex direction={'column'} items={'center'} justify={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined} >
           <>
-          <Heading fontFamily={undefined} color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Whitelisted!</Heading>
+            <Heading fontFamily={undefined} color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Whitelisted!</Heading>
             <Box maxWidth={isMobile ? '270px' : '100%'} width={'100%'}>
+
 
 
             </Box>
             <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
               {profile && (
-                <Flex  justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={'.5rem'} height={undefined} z={undefined} left={undefined}>
+                <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={'.5rem'} height={undefined} z={undefined} left={undefined}>
                   <RegisterButton onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
                     Disconnect
                     <IconButton
@@ -376,7 +383,7 @@ const SignIn = () => {
 
             ) : (
               <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
-                <RegisterButton onClick={login} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
+                <RegisterButton onClick={handleOpenInvite} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
                   Register Now
                   <IconButton
                     bg={COLORS.blue}
@@ -407,6 +414,12 @@ const SignIn = () => {
           </Box>
         </Modal>
       )}
+
+      {
+        openInvite && (
+          <InviteModal open={openInvite}  handleClose={handleCloseInvite} />
+        )
+      }
     </Box>
 
   );
