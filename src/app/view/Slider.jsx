@@ -9,26 +9,38 @@ export const SliderCarousal = ({ children }) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const viewportHeight = window.innerHeight; 
+      const viewportHeight = window.innerHeight;
       const slideHeight = viewportHeight - 200; // Adjust this value as needed
-  
+
+      console.log(scrollPosition, "scrollPosition");
+
       // Calculate the index of the previous slide
       const previousSlideIndex = Math.floor(scrollPosition / slideHeight);
       // Calculate the index of the next slide
       const nextSlideIndex = previousSlideIndex + 1;
-  
-      // Update the current slide based on the scroll direction
-      if (scrollPosition % slideHeight === 0) {
-        setActiveSlideIndex(previousSlideIndex);
+      if (scrollPosition === 0) {
+        console.log(0);
+        setActiveSlideIndex(0);
+      } else if (scrollPosition <= 100) {
+        console.log(1);
+
+        setActiveSlideIndex(1);
+      } else if (scrollPosition <= 200) {
+        console.log(2);
+
+        setActiveSlideIndex(2);
       } else {
-        setActiveSlideIndex(nextSlideIndex);
+        console.log(3);
+
+        setActiveSlideIndex(3);
       }
     };
-  
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  console.log(activeSlideIndex,'sli');
   return (
     <div style={{ overflow: "hidden", height: "100%" }}>
       <ReactSimplyCarousel
