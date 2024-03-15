@@ -319,7 +319,7 @@ const SignIn = () => {
       {web3auth?.status === "connected" ? (
         <Flex direction={'column'} items={'center'} justify={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined} >
           <>
-          <Heading color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Whitelisted!</Heading>
+          <Heading fontFamily={undefined} color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Whitelisted!</Heading>
             <Box maxWidth={isMobile ? '270px' : '100%'} width={'100%'}>
 
 
@@ -356,7 +356,7 @@ const SignIn = () => {
         </Flex>
       ) : (
         <>
-          <Heading color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Sign Up</Heading>
+          <Heading fontFamily={undefined} color={COLORS.white} size="40px" align={isMobile ? 'center' : 'center'} weight={undefined} maxWidth={undefined} m={'0px 0px 10px 0px'} lineHeight={undefined}>Sign Up</Heading>
           <Box mb="1rem">
             <Text color={COLORS.light} size="15px" fontFamily="SEN Bold" align={isMobile ? 'center' : 'center'} maxWidth={isMobile ? '250px' : '300px'} weight={undefined} m={undefined}>Your Nexus experience is one click away</Text>
           </Box>
