@@ -255,3 +255,13 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.MuiOtpInput-Box {
+  gap: 1rem;
+}
+
+.MuiInputBase-formControl {
+  border-radius: 13px;
+  padding: 0px 3px;
+  background-color: #c7def7c9;
+}

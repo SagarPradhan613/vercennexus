@@ -141,7 +141,7 @@ const SignIn = () => {
 
 
   useEffect(() => {
-    if(accessToken){
+    if (accessToken) {
       getUser();
       getCodes();
     }
@@ -192,7 +192,7 @@ const SignIn = () => {
 
     }
   }
-  
+
   const getCodes = async () => {
     try {
       let config = {
@@ -228,7 +228,7 @@ const SignIn = () => {
 
   const getUser = async () => {
 
-    if(!accessToken){
+    if (!accessToken) {
       return false;
     }
     try {
@@ -355,10 +355,10 @@ const SignIn = () => {
 
   const handleSubmit = () => {
     console.log(otp);
- 
 
-    if(otp == ""){
-      setInviteError("Please enter valid OTP.") 
+
+    if (otp == "") {
+      setInviteError("Please enter valid OTP.")
       return false;
     }
     try {
@@ -378,7 +378,7 @@ const SignIn = () => {
             login()
           }
           if (response.data.status === "NOT OK") {
-            setInviteError(response.data.message) 
+            setInviteError(response.data.message)
           }
         })
         .catch((error) => {
@@ -391,7 +391,7 @@ const SignIn = () => {
 
     }
   }
- 
+
   const handleClose = () => {
     setIsmodal(false)
   }
@@ -416,7 +416,7 @@ const SignIn = () => {
             <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
               {profile && (
                 <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={'.5rem'} height={undefined} z={undefined} left={undefined}>
-                  <RegisterButton onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
+                  <RegisterButton  justify={undefined} onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
                     Disconnect
                     <IconButton
                       bg={COLORS.blue}
@@ -465,7 +465,7 @@ const SignIn = () => {
 
             ) : (
               <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
-                <RegisterButton onClick={handleOpenInvite} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
+                <RegisterButton onClick={handleOpenInvite} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined} justify={undefined}>
                   Register Now
                   <IconButton
                     bg={COLORS.blue}
@@ -499,7 +499,7 @@ const SignIn = () => {
 
       {
         openInvite && (
-          <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login}  handleClose={handleCloseInvite} />
+          <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login} handleClose={handleCloseInvite} />
         )
       }
     </Box>

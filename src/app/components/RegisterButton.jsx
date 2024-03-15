@@ -4,7 +4,7 @@ import { COLORS } from "../utils/colors";
 
 const StyledButton = styled.button`
   display: flex;
-  justify-content: center;
+  justify-content: ${({ justify }) => justify || "center"};
   align-items: center;
   gap: 1rem;
   white-space: nowrap;
@@ -24,7 +24,7 @@ const StyledButton = styled.button`
   @media only screen and (max-width: 520px) {
     font-size: 15px;
     padding: 0.2rem 0.2rem 0.2rem 1rem;
-    gap: .5rem;
+    gap: 0.5rem;
   }
   &:hover {
     background: ${({ hoverbg }) => hoverbg || COLORS.black};
@@ -45,6 +45,7 @@ function RegisterButton({
   onClick,
   ref,
   disabled = false,
+  justify,
 }) {
   return (
     <StyledButton
@@ -55,6 +56,7 @@ function RegisterButton({
       onClick={onClick}
       disabled={disabled}
       ref={ref}
+      justify={justify}
     >
       {children}
     </StyledButton>

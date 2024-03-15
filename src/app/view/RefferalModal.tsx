@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Box, Grid, Typography } from "@mui/material";
-import { styled } from '@mui/material/styles';
 import { tableCellClasses } from '@mui/material/TableCell';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CopyAllIcon from '@mui/icons-material/CopyAll';
 import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -13,74 +10,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-
-
 import {
-  EmailIcon,
-  EmailShareButton,
-  FacebookIcon,
-  FacebookMessengerIcon,
-  FacebookMessengerShareButton,
-  FacebookShareButton,
-  FacebookShareCount,
-  GabIcon,
-  GabShareButton,
-  HatenaIcon,
-  HatenaShareButton,
-  HatenaShareCount,
-  InstapaperIcon,
-  InstapaperShareButton,
-  LineIcon,
-  LineShareButton,
-  LinkedinIcon,
-  LinkedinShareButton,
-  LivejournalIcon,
-  LivejournalShareButton,
-  MailruIcon,
-  MailruShareButton,
-  OKIcon,
-  OKShareButton,
-  OKShareCount,
-  PinterestIcon,
-  PinterestShareButton,
-  PinterestShareCount,
-  PocketIcon,
-  PocketShareButton,
-  RedditIcon,
-  RedditShareButton,
-  RedditShareCount,
   TelegramIcon,
   TelegramShareButton,
-  TumblrIcon,
-  TumblrShareButton,
-  TumblrShareCount,
   TwitterShareButton,
-  ViberIcon,
-  ViberShareButton,
-  VKIcon,
-  VKShareButton,
-  VKShareCount,
   WeiboIcon,
   WeiboShareButton,
   WhatsappIcon,
   WhatsappShareButton,
-  WorkplaceIcon,
-  WorkplaceShareButton,
   XIcon,
 } from "react-share";
-
-
 import Modal from '@mui/material/Modal';
 import Heading from "../components/Heading";
 import Text from "../components/Text";
-import IconButton from "../components/IconButton";
 import { COLORS } from "../utils/colors";
 import useIsMobile from "../hooks/useIsMobile";
 import Button from "../components/Button";
 import useIsTab from "../hooks/useIsTab";
 import Flex from "../components/Flex";
 import axios from "axios";
+import styled from "styled-components";
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -94,42 +43,40 @@ const style = {
   p: 4,
 };
 
+const FlexWrap = styled.div`
+display: flex;
+justify-content: start;
+align-items: center;
+gap: 1rem;
+flex-wrap: wrap;
+`;
 
+const CodeButton = styled.button`
+display: flex;
+justify-content: center;
+align-items: center;
+gap: .5rem;
+padding: .5rem 1rem;
+width: 100%;
+max-width: 100px;
+border-radius: 35px;
+border: none;
+`
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: '#0081ff',
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    size: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
-
-const ReferralModal = (props: {accessToken: string | null,setCodes: any,setTotalCodes:any,totalCodes:any, adminOverride: any, setIsmodal: any, referrals: any, id: string , codes: any}) => {
+const ReferralModal = (props: { accessToken: string | null, setCodes: any, setTotalCodes: any, totalCodes: any, adminOverride: any, setIsmodal: any, referrals: any, id: string, codes: any }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
 
   const referrals = props.referrals;
-  const setCodes = props.setCodes ;
-  const setTotalCodes = props.setTotalCodes ;
-  const accessToken = props.accessToken ;
-  const totalCodes = props.totalCodes ;
+  const setCodes = props.setCodes;
+  const setTotalCodes = props.setTotalCodes;
+  const accessToken = props.accessToken;
+  const totalCodes = props.totalCodes;
   const codes = props.codes;
   const _id = props.id;
-  const adminOverride = props.adminOverride ; 
+  const adminOverride = props.adminOverride;
   console.log(referrals, 'ref');
 
   const URL = "/?refId=" + _id
@@ -167,7 +114,7 @@ const ReferralModal = (props: {accessToken: string | null,setCodes: any,setTotal
       axios
         .request(config)
         .then((response) => {
-          if (response.data.status === "OK") { 
+          if (response.data.status === "OK") {
             setCodes(response.data.codes);
             setTotalCodes(response.data.totalCodes)
           }
@@ -189,12 +136,12 @@ const ReferralModal = (props: {accessToken: string | null,setCodes: any,setTotal
         <Grid container>
           <Grid item lg={6} md={6} sm={12} xs={12} >
             <Box >
-              <Flex justify={undefined} items={undefined}  direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined} >
+              <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined} >
                 <Box width={{ xs: '150px', sm: '230px', md: '100%', lg: '100%' }}>
                   <img src="/Images/modal-main.svg" width={'100%'} />
                 </Box>
                 <Box display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none' }} mt={'1.5rem'}>
-                  <Heading size={isMobile ? "40px" : "50px"} weight={undefined} maxWidth={undefined} color={undefined} align={isMobile ? 'start' : 'start'} m={undefined} lineHeight={undefined}  fontFamily={undefined} >Refer More <br /> Members</Heading>
+                  <Heading size={isMobile ? "40px" : "50px"} weight={undefined} maxWidth={undefined} color={undefined} align={isMobile ? 'start' : 'start'} m={undefined} lineHeight={undefined} fontFamily={undefined} >Refer More <br /> Members</Heading>
                 </Box>
               </Flex>
             </Box>
@@ -205,37 +152,37 @@ const ReferralModal = (props: {accessToken: string | null,setCodes: any,setTotal
                 <Heading size="60px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} lineHeight={undefined} fontFamily={undefined} >Refer More <br /> Members</Heading>
               </Box>
               <Box width={{ xs: '90%', sm: '85%', md: '85%', lg: '97%' }}>
-                
+
                 <Typography color={"white"} mb={"1rem"} fontSize={isTab ? '13px' : '20px'} >Remaining: {codes.length}/{totalCodes.length}</Typography>
 
                 {
-                  codes.length > 0 && codes.map((v: { code: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; } ,i: React.Key | null | undefined) => {
-                    return   <Button key={i} bordercolor={COLORS.white}
-                    bg={COLORS.transperant}
-                    color={COLORS.white}
-  
-                    onClick={() => { copy(v.code); handleOpen; }} hoverbg={undefined} hovercolor={undefined} fullWidth={true} ref={undefined}>
-                    <Typography fontSize={isTab ? '13px' : '20px'} >{v.code}</Typography>
-  
-                    {copied ? <FileDownloadDoneIcon  /> : <CopyAllIcon  />}
-  
-                  </Button>
+                  codes.length > 0 && codes.map((v: { code: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }, i: React.Key | null | undefined) => {
+                    return <Button key={i} bordercolor={COLORS.white}
+                      bg={COLORS.transperant}
+                      color={COLORS.white}
+
+                      onClick={() => { copy(v.code); handleOpen; }} hoverbg={undefined} hovercolor={undefined} fullWidth={true} ref={undefined}>
+                      <Typography fontSize={isTab ? '13px' : '20px'} >{v.code}</Typography>
+
+                      {copied ? <FileDownloadDoneIcon /> : <CopyAllIcon />}
+
+                    </Button>
 
                   })
-                
+
                 }
 
                 {
-                 ( codes.length == 0  || adminOverride)&&
+                  (codes.length == 0 || adminOverride) &&
                   <Button bordercolor={COLORS.white}
                     bg={COLORS.transperant}
                     color={COLORS.white}
-  
+
                     onClick={() => generateCodes()} hoverbg={undefined} hovercolor={undefined} fullWidth={true} ref={undefined}>
-                     Generate Invite Codes
+                    Generate Invite Codes
                   </Button>
                 }
-              
+
               </Box>
               <Box sx={{
                 display: 'flex',
@@ -249,7 +196,7 @@ const ReferralModal = (props: {accessToken: string | null,setCodes: any,setTotal
                 marginBottom: '1rem',
                 // flexDirection: { xs: 'column', sm: 'column', md: 'row', lg: 'row' }
               }}>
-                <Flex justify={undefined} items={undefined}  direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
+                <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
                   <Text size="35px" weight={undefined} maxWidth={undefined} color={undefined} align={undefined} m={undefined} fontFamily={undefined}>{referrals.length}</Text>
                   <Box mr={isTab ? '0rem' : '1rem'}>
                     <Text maxWidth={isMobile ? '100%' : '100px'} size="18px" fontFamily="SEN bold" weight={undefined} color={undefined} align={isTab ? 'center' : 'start'} m={undefined}>Total
