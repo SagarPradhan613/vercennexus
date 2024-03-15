@@ -253,10 +253,10 @@ body {
 
 
 .grad-text {
-  background: -webkit-linear-gradient(left, #0075ff, #ffffff);
-  background: -o-linear-gradient(left, #0075ff, #ffffff);
-  background: -moz-linear-gradient(left, #0075ff, #ffffff);
-  background: linear-gradient(to left, #0075ff, #ffffff);
+  background: -webkit-linear-gradient(left, #62a4efc9, #ffffff);
+  background: -o-linear-gradient(left, #62a4efc9, #ffffff);
+  background: -moz-linear-gradient(left, #62a4efc9, #ffffff);
+  background: linear-gradient(to left, #62a4efc9, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

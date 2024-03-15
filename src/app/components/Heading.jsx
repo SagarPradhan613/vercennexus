@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { COLORS } from "../utils/colors";
 
 const StyledText = styled.h1`
-  font-family: "SEN bold";
+  font-family: ${({ fontFamily }) => fontFamily || "bold"};
   font-size: ${({ size }) => size || "100px"};
-  font-weight: ${({ weight }) => weight || 400};
+  font-weight: ${({ weight }) => weight || 200};
   max-width: ${({ maxWidth }) => maxWidth || "100%"};
   color: ${({ color }) => color || COLORS.white};
   text-align: ${({ align }) => align || "start"};
@@ -21,8 +21,12 @@ const StyledText = styled.h1`
     line-height: 50px;
   }
   @font-face {
-    font-family: "SEN bold";
+    font-family: "bold";
     src: url("/fonts/Sen-Bold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "extrabold";
+    src: url("/fonts/Sen-ExtraBold.woff2") format("woff2");
   }
 `;
 
@@ -38,6 +42,7 @@ const Heading = ({
   m,
   lineHeight,
   isGradient = false,
+  fontFamily,
 }) => {
   return (
     <StyledText
@@ -50,7 +55,8 @@ const Heading = ({
       overflow={overflow}
       m={m}
       lineHeight={lineHeight}
-      
+      fontFamily={fontFamily}
+      className={isGradient ? "grad-text" : ""}
     >
       {children}
     </StyledText>
