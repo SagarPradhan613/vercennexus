@@ -33,7 +33,7 @@ export const SliderCarousal = ({ children }) => {
   // }, []);
 
   return (
-    <div style={{ overflow: "hidden", height: "100%" }}>
+
       <ReactSimplyCarousel
         activeSlideIndex={activeSlideIndex}
         onRequestChange={setActiveSlideIndex}
@@ -67,6 +67,6 @@ export const SliderCarousal = ({ children }) => {
       >
         {children}
       </ReactSimplyCarousel>
-    </div>
+
   );
 };
