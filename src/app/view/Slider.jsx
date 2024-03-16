@@ -4,43 +4,34 @@ import useIsMobile from "../hooks/useIsMobile";
 
 export const SliderCarousal = ({ children }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const isMobile = useIsMobile();
 
   useEffect(() => {
+    let debounceTimeout;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      const slideHeight = viewportHeight - 200; // Adjust this value as needed
+      clearTimeout(debounceTimeout);
 
-      console.log(scrollPosition, "scrollPosition");
-
-      // Calculate the index of the previous slide
-      const previousSlideIndex = Math.floor(scrollPosition / slideHeight);
-      // Calculate the index of the next slide
-      const nextSlideIndex = previousSlideIndex + 1;
-      if (scrollPosition === 0) {
-        console.log(0);
-        setActiveSlideIndex(0);
-      } else if (scrollPosition <= 100) {
-        console.log(1);
-
-        setActiveSlideIndex(1);
-      } else if (scrollPosition <= 200) {
-        console.log(2);
-
-        setActiveSlideIndex(2);
-      } else {
-        console.log(3);
-
-        setActiveSlideIndex(3);
-      }
+      debounceTimeout = setTimeout(() => {
+        const scrollPosition = window.scrollY;
+        if (scrollPosition === 0) {
+          setActiveSlideIndex(0);
+        } else if (scrollPosition <= 100) {
+          setActiveSlideIndex(1);
+        } else if (scrollPosition <= 200) {
+          setActiveSlideIndex(2);
+        } else {
+          setActiveSlideIndex(3);
+        }
+      }, 100); // Adjust debounce time as needed
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(debounceTimeout);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  console.log(activeSlideIndex,'sli');
   return (
     <div style={{ overflow: "hidden", height: "100%" }}>
       <ReactSimplyCarousel
@@ -53,7 +44,7 @@ export const SliderCarousal = ({ children }) => {
           style: {
             background: "transparent",
             border: "none",
-            display: "none", 
+            display: "none",
           },
           children: <button>Next</button>,
         }}

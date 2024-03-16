@@ -232,7 +232,8 @@ const ReferralModal = (props: { accessToken: string | null, setCodes: any, setTo
                   bordercolor={COLORS.white}
                   bg={COLORS.transperant}
                   color={COLORS.white}
-                  onClick={handleOpen} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} ref={undefined}                >
+                  onClick={handleOpen} hoverbg={undefined} hovercolor={undefined} fullWidth={undefined} ref={undefined}
+                  disabled={codes.length == 0 || adminOverride ? true : false}>
                   Refer More
                 </Button>
               </Box>
@@ -298,30 +299,30 @@ const ReferralModal = (props: { accessToken: string | null, setCodes: any, setTo
                 gap: '2rem'
               }}>
                 <TwitterShareButton
-                  url={FullURL}
-                  title={'Use my referral code: '}
+                  url={codes.map((v: { code: any; }) => { return `${v.code} ` })}
+                  title={'Use my invite code(s) to register your account on Nexus: '}
                   className="Demo__some-network__share-button"
                 >
                   <XIcon size={42} round />
                 </TwitterShareButton>
                 <TelegramShareButton
-                  url={TitleLink + URL}
-                  title={'Use my referral code: '}
+                  url={codes.map((v: { code: any; }) => { return `${v.code} ` })}
+                  title={'Use my invite code(s) to register your account on Nexus: '}
                   className="Demo__some-network__share-button"
                 >
                   <TelegramIcon size={42} round />
                 </TelegramShareButton>
                 <WhatsappShareButton
-                  url={FullURL}
-                  title={''}
+                  url={codes.map((v: { code: any; }) => { return `${v.code} ` })}
+                  title={'Use my invite code(s) to register your account on Nexus: '}
                   separator=""
                   className="Demo__some-network__share-button"
                 >
                   <WhatsappIcon size={42} round />
                 </WhatsappShareButton>
                 <WeiboShareButton
-                  url={URL}
-                  title={TitleLink}
+                  url={codes.map((v: { code: any; }) => { return `${v.code} ` })}
+                  title={'Use my invite code(s) to register your account on Nexus: '}
                   className="Demo__some-network__share-button"
                 >
                   <WeiboIcon size={42} round />

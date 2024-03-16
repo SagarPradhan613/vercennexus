@@ -94,7 +94,7 @@ export default function BasicModal({
 
             <span style={{ color: "red" }}>{inviteError}</span>
             <small>
-              Already regsitered ?{" "}
+              Already regsitered?{" "}
               <span
                 style={{ textDecoration: "underline", cursor: "pointer" }}
                 onClick={login}
