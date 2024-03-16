@@ -5,32 +5,32 @@ import useIsMobile from "../hooks/useIsMobile";
 export const SliderCarousal = ({ children }) => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
-  useEffect(() => {
-    let debounceTimeout;
+  // useEffect(() => {
+  //   let debounceTimeout;
 
-    const handleScroll = () => {
-      clearTimeout(debounceTimeout);
+  //   const handleScroll = () => {
+  //     clearTimeout(debounceTimeout);
 
-      debounceTimeout = setTimeout(() => {
-        const scrollPosition = window.scrollY;
-        if (scrollPosition === 0) {
-          setActiveSlideIndex(0);
-        } else if (scrollPosition <= 100) {
-          setActiveSlideIndex(1);
-        } else if (scrollPosition <= 200) {
-          setActiveSlideIndex(2);
-        } else {
-          setActiveSlideIndex(3);
-        }
-      }, 100); // Adjust debounce time as needed
-    };
+  //     debounceTimeout = setTimeout(() => {
+  //       const scrollPosition = window.scrollY;
+  //       if (scrollPosition === 0) {
+  //         setActiveSlideIndex(0);
+  //       } else if (scrollPosition <= 100) {
+  //         setActiveSlideIndex(1);
+  //       } else if (scrollPosition <= 200) {
+  //         setActiveSlideIndex(2);
+  //       } else {
+  //         setActiveSlideIndex(3);
+  //       }
+  //     }, 100); // Adjust debounce time as needed
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      clearTimeout(debounceTimeout);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     clearTimeout(debounceTimeout);
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div style={{ overflow: "hidden", height: "100%" }}>
@@ -39,10 +39,10 @@ export const SliderCarousal = ({ children }) => {
         onRequestChange={setActiveSlideIndex}
         itemsToShow={3}
         itemsToScroll={1}
-        speed={1000}
+        speed={1500}
         forwardBtnProps={{
           style: {
-            background: "transparent",
+            background: "transparent", 
             border: "none",
             display: "none",
           },
