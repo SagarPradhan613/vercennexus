@@ -39,7 +39,7 @@ export const SliderCarousal = ({ children }) => {
         onRequestChange={setActiveSlideIndex}
         itemsToShow={3}
         itemsToScroll={1}
-        speed={1500}
+        speed={400}
         forwardBtnProps={{
           style: {
             background: "transparent", 
