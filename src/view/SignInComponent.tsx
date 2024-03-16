@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import RegisterButton from '../components/RegisterButton';
 import IconButton from '../components/IconButton';
 import { FaArrowDown } from "react-icons/fa6";
-import { COLORS } from "../utils/colors";
+import { COLORS } from '@/utils/colors'
 import { IoMdLogOut } from "react-icons/io";
 import { Box, Modal, Typography } from '@mui/material';
 import Text from "../components/Text";
@@ -16,8 +16,8 @@ import { Person } from '@mui/icons-material';
 import ReferralModal from "./RefferalModal";
 import Button from "../components/Button";
 import Flex from "../components/Flex";
-import useIsMobile from "../hooks/useIsMobile";
-import useIsTab from "../hooks/useIsTab";
+import useIsMobile from "@/hooks/useIsMobile";
+import useIsTab from "@/hooks/useIsTab";
 import Heading from "../components/Heading";
 import InviteModal from './InviteModal'
 

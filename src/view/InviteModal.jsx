@@ -1,15 +1,15 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Flex from "../components/Flex";
+import Flex from "@/components/Flex";
 import { MuiOtpInput } from "mui-one-time-password-input";
-import Text from "../components/Text";
-import { COLORS } from "../utils/colors";
-import RegisterButton from "../components/RegisterButton";
+import Text from "@/components/Text";
+import { COLORS } from "@/utils/colors";
+import RegisterButton from "@/components/RegisterButton";
 import { FaArrowRight } from "react-icons/fa6";
 import styled from "styled-components";
 import { FaArrowLeft } from "react-icons/fa6";
-import IconButton from "../components/IconButton";
+import IconButton from "@/components/IconButton";
 
 const Container = styled.div`
   position: absolute;

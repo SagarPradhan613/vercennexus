@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography } from "@mui/material";
-import { tableCellClasses } from '@mui/material/TableCell';
-import CopyAllIcon from '@mui/icons-material/CopyAll';
+import { Box, Grid } from "@mui/material";
 import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -23,10 +21,10 @@ import {
 import Modal from '@mui/material/Modal';
 import Heading from "../components/Heading";
 import Text from "../components/Text";
-import { COLORS } from "../utils/colors";
-import useIsMobile from "../hooks/useIsMobile";
+import { COLORS } from "@/utils/colors";
+import useIsMobile from "@/hooks/useIsMobile";
 import Button from "../components/Button";
-import useIsTab from "../hooks/useIsTab";
+import useIsTab from "@/hooks/useIsTab";
 import Flex from "../components/Flex";
 import axios from "axios";
 import styled from "styled-components";

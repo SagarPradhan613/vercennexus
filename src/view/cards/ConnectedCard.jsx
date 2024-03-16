@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { COLORS } from "../../utils/colors";
 import Flex from "../../components/Flex";
-import Heading from "../../components/Heading";
 import IconButton from "../../components/IconButton";
 import { FaArrowRight } from "react-icons/fa6";
 import Text from "../../components/Text";

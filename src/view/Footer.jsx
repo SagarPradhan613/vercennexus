@@ -2,12 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Flex from "../components/Flex";
 import Text from "../components/Text";
-import { COLORS } from "../utils/colors";
+import { COLORS } from '../utils/colors';
 import useIsMobile from "../hooks/useIsMobile";
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaDiscord } from "react-icons/fa";
-import { MdOutlineWallet } from "react-icons/md";
 
 const HeaderWrapper = styled.div`
   width: 100%;

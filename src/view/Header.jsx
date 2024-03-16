@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Flex from "../components/Flex";
-import Image from "next/image";
 
 const HeaderWrapper = styled.div`
   width: 100%;
