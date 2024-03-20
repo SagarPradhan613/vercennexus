@@ -1,10 +1,10 @@
 "use client";
 
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import "./globals.css";
 import Favicon from '../../public/favicon1.png' 
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   return (
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
           content="With a seamless and secure Web3 platform, Nexus is redefining the excellence of community backed launches with its perfectly crafted tools."
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

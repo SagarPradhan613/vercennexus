@@ -20,6 +20,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import useIsTab from "@/hooks/useIsTab";
 import Heading from "../components/Heading";
 import InviteModal from './InviteModal'
+import styled from "styled-components";
 
 const style = {
   position: 'absolute',
@@ -401,6 +402,42 @@ const SignIn = () => {
   const handleOpenInvite = () => setOpenInvite(true);
   const handleCloseInvite = () => setOpenInvite(false);
 
+  const WhiteArrow = styled.div`
+  position:absolute;
+  transform: rotate(90deg) translateY(0);
+  `
+
+  const BlackArrow = styled.div`
+  position:absolute;
+  transform: rotate(90deg) translateX(-50px);
+  `
+
+  const NewIconButton = styled.div`
+  height:36px;
+  position:relative;
+  width:36px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transition:all 1s ease-in-out;
+  background-color:#0075FF;
+  overflow:hidden;
+  &:hover {
+    background-color: white;
+    ${WhiteArrow} {
+      transform: rotate(90deg) translateX(50px);
+      transition: all 0.6s ease-in-out;
+    }
+    ${BlackArrow} {
+      transform: rotate(90deg) translateX(0px);
+      transition: all 0.6s ease-in-out;
+    }
+  }
+  `
+
+
+
   return (
 
     <Box border={'1px solid white'} p={'1rem'} borderRadius={'20px'} display={'flex'} justifyContent={'center'} alignItems={'center'} flexDirection={'column'}>
@@ -416,7 +453,7 @@ const SignIn = () => {
             <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
               {profile && (
                 <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={'.5rem'} height={undefined} z={undefined} left={undefined}>
-                  <RegisterButton  justify={undefined} onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
+                  <RegisterButton justify={undefined} onClick={logout} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined}>
                     Disconnect
                     <IconButton
                       bg={COLORS.blue}
@@ -467,14 +504,28 @@ const SignIn = () => {
               <Flex justify={undefined} items={undefined} direction={undefined} maxWidth={undefined} m={undefined} p={undefined} bg={undefined} mt={undefined} mb={undefined} pt={undefined} pb={undefined} width={undefined} gap={undefined} height={undefined} z={undefined} left={undefined}>
                 <RegisterButton onClick={handleOpenInvite} bg={undefined} color={undefined} fullWidth={undefined} bordercolor={undefined} ref={undefined} justify={undefined}>
                   Register Now
-                  <IconButton
+                  {/* <IconButton
                     bg={COLORS.blue}
                     color={COLORS.white}
                     width="40px"
                     icon="20px"
                     toLeft={false} hoverbg={undefined} hovercolor={undefined} onClick={undefined}                    >
                     <FaArrowDown />
-                  </IconButton>
+                  </IconButton> */}
+                  <NewIconButton
+                  >
+                    <BlackArrow>
+                      <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.1212 8.96297C14.5117 8.57244 14.5117 7.93928 14.1212 7.54875L7.75721 1.18479C7.36668 0.794268 6.73352 0.794268 6.34299 1.18479C5.95247 1.57532 5.95247 2.20848 6.34299 2.59901L11.9998 8.25586L6.343 13.9127C5.95247 14.3032 5.95247 14.9364 6.343 15.3269C6.73352 15.7175 7.36668 15.7175 7.75721 15.3269L14.1212 8.96297ZM1.47365 7.25586C0.921364 7.25586 0.473649 7.70358 0.473649 8.25586C0.473649 8.80815 0.921364 9.25586 1.47365 9.25586L1.47365 7.25586ZM13.4141 7.25586L1.47365 7.25586L1.47365 9.25586L13.4141 9.25586L13.4141 7.25586Z" fill="black" />
+                      </svg>
+                    </BlackArrow>
+                    <WhiteArrow>
+                      <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.1212 8.96297C14.5117 8.57244 14.5117 7.93928 14.1212 7.54875L7.75721 1.18479C7.36668 0.794268 6.73352 0.794268 6.34299 1.18479C5.95247 1.57532 5.95247 2.20848 6.34299 2.59901L11.9998 8.25586L6.343 13.9127C5.95247 14.3032 5.95247 14.9364 6.343 15.3269C6.73352 15.7175 7.36668 15.7175 7.75721 15.3269L14.1212 8.96297ZM1.47365 7.25586C0.921364 7.25586 0.473649 7.70358 0.473649 8.25586C0.473649 8.80815 0.921364 9.25586 1.47365 9.25586L1.47365 7.25586ZM13.4141 7.25586L1.47365 7.25586L1.47365 9.25586L13.4141 9.25586L13.4141 7.25586Z" fill="white" />
+                      </svg>
+                    </WhiteArrow>
+                  </NewIconButton>
+
                 </RegisterButton>
               </Flex>
             )}

@@ -91,14 +91,14 @@ const Landing = () => {
         cursor?.setAttribute(
           "style",
           "top: " +
-            (e.pageY - 20) +
-            "px; left: " +
-            (e.pageX - 20) +
-            "px; background-color: " +
-            (e.target.tagName.toLowerCase() === "button"
-              ? "#0075FF"
-              : "transparent") +
-            ";"
+          (e.pageY - 20) +
+          "px; left: " +
+          (e.pageX - 20) +
+          "px; background-color: " +
+          (e.target.tagName.toLowerCase() === "button"
+            ? "#0075FF"
+            : "transparent") +
+          ";"
         );
       }
     });
@@ -152,13 +152,13 @@ const Landing = () => {
           >
             <div
               className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
-             
+
             >
               <Heading lineHeight={"80px"} isGradient={true} >Nexus</Heading>
             </div>
             <div
               className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
-           
+
             >
               <Heading lineHeight={"115px"} isGradient={true} >Leading</Heading>
             </div>
@@ -173,8 +173,8 @@ const Landing = () => {
                   isMobile
                     ? "0px 0px 0px 60px"
                     : isTab
-                    ? "0px 0px 0px 60px"
-                    : "0px"
+                      ? "0px 0px 0px 60px"
+                      : "0px"
                 }
               >
                 <Heading lineHeight={"80px"} isGradient={true} >Launches</Heading>
