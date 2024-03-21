@@ -56,15 +56,20 @@ const Navbar = styled.div`
    margin-left:-2rem;
   }
 `
-const LeaderBoard = styled.div`
+const LeaderBoard = styled.a`
   background-color:black;
   color:white;
   font-weight:600;
+  transition:all;
+  transition-duration:300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
  
+  &:hover {
+    background-color: #0075FF;
+  }
   
   
-  border-top-left-radius:36px;
-  border-bottom-left-radius:36px;
+  border-radius:36px;
 
   @media only screen and (max-width: 760px) {
     padding:0.5rem 1rem;
@@ -82,11 +87,19 @@ const LeaderBoard = styled.div`
     font-size:16px;
   }
 `
-const AirDrop = styled.div`
+const AirDrop = styled.a`
 background-color:black;
   color:white;
   font-weight:600;
   font-size:16px;
+  border-radius:36px;
+  transition:all;
+  transition-duration:300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+ 
+  &:hover {
+    background-color: #0075FF;
+  }
 
   @media only screen and (max-width: 760px) {
     padding:0.5rem 0rem;
@@ -104,14 +117,20 @@ background-color:black;
     font-size:16px;
   }
 `
-const About = styled.div`
-background-color:black;
+const About = styled.a`
+background-color: ${props => props.pathname === '/about' ? '#0075FF' : 'black'};
 color:white;
 font-weight:600;
+transition:all;
+transition-duration:300ms;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+&:hover {
+  background-color: #0075FF;
+}
 
 
-border-top-right-radius:36px;
-border-bottom-right-radius:36px;
+border-radius:36px;
 
 @media only screen and (max-width: 760px) {
   padding:0.5rem 1rem;
@@ -129,7 +148,7 @@ border-bottom-right-radius:36px;
   font-size:16px;
 }
 `
-const Header = () => {
+const Header = ({pathname}) => {
   return (
     <HeaderWrapper>
       <BgWrapp>
@@ -140,13 +159,13 @@ const Header = () => {
           </IconWrapper>
         </Background>
         <Navbar>
-          <LeaderBoard>
+          <LeaderBoard href="/leaderboard">
             Leaderboard
           </LeaderBoard>
-          <AirDrop>
+          <AirDrop href="/airdrop">
             AirDrop
           </AirDrop>
-          <About>
+          <About pathname={pathname} href="/about">
             About
           </About>
 

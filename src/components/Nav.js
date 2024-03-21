@@ -1,12 +1,14 @@
 'use client'
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect,useRef } from "react"
 import styled from "styled-components"
 import { usePathname } from 'next/navigation'
+
 
 const Nav = () => {
     const pathname = usePathname();
     const [isActive, setIsActive] = useState(false);
+  
 
 
 
@@ -18,10 +20,12 @@ const Nav = () => {
         }
     }, [isActive]);
 
+    
+
     return (
         <>
             <div className="flex items-start">
-                <div className="ml-[8%]  resp-head-logo hidden md:flex">
+                <div className="ml-[8%]   resp-head-logo hidden md:flex">
                     <img src="/Images/nexus.png" className="mt-6 w-full h-full"></img>
                 </div>
                 <div className="ml-[14%] max-w-[71px] flex md:hidden">
@@ -29,15 +33,15 @@ const Nav = () => {
                 </div>
 
                 <div className="lg:flex hidden h-[60px] relative z-50  bg-black justify-between text-white nav-resp-margin ml-[5vw] mt-6 rounded-[28px] ">
-                    <div className={`${pathname === '/leaderboard' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
+                    <a href="/leaderboard" className={`${pathname === '/leaderboard' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
                         <p className="font-semibold text-base">Leaderboard</p>
-                    </div>
-                    <div className={`${pathname === '/airdrop' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
+                    </a>
+                    <a href="/airdrop" className={`${pathname === '/airdrop' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
                         <p className="font-semibold text-base">Airdrop</p>
-                    </div>
-                    <div className={`${pathname === '/about' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
+                    </a>
+                    <a href="/about" className={`${pathname === '/about' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
                         <p className="font-semibold text-base">About</p>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div onClick={() => { setIsActive(true) }} className="lg:hidden z-50 flex right-8 top-10 justify-end absolute">
@@ -80,7 +84,7 @@ const Nav = () => {
 
 
                             <div className="mt-10">
-                                <div className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
+                                <a href="/" className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
                                     <div>
                                         <p className="font-semibold text-xl text-white">Launchpad</p>
                                     </div>
@@ -89,8 +93,8 @@ const Nav = () => {
                                             <path className="hover-white" d="M9.99566 7.02301C10.2886 6.73011 10.2886 6.25524 9.99566 5.96235L5.22269 1.18938C4.9298 0.896482 4.45492 0.896482 4.16203 1.18938C3.86914 1.48227 3.86914 1.95714 4.16203 2.25004L8.40467 6.49268L4.16203 10.7353C3.86914 11.0282 3.86914 11.5031 4.16203 11.796C4.45493 12.0889 4.9298 12.0889 5.22269 11.796L9.99566 7.02301ZM1.09984 5.74268C0.685626 5.74268 0.349839 6.07846 0.349839 6.49268C0.349839 6.90689 0.685626 7.24268 1.09984 7.24268L1.09984 5.74268ZM9.46533 5.74268L1.09984 5.74268L1.09984 7.24268L9.46533 7.24268L9.46533 5.74268Z" fill="white" />
                                         </svg>
                                     </div>
-                                </div>
-                                <div className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
+                                </a>
+                                <a href="/leaderboard" className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
                                     <div>
                                         <p className="font-semibold text-xl text-white">Leaderboard</p>
                                     </div>
@@ -99,8 +103,8 @@ const Nav = () => {
                                             <path className="hover-white" d="M9.99566 7.02301C10.2886 6.73011 10.2886 6.25524 9.99566 5.96235L5.22269 1.18938C4.9298 0.896482 4.45492 0.896482 4.16203 1.18938C3.86914 1.48227 3.86914 1.95714 4.16203 2.25004L8.40467 6.49268L4.16203 10.7353C3.86914 11.0282 3.86914 11.5031 4.16203 11.796C4.45493 12.0889 4.9298 12.0889 5.22269 11.796L9.99566 7.02301ZM1.09984 5.74268C0.685626 5.74268 0.349839 6.07846 0.349839 6.49268C0.349839 6.90689 0.685626 7.24268 1.09984 7.24268L1.09984 5.74268ZM9.46533 5.74268L1.09984 5.74268L1.09984 7.24268L9.46533 7.24268L9.46533 5.74268Z" fill="white" />
                                         </svg>
                                     </div>
-                                </div>
-                                <div className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
+                                </a>
+                                <a href="/airdrop" className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
                                     <div>
                                         <p className="font-semibold text-xl text-white">Airdrop</p>
                                     </div>
@@ -109,8 +113,8 @@ const Nav = () => {
                                             <path className="hover-white" d="M9.99566 7.02301C10.2886 6.73011 10.2886 6.25524 9.99566 5.96235L5.22269 1.18938C4.9298 0.896482 4.45492 0.896482 4.16203 1.18938C3.86914 1.48227 3.86914 1.95714 4.16203 2.25004L8.40467 6.49268L4.16203 10.7353C3.86914 11.0282 3.86914 11.5031 4.16203 11.796C4.45493 12.0889 4.9298 12.0889 5.22269 11.796L9.99566 7.02301ZM1.09984 5.74268C0.685626 5.74268 0.349839 6.07846 0.349839 6.49268C0.349839 6.90689 0.685626 7.24268 1.09984 7.24268L1.09984 5.74268ZM9.46533 5.74268L1.09984 5.74268L1.09984 7.24268L9.46533 7.24268L9.46533 5.74268Z" fill="white" />
                                         </svg>
                                     </div>
-                                </div>
-                                <div className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
+                                </a>
+                                <a href="/about" className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
                                     <div>
                                         <p className="font-semibold text-xl text-white">About</p>
                                     </div>
@@ -119,7 +123,7 @@ const Nav = () => {
                                             <path className="hover-white" d="M9.99566 7.02301C10.2886 6.73011 10.2886 6.25524 9.99566 5.96235L5.22269 1.18938C4.9298 0.896482 4.45492 0.896482 4.16203 1.18938C3.86914 1.48227 3.86914 1.95714 4.16203 2.25004L8.40467 6.49268L4.16203 10.7353C3.86914 11.0282 3.86914 11.5031 4.16203 11.796C4.45493 12.0889 4.9298 12.0889 5.22269 11.796L9.99566 7.02301ZM1.09984 5.74268C0.685626 5.74268 0.349839 6.07846 0.349839 6.49268C0.349839 6.90689 0.685626 7.24268 1.09984 7.24268L1.09984 5.74268ZM9.46533 5.74268L1.09984 5.74268L1.09984 7.24268L9.46533 7.24268L9.46533 5.74268Z" fill="white" />
                                         </svg>
                                     </div>
-                                </div>
+                                </a>
                                 <div className="flex model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out rounded-[36px] px-3 pl-6 py-3 w-full justify-between">
                                     <div>
                                         <p className="font-semibold text-xl text-white">FAQ</p>

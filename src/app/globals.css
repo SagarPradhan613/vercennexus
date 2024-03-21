@@ -151,7 +151,39 @@ body {
   font-family: "SEN bold", sans-serif;
 }
 
+.footergradient-bg {
+  animation: rotateGradient 10s linear infinite;
+  background: linear-gradient(115.03deg,
+      #ffffff 0.5%,
+      #0075ff 10.97%,
+      rgba(0, 70, 153, 0.25) 100.25%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1rem;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 150% 150%;
+}
 
+@media screen and (max-width:400px) {
+  .res-mob-footer-social-gap {
+    gap: 0.8rem;
+  }
+
+  .res-mob-footer-ml {
+    margin-left: 2rem;
+  }
+
+  .res-headlogo-ml {
+    margin-left: 13% !important;
+  }
+
+}
 
 @media screen and (min-width:720px) {
   .newgradient-background {
@@ -174,6 +206,8 @@ body {
   }
 }
 
+
+
 @media screen and (max-width:720px) {
   .newgradient-background {
     background-image: url('/Images/aboutmainmob.png');
@@ -184,25 +218,38 @@ body {
 }
 
 
-.gradient-background {
-  animation: rotateGradient 10s linear infinite;
-  min-height: 95vh;
-  background: linear-gradient(115.03deg,
-      #ffffff 0.5%,
-      #0075ff 10.97%,
-      rgba(0, 70, 153, 0.25) 100.25%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 1rem;
-  border-radius: 20px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: 150% 150%;
+@media screen and (min-width:720px) {
+  .gradient-background {
+    animation: rotateGradient 10s linear infinite;
+    min-height: 95vh;
+    background: linear-gradient(115.03deg,
+        #ffffff 0.5%,
+        #0075ff 10.97%,
+        rgba(0, 70, 153, 0.25) 100.25%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 1rem;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 150% 150%;
+  }
 }
+
+@media screen and (max-width:720px) {
+  .gradient-background {
+    background-image: url('/Images/gb-mobile.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 1rem;
+  }
+}
+
+
 
 @keyframes rotateGradient {
   0% {
@@ -356,19 +403,32 @@ body {
   gap: 1rem;
 }
 
-.working-step-box{
+.working-step-box {
   background: linear-gradient(180deg, #191F25 -9.77%, #5E748B 182.66%);
 
 }
 
-.l2-box{
-  background: linear-gradient(180deg, rgba(25, 31, 37, 0.18) -130.48%, rgba(94, 116, 139, 0.18) 182.66%);
- 
-}
-.who-we-are-steps{
+.l2-box {
   background: linear-gradient(180deg, rgba(25, 31, 37, 0.18) -130.48%, rgba(94, 116, 139, 0.18) 182.66%);
 
 }
+
+.who-we-are-steps {
+  background: linear-gradient(180deg, rgba(25, 31, 37, 0.18) -130.48%, rgba(94, 116, 139, 0.18) 182.66%);
+  transition: all;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.7; /* Initial opacity */
+}
+
+.who-we-are-steps:hover {
+  /* background: linear-gradient(0deg, rgba(25, 31, 37, 0.18) -130.48%, rgba(94, 116, 139, 0.28) 182.66%); */
+  opacity: 1; /* Opacity on hover */
+  
+}
+
+
+
 .MuiInputBase-formControl {
   border-radius: 13px;
   padding: 0px 3px;
@@ -405,12 +465,19 @@ body {
   content: "";
   position: absolute;
   top: 0;
+  opacity: 1;
   left: 0;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 40;
   border-radius: 19px;
+  transition: opacity 300ms ease;
+
+}
+
+.relative.airdrop-steps:hover::after {
+  opacity: 0;
 }
 
 /* reponsive */
@@ -472,16 +539,30 @@ body {
     display: none;
   }
 
-  .responsive-flex-leaderboard {
+  /* .responsive-flex-leaderboard {
     flex-direction: column !important;
+  } */
+  .resp-flex-col-leaderboard-head {
+    flex-direction: column !important;
+    align-items: start !important;
+    gap: 1rem !important;
   }
 
   .responsive-leaderboard-width {
-    width: 100% !important;
+    width: 60% !important;
+  }
+
+  .responsive-table-text {
+    font-size: 12px !important;
   }
 
   .responsive-recent-width {
-    width: 100% !important;
+    width: 40% !important;
+  }
+
+  .res-airdrop-box {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
 }
 
@@ -504,9 +585,158 @@ body {
   }
 }
 
+
+@media screen and (min-width:1900px) {
+  .resp-head-logo {
+    margin-left: 9%;
+  }
+}
+
+@media screen and (min-width:2550px) {
+  .resp-head-logo {
+    margin-left: 10%;
+  }
+}
+
 .model-nav:hover .hover-white {
   fill: black !important;
   transition: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rotate-360 {
+  transition: transform 0.5s ease-in-out;
+}
+
+.timeline-box:hover .rotate-360 {
+  transform: rotate(360deg);
+}
+
+/* animations */
+.hideAnimation {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 2s;
+}
+
+
+
+.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+.left-to-right {
+  animation: slideFromLeft 1s ease-out;
+
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.right-to-left {
+  animation: slideFromRight 1s ease-out;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(40%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes delayAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.delayShow {
+  animation: delayAnimation 2s ease-out;
+}
+
+
+.slowly-hidden {
+  animation: delayAnimation 2s ease-out;
+}
+
+.slowly-visible {
+  opacity: 0;
+  transition: all 2s ease-in-out;
+}
+
+.slowly-visible-icons {
+  opacity: 0;
+  transition: all 2s ease-in-out;
+}
+
+.move-up {
+  transition: transform 0.3s ease-in-out;
+  /* Transition property for smooth movement */
+}
+
+.move-up:hover {
+  transform: translateY(-10px);
+  /* Moves the element 10px upwards on hover */
+}
+
+.individual-rotate-360 {
+  transition: transform 0.5s ease;
+}
+
+.individual-rotate-360:hover {
+  transform: rotate(360deg);
+}
+
+
+.bottom-to-top {
+  animation: slideFromBottom 1s ease-out;
+
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hideTopAnimation {
+  opacity: 0;
+}
+
+.calendly-popup-close {
+  display: none !important;
+}
+
+
+@media screen and (max-height:1080px) {
+  .resp-pb-airdrop {
+    padding-bottom: 6rem !important;
+  }
 }
