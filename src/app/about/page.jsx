@@ -698,7 +698,7 @@ const About = () => {
             {/* second section */}
             <div className="w-full flex lg:flex-row flex-col lg:px-20 lg:py-20  px-10 py-6">
                 <div className="lg:w-[57%] lg:px-10 lg:text-left text-center w-full">
-                    <p className="font-bold text-2xl leading-7 grad-text-gray lg:leading-[53px] text-white lg:text-5xl">Other L2s don't have yield, so the value of your assets depreciate over time.</p>
+                    <p className="font-bold text-2xl leading-7 grad-text-gray lg:leading-[53px] text-white lg:text-5xl">Other L2s don`&apos;`t have yield, so the value of your assets depreciate over time.</p>
 
                     <div className="w-full slowly-visible mt-6 flex flex-col lg:hidden">
                         <img src="/Images/graph.png" className="w-full h-full"></img>
@@ -707,8 +707,8 @@ const About = () => {
                     <p className="text-white mt-10 font-bold text-base leading-5 lg:leading-9 lg:text-2xl grad-text-gray">Nexus is the first L2 that incorporates native yield. Your balance on Blast compounds automatically.
                     </p>
 
-                    <p className="font-bold text-sm lg:text-lg text-white opacity-50 mt-6 lg:mt-14 grad-text-gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
-                    <p className="font-bold text-sm lg:text-lg text-white opacity-50 mt-6 grad-text-gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+                    <p className="font-bold text-sm lg:text-lg text-white opacity-50 mt-6 lg:mt-14 grad-text-gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
+                    <p className="font-bold text-sm lg:text-lg text-white opacity-50 mt-6 grad-text-gray">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer </p>
                 </div>
 
                 <div className="w-[43%] slowly-visible p-6 lg:flex flex-col hidden">
@@ -803,7 +803,7 @@ const About = () => {
                 </div>
 
                 <div className="mt-2 text-center flex w-full justify-center">
-                    <p className="text-white lg:w-[60%]  lg:text-base text-sm font-bold opacity-50">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+                    <p className="text-white lg:w-[60%]  lg:text-base text-sm font-bold opacity-50">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer </p>
                 </div>
             </div>
 
@@ -813,7 +813,7 @@ const About = () => {
                     <p className="text-white grad-text-gray font-bold lg:text-6xl text-2xl">Why a new L2?</p>
                 </div>
                 <div className="w-full text-center justify-center flex">
-                    <p className="lg:text-2xl text-sm opacity-50 lg:opacity-60 text-white mt-3 lg:mt-6 ">The risk-free rate on existing L2s is 0%. It's time to change that.</p>
+                    <p className="lg:text-2xl text-sm opacity-50 lg:opacity-60 text-white mt-3 lg:mt-6 ">The risk-free rate on existing L2s is 0%. It`&apos;`s time to change that.</p>
                 </div>
 
                 <div className="flex w-full lg:px-16 mt-6 lg:mt-24 lg:flex-row flex-col gap-6 lg:gap-10 ">
