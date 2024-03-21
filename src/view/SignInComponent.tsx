@@ -58,8 +58,8 @@ const SignIn = () => {
   const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
   const API_URL = process.env.NEXT_PUBLIC_API_URL
   const searchParams = useSearchParams()
-  const refId = searchParams.get('refId');
-  const adminOverride = searchParams.get('adminOverride');
+  const refId = searchParams ? searchParams.get('refId') : null;
+  const adminOverride = searchParams ? searchParams.get('adminOverride') : null;
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [otp, setOtp] = React.useState("");
   const [inviteError, setInviteError] = React.useState("");
