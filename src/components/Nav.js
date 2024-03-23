@@ -28,18 +28,18 @@ const Nav = () => {
                 <div className="ml-[8%]   resp-head-logo hidden md:flex">
                     <img src="/Images/nexus.png" className="mt-6 w-full h-full"></img>
                 </div>
-                <div className="ml-[14%] max-w-[71px] flex md:hidden">
-                    <img src="/Images/mobnexus.png" className="mt-6 w-full h-full"></img>
+                <div className="ml-[14.5%] max-w-[71px] flex md:hidden">
+                    <img src="/Images/mobnexus.png" className="mt-5 w-full h-full"></img>
                 </div>
 
-                <div className="lg:flex hidden h-[60px] relative z-50  bg-black justify-between text-white nav-resp-margin ml-[5vw] mt-6 rounded-[28px] ">
-                    <a href="/leaderboard" className={`${pathname === '/leaderboard' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
+                <div className="lg:flex hidden h-[60px] relative z-50  bg-black justify-between text-white nav-resp-margin ml-[5vw] mt-6 p-[10px] pr-[15px] rounded-[28px] ">
+                    <a href="/leaderboard" className={`${pathname === '/leaderboard' ? 'px-8 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-8 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
                         <p className="font-semibold text-base">Leaderboard</p>
                     </a>
-                    <a href="/airdrop" className={`${pathname === '/airdrop' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
+                    <a href="/airdrop" className={`${pathname === '/airdrop' ? 'px-8 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-8 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
                         <p className="font-semibold text-base">Airdrop</p>
                     </a>
-                    <a href="/about" className={`${pathname === '/about' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
+                    <a href="/about" className={`${pathname === '/about' ? 'px-8 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-8 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>
                         <p className="font-semibold text-base">About</p>
                     </a>
                 </div>

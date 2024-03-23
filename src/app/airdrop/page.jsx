@@ -37,10 +37,10 @@ const Airdrop = () => {
                             {/* <Nav /> */}
 
                             <div className="flex items-start">
-                                <div className="ml-[8%] resp-head-logo hidden md:flex">
+                                <div className="ml-[8%] resp-head-logo hidden lg:flex">
                                     <img src="/Images/nexus.png" className="mt-6 w-full h-full"></img>
                                 </div>
-                                <div className="ml-[15%] res-headlogo-ml py-3   max-w-[71px] flex md:hidden">
+                                <div className="ml-[15%] res-headlogo-ml py-3   max-w-[71px] flex lg:hidden">
                                     {/* <img src="/Images/mobnexus.png" className="mt-6 w-full h-full"></img> */}
                                     <svg width="72" height="10" viewBox="0 0 72 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M62.5324 8.83639C62.2732 8.83639 62.063 8.62623 62.063 8.36698V7.76069C62.063 7.50112 62.2737 7.29082 62.5332 7.29128L68.9008 7.30235C69.2496 7.30235 69.5152 7.22307 69.6975 7.06451C69.8878 6.89803 69.9829 6.63245 69.9829 6.26776C69.9829 5.90308 69.8878 5.64146 69.6975 5.48291C69.5152 5.31642 69.2496 5.23318 68.9008 5.23318H64.6435C63.7635 5.23318 63.0778 5.02309 62.5862 4.60291C62.1026 4.17481 61.8608 3.54851 61.8608 2.72401C61.8608 1.89951 62.1026 1.27718 62.5862 0.857C63.0778 0.428896 63.7635 0.214844 64.6435 0.214844H70.8573C71.1165 0.214844 71.3267 0.425007 71.3267 0.684257V1.2905C71.3267 1.55009 71.116 1.76039 70.8564 1.75991L64.8457 1.74888C64.5048 1.74888 64.2392 1.82816 64.0489 1.98672C63.8587 2.13735 63.7635 2.38311 63.7635 2.72401C63.7635 3.06491 63.8587 3.31464 64.0489 3.47319C64.2392 3.62382 64.5048 3.69914 64.8457 3.69914H69.1029C69.9829 3.69914 70.6647 3.91715 71.1483 4.35319C71.6399 4.78129 71.8856 5.41948 71.8856 6.26776C71.8856 7.10812 71.6399 7.74631 71.1483 8.18234C70.6647 8.61837 69.9829 8.83639 69.1029 8.83639H62.5324Z" fill="white" />
@@ -237,8 +237,8 @@ const Airdrop = () => {
 
                                 <div>
                                     <div className="flex mt-4 lg:mb-20 gap-2 w-full lg:gap-6">
-                                        <div className="bg-white model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out resp-btn-width-register items-center lg:pl-7 lg:gap-6 pl-4 gap-4 flex justify-between p-2 rounded-[36px]">
-                                            <p className="font-semibold group-hover:text-white transition-all duration-300 ease-in-out whitespace-nowrap text-sm lg:text-base text-black">Register now</p>
+                                        <div className="bg-white model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out resp-btn-width-register items-center lg:pl-7 res-padding-btn lg:gap-6 pl-6 gap-4 flex justify-between p-2 rounded-[36px]">
+                                            <p className="font-semibold group-hover:text-white transition-all duration-300 ease-in-out whitespace-nowrap text-sm poppins lg:text-base text-black">Register now</p>
 
                                             <div className="bg-[#0075FF] group-hover:bg-[white] transition-all duration-300 ease-in-out flex justify-center items-center rounded-[50%] h-[34px] w-[34px] lg:h-[36px] lg:w-[36px]">
                                                 <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">

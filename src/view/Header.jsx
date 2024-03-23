@@ -12,7 +12,7 @@ const HeaderWrapper = styled.div`
 
 const BgWrapp = styled.div`
   position: absolute;
-  top: -2px;
+  top: -12px;
   left: 5%;
   display:flex;
   align-items:center;
@@ -51,7 +51,9 @@ const Navbar = styled.div`
   display:flex;
   align-items:center;
   margin-left:-3.5rem;
-  margin-top:1rem;
+  padding:10px;
+  padding-right:15px;
+  margin-top:1.5rem;
   @media only screen and (max-width: 760px) {
    margin-left:-2rem;
   }
@@ -83,7 +85,7 @@ const LeaderBoard = styled.a`
   }
   
   @media only screen and (min-width:1024px){
-    padding:1rem 2rem;
+    padding:0.5rem 2rem;
     font-size:16px;
   }
 `
@@ -113,7 +115,7 @@ background-color:black;
   }
   
   @media only screen and (min-width:1024px){
-    padding:1rem 2rem;
+    padding:0.5rem 2rem;
     font-size:16px;
   }
 `
@@ -144,7 +146,7 @@ border-radius:36px;
 }
 
 @media only screen and (min-width:1024px){
-  padding:1rem 2rem;
+  padding:0.5rem 2rem;
   font-size:16px;
 }
 `

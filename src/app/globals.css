@@ -115,6 +115,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 @font-face {
+  font-family: "Poppins-Regular";
+  src: url('/fonts/Poppins-Regular.ttf');
+}
+
+.poppins {
+  font-family: Poppins-Regular !important;
+}
+
+@font-face {
   font-family: "Sen-Regular";
   src: url('/fonts/Sen-Regular.woff2');
 }
@@ -185,7 +194,7 @@ body {
 
 }
 
-@media screen and (min-width:720px) {
+@media screen and (min-width:1024px) {
   .newgradient-background {
     animation: rotateGradient 10s linear infinite;
     background: linear-gradient(115.03deg,
@@ -208,7 +217,7 @@ body {
 
 
 
-@media screen and (max-width:720px) {
+@media screen and (max-width:1024px) {
   .newgradient-background {
     background-image: url('/Images/aboutmainmob.png');
     background-repeat: no-repeat;
@@ -385,18 +394,40 @@ body {
   }
 }
 
-.grad-text {
-  background: -webkit-linear-gradient(right, #559ff5c9 1%, #ffffff 90%);
+@media screen and (min-width:1080px) {
+  .grad-text {
+    background: -webkit-linear-gradient(right, #559ff5c9 1%, #ffffff 90%);
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
-.grad-text-gray {
-  background: -webkit-linear-gradient(right, #3b3b3bc9 1%, #ffffff 50%);
+@media screen and (max-width :1080px) {
+  .grad-text {
+    background: -webkit-linear-gradient(right, #559ff5c9 1%, #ffffff 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+@media screen and (min-width:1080px) {
+  .grad-text-gray {
+    background: -webkit-linear-gradient(right, #3b3b3bc9 1%, #ffffff 50%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@media screen and (max-width :1080px) {
+  .grad-text-gray {
+    background: -webkit-linear-gradient(right, #3b3b3bc9 1%, #ffffff 20%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .MuiOtpInput-Box {
@@ -418,13 +449,15 @@ body {
   transition: all;
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0.7; /* Initial opacity */
+  opacity: 0.7;
+  /* Initial opacity */
 }
 
 .who-we-are-steps:hover {
   /* background: linear-gradient(0deg, rgba(25, 31, 37, 0.18) -130.48%, rgba(94, 116, 139, 0.28) 182.66%); */
-  opacity: 1; /* Opacity on hover */
-  
+  opacity: 1;
+  /* Opacity on hover */
+
 }
 
 
@@ -532,7 +565,8 @@ body {
   }
 
   .responsive-footer-space {
-    padding-bottom: 5rem !important;
+    padding-bottom: 3rem !important;
+    margin-bottom: 2rem !important;
   }
 
   .responsive-social-text-hide {
@@ -734,9 +768,63 @@ body {
   display: none !important;
 }
 
+@media screen and (min-width:1280px) {
+  .res-about-top-right {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
 
 @media screen and (max-height:1080px) {
   .resp-pb-airdrop {
-    padding-bottom: 6rem !important;
+    padding-bottom: 5rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .res-padding-btn {
+    padding-left: 1rem !important;
+  }
+}
+
+@media screen and (min-height:1080px) {
+  .responsive-leaderboard-table-height {
+    height: 72vh;
+  }
+
+}
+
+@media screen and (max-height:1080px) {
+  .responsive-leaderboard-table-height {
+    margin-bottom: 3rem !important;
+  }
+}
+
+@media screen and (min-width:500px) and (max-width:767px) {
+  .res-headlogo-ml {
+    margin-left: 20% !important;
+  }
+}
+
+@media screen and (min-width:767px) and (max-width:1024px) {
+  .res-headlogo-ml {
+    margin-left: 24% !important;
+  }
+}
+
+@media screen and (min-width:520px) and (max-width:1024px) {
+  .res-about-mob-head {
+    margin-left: 20% !important;
+    padding-top: 0.5rem !important;
+  }
+
+  .res-about-mob-modal-btn {
+    top: 1rem !important;
+    right: 3rem !important;
+  }
+
+  .res-about-mob-top-footer {
+    margin-top: 1rem !important;
   }
 }

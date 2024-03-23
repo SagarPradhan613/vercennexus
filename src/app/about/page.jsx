@@ -116,6 +116,9 @@ const IconWrapper = styled.div`
   transform: translate(-50%, -50%);
   @media screen and (max-width: 520px) {
     left: 55%;
+  };
+  @media screen and (min-width:520px) and (max-width:1024px){
+margin-top:1rem;
   }
 `;
 
@@ -294,11 +297,11 @@ const About = () => {
                     {/* <Nav /> */}
 
                     <div className="flex items-start">
-                        <div className="ml-[8%] resp-head-logo hidden md:flex">
+                        <div className="ml-[8%] resp-head-logo hidden lg:flex">
                             <img src="/Images/nexus.png" className="mt-6 w-full h-full"></img>
                         </div>
-                        <div className="ml-[17%] py-3   max-w-[71px] flex md:hidden">
-                            {/* <img src="/Images/mobnexus.png" className="mt-6 w-full h-full"></img> */}
+                        <div className="ml-[17%] py-3 res-about-mob-head  max-w-[71px] flex lg:hidden">
+                           
                             <svg width="72" height="10" viewBox="0 0 72 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M62.5324 8.83639C62.2732 8.83639 62.063 8.62623 62.063 8.36698V7.76069C62.063 7.50112 62.2737 7.29082 62.5332 7.29128L68.9008 7.30235C69.2496 7.30235 69.5152 7.22307 69.6975 7.06451C69.8878 6.89803 69.9829 6.63245 69.9829 6.26776C69.9829 5.90308 69.8878 5.64146 69.6975 5.48291C69.5152 5.31642 69.2496 5.23318 68.9008 5.23318H64.6435C63.7635 5.23318 63.0778 5.02309 62.5862 4.60291C62.1026 4.17481 61.8608 3.54851 61.8608 2.72401C61.8608 1.89951 62.1026 1.27718 62.5862 0.857C63.0778 0.428896 63.7635 0.214844 64.6435 0.214844H70.8573C71.1165 0.214844 71.3267 0.425007 71.3267 0.684257V1.2905C71.3267 1.55009 71.116 1.76039 70.8564 1.75991L64.8457 1.74888C64.5048 1.74888 64.2392 1.82816 64.0489 1.98672C63.8587 2.13735 63.7635 2.38311 63.7635 2.72401C63.7635 3.06491 63.8587 3.31464 64.0489 3.47319C64.2392 3.62382 64.5048 3.69914 64.8457 3.69914H69.1029C69.9829 3.69914 70.6647 3.91715 71.1483 4.35319C71.6399 4.78129 71.8856 5.41948 71.8856 6.26776C71.8856 7.10812 71.6399 7.74631 71.1483 8.18234C70.6647 8.61837 69.9829 8.83639 69.1029 8.83639H62.5324Z" fill="white" />
                                 <path d="M53.7045 8.8365C52.8404 8.8365 52.1586 8.72551 51.6592 8.50353C51.1597 8.27363 50.803 7.92876 50.5889 7.46895C50.3748 7.00913 50.2678 6.4304 50.2678 5.73275V0.743827C50.2678 0.484577 50.478 0.274414 50.7372 0.274414H51.7011C51.9603 0.274414 52.1705 0.484577 52.1705 0.743827V5.73275C52.1705 6.33526 52.3092 6.74751 52.5867 6.96949C52.8721 7.18354 53.3518 7.29057 54.0256 7.29057H56.3207C56.9946 7.29057 57.4703 7.18354 57.7478 6.96949C58.0332 6.74751 58.1759 6.33526 58.1759 5.73275V0.743827C58.1759 0.484577 58.386 0.274414 58.6453 0.274414H59.6091C59.8684 0.274414 60.0785 0.484577 60.0785 0.743827V5.73275C60.0785 6.4304 59.9715 7.00913 59.7575 7.46895C59.5434 7.92876 59.1867 8.27363 58.6872 8.50353C58.1877 8.72551 57.506 8.8365 56.6418 8.8365H53.7045Z" fill="white" />
@@ -325,7 +328,7 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                    <div onClick={() => { setIsActive(true) }} className="lg:hidden z-50 flex right-7 top-8 justify-end absolute">
+                    <div onClick={() => { setIsActive(true) }} className="lg:hidden res-about-mob-modal-btn z-50 flex right-7 top-8 justify-end absolute">
                         <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="0.914551" y="0.243652" width="30.39" height="30.3931" rx="15.195" fill="#0075FF" />
                             <path d="M10.8301 10.3413H21.3301" stroke="white" stroke-width="2" stroke-linecap="round" />
@@ -464,7 +467,7 @@ const About = () => {
 
                 <div className="lg:flex w-full pt-20 px-4 lg:pt-0 lg:px-0 lg:pb-20 relative" >
                     <div className="lg:w-1/2 text-center lg:text-left lg:pl-32  w-full">
-                        <p className="grad-text text-white text-5xl font-bold lg:text-7xl">
+                        <p className="grad-text text-white text-[50px] leading-[3rem] font-bold lg:text-7xl">
                             Nexus is the L2 that helps you earn
                         </p>
 
@@ -521,14 +524,14 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="lg:w-1/2 px-6 lg:px-10 text-center lg:text-left mt-6 lg:mt-0 w-full ">
+                    <div className="lg:w-1/2 px-6 lg:px-10 res-about-top-right text-center lg:text-left mt-6 lg:mt-0 w-full ">
                         <p className="font-semibold text-base  lg:text-2xl text-white opacity-80">We provide straight forward tools that maximize financial opportunities.
                             forward tools</p>
 
 
                         <div className=" mt-6 justify-center lg:justify-start lg:mt-20 flex gap-4 lg:gap-6">
-                            <div className="flex hover:scale-110 transition-all duration-500 relative z-50 ease-in-out bg-white lg:pl-6 pl-6 rounded-[36px] p-1 lg:p-2 items-center gap-4 lg:gap-6">
-                                <p className="font-semibold text-black text-sm lg:text-base">Get Started</p>
+                            <div className="flex hover:scale-110 transition-all duration-500 relative z-50 ease-in-out bg-white lg:pl-7 pl-6 rounded-[36px] p-1 lg:p-[7px] items-center gap-4 lg:gap-6">
+                                <p className="font-semibold text-black poppins text-sm lg:text-base">Get Started</p>
 
                                 <div className="flex items-center justify-center rounded-[50%] bg-[#0075FF] h-[36px] w-[36px]">
                                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -538,7 +541,7 @@ const About = () => {
                             </div>
 
                             <div className="border hover:scale-110 transition-all duration-500 relative z-50 ease-in-out  rounded-[36px] px-6 lg:px-10 flex justify-center items-center  border-white">
-                                <p className=" font-semibold text-sm lg:text-base text-white">Read Docs</p>
+                                <p className=" font-semibold text-sm lg:text-base poppins text-white">Read Docs</p>
                             </div>
 
                         </div>
@@ -653,7 +656,7 @@ const About = () => {
                 </div>
 
                 {/* mob footer */}
-                <div className="lg:hidden block">
+                <div className="lg:hidden  block">
                     <HeaderWrapper>
                         <BgWrapp>
                             <Background>
@@ -698,7 +701,7 @@ const About = () => {
             {/* second section */}
             <div className="w-full flex lg:flex-row flex-col lg:px-20 lg:py-20  px-10 py-6">
                 <div className="lg:w-[57%] lg:px-10 lg:text-left text-center w-full">
-                    <p className="font-bold text-2xl leading-7 grad-text-gray lg:leading-[53px] text-white lg:text-5xl">Other L2s don`&apos;`t have yield, so the value of your assets depreciate over time.</p>
+                    <p className="font-bold text-[25px] leading-6 grad-text-gray lg:leading-[53px] text-white lg:text-5xl">Other L2s don`&apos;`t have yield, so the value of your assets depreciate over time.</p>
 
                     <div className="w-full slowly-visible mt-6 flex flex-col lg:hidden">
                         <img src="/Images/graph.png" className="w-full h-full"></img>

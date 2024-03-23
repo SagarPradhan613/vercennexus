@@ -113,7 +113,7 @@ const LeaderBoard = () => {
 
                                 {/* desk table */}
 
-                                <div className="w-full lg:h-[72vh] hidden lg:block relative z-50 rounded-[28px] mt-8 bg-[#191F25] p-2 border-2 border-[#FFFFFF0D]">
+                                <div className="w-full responsive-leaderboard-table-height  hidden lg:block relative z-50 rounded-[28px] mt-8 bg-[#191F25] p-2 border-2 border-[#FFFFFF0D]">
                                     <table class="table-auto relative z-50  w-full">
                                         <thead>
                                             <tr className="text-left bg-[#0E1114] text-white text-opacity-60 rounded-[17px] ">
@@ -191,7 +191,7 @@ const LeaderBoard = () => {
                                                 <td className="font-bold responsive-table-text text-white text-lg rounded-r-[18px]">1,321,590,915</td>
                                             </tr>
                                             <tr className="border-b border-opacity-10 hover:bg-[#0E111480] transition-all duration-300 ease-in-out border-white">
-                                                <td className="font-bold text-white py-4 px-8 text-lg rounded-l-[18px]">01</td>
+                                                <td className="font-bold text-white py-4 px-8 text-lg rounded-l-[18px]">04</td>
                                                 <td className="font-bold py-4 text-white text-lg">
                                                     <div className="responsive-table-text flex items-center gap-4">
                                                         <div className="max-w-[35px]">
@@ -213,7 +213,7 @@ const LeaderBoard = () => {
                                                 <td className="font-bold responsive-table-text text-white text-lg rounded-r-[18px]">1,321,590,915</td>
                                             </tr>
                                             <tr className="border-b border-opacity-10 hover:bg-[#0E111480] transition-all duration-300 ease-in-out border-white">
-                                                <td className="font-bold text-white py-4 px-8 text-lg rounded-l-[18px]">02</td>
+                                                <td className="font-bold text-white py-4 px-8 text-lg rounded-l-[18px]">05</td>
                                                 <td className="font-bold py-4 text-white text-lg">
                                                     <div className="responsive-table-text flex items-center gap-4">
                                                         <div className="max-w-[35px]">
@@ -235,7 +235,7 @@ const LeaderBoard = () => {
                                                 <td className="font-bold responsive-table-text text-white text-lg rounded-r-[18px]">1,321,590,915</td>
                                             </tr>
                                             <tr className="border-b border-opacity-10 hover:bg-[#0E111480] transition-all duration-300 ease-in-out border-white">
-                                                <td className="font-bold text-white responsive-table-text py-4 px-8 text-lg rounded-l-[18px]">03</td>
+                                                <td className="font-bold text-white responsive-table-text py-4 px-8 text-lg rounded-l-[18px]">06</td>
                                                 <td className="font-bold py-4 text-white text-lg">
                                                     <div className="responsive-table-text flex items-center gap-4">
                                                         <div className="max-w-[35px]">
@@ -257,7 +257,7 @@ const LeaderBoard = () => {
                                                 <td className="font-bold responsive-table-text text-white text-lg rounded-r-[18px]">1,321,590,915</td>
                                             </tr>
                                             <tr className="border-b border-opacity-10 hover:bg-[#0E111480] transition-all duration-300 ease-in-out border-white">
-                                                <td className="font-bold responsive-table-text text-white py-4 px-8 text-lg rounded-l-[18px]">01</td>
+                                                <td className="font-bold responsive-table-text text-white py-4 px-8 text-lg rounded-l-[18px]">03</td>
                                                 <td className="font-bold py-4 text-white text-lg">
                                                     <div className="responsive-table-text flex items-center gap-4">
                                                         <div className="max-w-[35px]">
@@ -279,7 +279,7 @@ const LeaderBoard = () => {
                                                 <td className="font-bold responsive-table-text text-white text-lg rounded-r-[18px]">1,321,590,915</td>
                                             </tr>
                                             <tr className="border-b border-opacity-10 hover:bg-[#0E111480] transition-all duration-300 ease-in-out border-white">
-                                                <td className="font-bold responsive-table-text text-white py-4 px-8 text-lg rounded-l-[18px]">02</td>
+                                                <td className="font-bold responsive-table-text text-white py-4 px-8 text-lg rounded-l-[18px]">04</td>
                                                 <td className="font-bold py-4 text-white text-lg">
                                                     <div className=" flex items-center gap-4">
                                                         <div className="max-w-[35px]">
@@ -301,7 +301,7 @@ const LeaderBoard = () => {
                                                 <td className="font-bold responsive-table-text text-white text-lg rounded-r-[18px]">1,321,590,915</td>
                                             </tr>
                                             <tr className="hover:bg-[#0E111480] transition-all duration-300 ease-in-out">
-                                                <td className="font-bold responsive-table-text text-white py-4 px-8 text-lg rounded-l-[18px]">03</td>
+                                                <td className="font-bold responsive-table-text text-white py-4 px-8 text-lg rounded-l-[18px]">05</td>
                                                 <td className="font-bold py-4 text-white text-lg">
                                                     <div className="responsive-table-text flex items-center gap-4">
                                                         <div className="max-w-[35px]">
