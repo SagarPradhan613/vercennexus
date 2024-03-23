@@ -828,3 +828,23 @@ body {
     margin-top: 1rem !important;
   }
 }
+
+@media screen and (min-width:1023px) and (max-width: 1180px){
+  .resp-head-logo{
+    margin-left:7% !important;
+    width:100px;
+  }
+}
+
+
+@media screen and (max-width:1200px) {
+  .hide-connect{
+    display:none ;
+  }
+}
+
+@media screen and (min-width:2500px) {
+  .res-follow{
+    margin-left: 5rem !important;
+  }
+}

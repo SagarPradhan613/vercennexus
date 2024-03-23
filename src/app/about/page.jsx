@@ -302,7 +302,7 @@ const About = () => {
                         </div>
                         <div className="ml-[17%] py-3 res-about-mob-head  max-w-[71px] flex lg:hidden">
                            
-                            <svg width="72" height="10" viewBox="0 0 72 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            {/* <svg width="72" height="10" viewBox="0 0 72 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M62.5324 8.83639C62.2732 8.83639 62.063 8.62623 62.063 8.36698V7.76069C62.063 7.50112 62.2737 7.29082 62.5332 7.29128L68.9008 7.30235C69.2496 7.30235 69.5152 7.22307 69.6975 7.06451C69.8878 6.89803 69.9829 6.63245 69.9829 6.26776C69.9829 5.90308 69.8878 5.64146 69.6975 5.48291C69.5152 5.31642 69.2496 5.23318 68.9008 5.23318H64.6435C63.7635 5.23318 63.0778 5.02309 62.5862 4.60291C62.1026 4.17481 61.8608 3.54851 61.8608 2.72401C61.8608 1.89951 62.1026 1.27718 62.5862 0.857C63.0778 0.428896 63.7635 0.214844 64.6435 0.214844H70.8573C71.1165 0.214844 71.3267 0.425007 71.3267 0.684257V1.2905C71.3267 1.55009 71.116 1.76039 70.8564 1.75991L64.8457 1.74888C64.5048 1.74888 64.2392 1.82816 64.0489 1.98672C63.8587 2.13735 63.7635 2.38311 63.7635 2.72401C63.7635 3.06491 63.8587 3.31464 64.0489 3.47319C64.2392 3.62382 64.5048 3.69914 64.8457 3.69914H69.1029C69.9829 3.69914 70.6647 3.91715 71.1483 4.35319C71.6399 4.78129 71.8856 5.41948 71.8856 6.26776C71.8856 7.10812 71.6399 7.74631 71.1483 8.18234C70.6647 8.61837 69.9829 8.83639 69.1029 8.83639H62.5324Z" fill="white" />
                                 <path d="M53.7045 8.8365C52.8404 8.8365 52.1586 8.72551 51.6592 8.50353C51.1597 8.27363 50.803 7.92876 50.5889 7.46895C50.3748 7.00913 50.2678 6.4304 50.2678 5.73275V0.743827C50.2678 0.484577 50.478 0.274414 50.7372 0.274414H51.7011C51.9603 0.274414 52.1705 0.484577 52.1705 0.743827V5.73275C52.1705 6.33526 52.3092 6.74751 52.5867 6.96949C52.8721 7.18354 53.3518 7.29057 54.0256 7.29057H56.3207C56.9946 7.29057 57.4703 7.18354 57.7478 6.96949C58.0332 6.74751 58.1759 6.33526 58.1759 5.73275V0.743827C58.1759 0.484577 58.386 0.274414 58.6453 0.274414H59.6091C59.8684 0.274414 60.0785 0.484577 60.0785 0.743827V5.73275C60.0785 6.4304 59.9715 7.00913 59.7575 7.46895C59.5434 7.92876 59.1867 8.27363 58.6872 8.50353C58.1877 8.72551 57.506 8.8365 56.6418 8.8365H53.7045Z" fill="white" />
                                 <path d="M38.8219 8.77704C38.435 8.77704 38.2142 8.33524 38.4465 8.02581L40.8583 4.8131C40.9835 4.64631 40.9837 4.41692 40.8587 4.24997L38.4446 1.02514C38.2129 0.715632 38.4337 0.274414 38.8204 0.274414H39.9637C40.1132 0.274414 40.2537 0.345606 40.3422 0.466121L42.6175 3.567C42.706 3.68752 42.8465 3.75871 42.996 3.75871H43.6145C43.764 3.75871 43.9045 3.68752 43.9929 3.567L46.2683 0.466121C46.3568 0.345606 46.4973 0.274414 46.6468 0.274414H47.7901C48.1767 0.274414 48.3976 0.715632 48.1659 1.02514L45.7518 4.24997C45.6268 4.41692 45.627 4.64631 45.7522 4.8131L48.1639 8.02581C48.3962 8.33524 48.1755 8.77704 47.7885 8.77704H46.6351C46.4855 8.77704 46.3449 8.70576 46.2564 8.58511L43.9929 5.49657C43.9045 5.37593 43.7639 5.30464 43.6143 5.30464H42.9962C42.8466 5.30464 42.706 5.37593 42.6176 5.49657L40.354 8.58511C40.2656 8.70576 40.125 8.77704 39.9754 8.77704H38.8219Z" fill="white" />
@@ -313,7 +313,8 @@ const About = () => {
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0781 1.18173C11.3114 1.18173 11.5006 0.992583 11.5006 0.75926C11.5006 0.525937 11.3114 0.336792 11.0781 0.336792C10.8448 0.336792 10.6556 0.525937 10.6556 0.75926C10.6556 0.992583 10.8448 1.18173 11.0781 1.18173ZM11.0781 1.24411C11.3459 1.24411 11.563 1.02703 11.563 0.75926C11.563 0.491487 11.3459 0.274414 11.0781 0.274414C10.8103 0.274414 10.5933 0.491487 10.5933 0.75926C10.5933 1.02703 10.8103 1.24411 11.0781 1.24411Z" fill="white" />
                                 <path d="M11.2953 0.598633H11.36V0.910522H11.2994V0.703784L11.2062 0.854827H11.1862L11.0926 0.703784V0.910522H11.0325V0.598633H11.0966L11.196 0.759033L11.2953 0.598633Z" fill="white" />
                                 <path d="M10.9913 0.598633V0.654773H10.9165V0.910522H10.8559V0.654773H10.781V0.598633H10.9913Z" fill="white" />
-                            </svg>
+                            </svg> */}
+                             <img src="/Images/nexus.png" className="ml-4 w-full h-full"></img>
                         </div>
 
                         <div className="lg:flex hidden h-[60px] relative z-50  bg-black justify-between text-white nav-resp-margin ml-[5vw] mt-6 rounded-[28px] ">
@@ -609,7 +610,7 @@ const About = () => {
                                     <div className="w-full h-full flex absolute z-50 justify-between ">
                                         <div className="h-full items-end pt-24 resp-social-padding-about pl-32 ">
                                             <div className="flex">
-                                                <p className="text-white lg:ml-4 text-xs lg:text-base font-medium whitespace-nowrap opacity-60">Follow on our socials</p>
+                                                <p className="text-white lg:ml-4 res-follow text-xs lg:text-base font-medium whitespace-nowrap opacity-60">Follow on our socials</p>
                                                 <div className="flex ml-6 gap-6">
                                                     <div className="hover:scale-125 transition-all duration-500 relative z-50 ease-in-out">
                                                         <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -637,7 +638,7 @@ const About = () => {
                                         </div>
 
                                         <div className="h-full pb-6 justify-end pr-16 flex items-end w-1/2 ">
-                                            <div className="flex hover:scale-110 transition-all duration-500 relative z-50 ease-in-out justify-between items-center gap-10 font-semibold text-base text-white">
+                                            <div className="flex hover:scale-110 hide-connect transition-all duration-500 relative z-50 ease-in-out justify-between items-center gap-10 font-semibold text-base text-white">
                                                 <p className="whitespace-nowrap">Connect with us</p>
                                                 <div>
                                                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -701,7 +702,7 @@ const About = () => {
             {/* second section */}
             <div className="w-full flex lg:flex-row flex-col lg:px-20 lg:py-20  px-10 py-6">
                 <div className="lg:w-[57%] lg:px-10 lg:text-left text-center w-full">
-                    <p className="font-bold text-[25px] leading-6 grad-text-gray lg:leading-[53px] text-white lg:text-5xl">Other L2s don`&apos;`t have yield, so the value of your assets depreciate over time.</p>
+                    <p className="font-bold text-[25px] leading-6 grad-text-gray lg:leading-[53px] text-white lg:text-5xl">Other L2s don&apos;t have yield, so the value of your assets depreciate over time.</p>
 
                     <div className="w-full slowly-visible mt-6 flex flex-col lg:hidden">
                         <img src="/Images/graph.png" className="w-full h-full"></img>
