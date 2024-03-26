@@ -427,12 +427,12 @@ const About = () => {
                         {/* <Nav /> */}
 
                         <div className="flex items-start">
-                            <div className="ml-[8%] resp-head-logo hidden lg:flex">
+                            <a href="/" className="ml-[8%] relative z-50 resp-head-logo hidden lg:flex">
                                 <img src="/Images/nexus.png" className="mt-6 w-full h-full"></img>
-                            </div>
-                            <div className="ml-[14%] py-3 res-about-mob-head  max-w-[71px] flex lg:hidden">
+                            </a>
+                            <a href="/" className="ml-[14%] py-3 relative z-50 res-about-mob-head  max-w-[71px] flex lg:hidden">
                                 <img src="/Images/nexus.png" className="ml-4 w-full h-full"></img>
-                            </div>
+                            </a>
 
                             <div className="lg:flex hidden h-[60px] relative z-50  bg-black justify-between text-white nav-resp-margin ml-[5vw] mt-6 rounded-[28px] ">
                                 <div className={`${pathname === '/leaderboard' ? 'px-6 transition-all duration-300 ease-in-out bg-[#0075FF] hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]' : 'px-6 transition-all duration-300 ease-in-out hover:bg-[#0075FF] flex justify-center items-center rounded-[36px]'}`}>

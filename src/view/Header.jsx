@@ -35,7 +35,7 @@ const Background = styled.div`
   }
 `;
 
-const IconWrapper = styled.div`
+const IconWrapper = styled.a`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,7 +156,7 @@ const Header = ({pathname}) => {
       <BgWrapp>
         <Background>
           <img src={"/Images/Top.png"} width={"100%"} />
-          <IconWrapper>
+          <IconWrapper href="/">
             <img src={"/Images/nexus-icon.svg"} width={"100%"} />
           </IconWrapper>
         </Background>
