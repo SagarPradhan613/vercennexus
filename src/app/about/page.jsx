@@ -18,7 +18,11 @@ import { SliderCarousal } from "@/view/Slider";
 import useIsBig from "@/hooks/useIsBig";
 import SignInComponent from '@/view/SignInComponent';
 import Nav from '@/components/Nav';
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+
 
 const MoveFromLeft = keyframes`
   from {
@@ -136,12 +140,14 @@ const Icon = styled.a`
 `;
 
 const About = () => {
+
+    const pathname = usePathname();
+    const [isActive, setIsActive] = useState(false);
+
     const isMobile = useIsMobile();
     const isTab = useIsTab();
     const isBig = useIsBig();
     const [textAnim, setTextAnim] = useState([]);
-    const pathname = usePathname();
-    const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -155,7 +161,8 @@ const About = () => {
         console.log(textAnim);
         // Clean up the interval when the component unmounts
         return () => clearInterval(interval);
-    }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
+    }, [textAnim]);
+    // Add textAnim to dependencies to ensure effect is updated
     if (typeof window !== "undefined") {
         const cursor = document.querySelector(".cursor");
 
@@ -415,10 +422,11 @@ const About = () => {
                     :
                     null
                 }
+                {!isMobile && <div class="cursor"></div>}
 
                 {/* first section */}
                 <div className="newgradient-background" style={{ opacity: opac }}>
-                    {!isMobile && <div class="cursor"></div>}
+
 
                     <div className="lg:block hidden ">
                         <Header pathname={pathname} />
@@ -462,7 +470,7 @@ const About = () => {
 
                     <div className="lg:flex w-full pt-20 px-4 lg:pt-0 lg:px-0 lg:pb-20 relative" >
                         <div className="lg:w-1/2 text-center lg:text-left lg:pl-32  w-full">
-                            <p className="grad-text text-white text-[50px] leading-[3rem] font-bold lg:text-7xl">
+                            <p className="grad-text nexus-hero-head text-white text-[50px] leading-[3rem] font-bold lg:text-7xl">
                                 Nexus is the L2 that helps you earn
                             </p>
 
@@ -525,17 +533,25 @@ const About = () => {
 
 
                             <div className=" mt-6 justify-center lg:justify-start lg:mt-20 flex gap-4 lg:gap-6">
-                                <div className="flex hover:scale-110 transition-all duration-500 relative z-50 ease-in-out bg-white lg:pl-7 pl-6 rounded-[36px] p-1 lg:p-[7px] items-center gap-4 lg:gap-6">
-                                    <p className="font-semibold text-black poppins text-sm lg:text-base">Get Started</p>
+                                <div className="flex model-nav overflow-hidden group hover:bg-black transition-all duration-500 relative z-50 ease-in-out bg-white lg:pl-7 pl-6 rounded-[36px] p-1 lg:p-[7px] items-center gap-4 lg:gap-6">
+                                    <p className="font-semibold group-hover:text-white text-black poppins text-sm lg:text-base">Get Started</p>
 
-                                    <div className="flex items-center justify-center rounded-[50%] bg-[#0075FF] h-[36px] w-[36px]">
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M14.1497 8.11336C14.5403 7.72283 14.5403 7.08967 14.1497 6.69914L7.78577 0.335183C7.39525 -0.0553417 6.76208 -0.0553416 6.37156 0.335183C5.98103 0.725707 5.98103 1.35887 6.37156 1.7494L12.0284 7.40625L6.37156 13.0631C5.98104 13.4536 5.98104 14.0868 6.37156 14.4773C6.76208 14.8678 7.39525 14.8678 7.78577 14.4773L14.1497 8.11336ZM1.50221 6.40625C0.949928 6.40625 0.502213 6.85397 0.502213 7.40625C0.502214 7.95854 0.949928 8.40625 1.50221 8.40625L1.50221 6.40625ZM13.4426 6.40625L1.50221 6.40625L1.50221 8.40625L13.4426 8.40625L13.4426 6.40625Z" fill="white" />
-                                        </svg>
+                                    <div className="flex relative overflow-hidden group-hover:bg-white transition-all duration-500 ease-in-out items-center justify-center rounded-[50%] bg-[#0075FF] h-[36px] w-[36px]">
+                                        <div className="-translate-x-8 absolute transition-all duration-500 ease-in-out group-hover:translate-x-0 ">
+                                            <svg className="hover-white" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M14.1497 8.11336C14.5403 7.72283 14.5403 7.08967 14.1497 6.69914L7.78577 0.335183C7.39525 -0.0553417 6.76208 -0.0553416 6.37156 0.335183C5.98103 0.725707 5.98103 1.35887 6.37156 1.7494L12.0284 7.40625L6.37156 13.0631C5.98104 13.4536 5.98104 14.0868 6.37156 14.4773C6.76208 14.8678 7.39525 14.8678 7.78577 14.4773L14.1497 8.11336ZM1.50221 6.40625C0.949928 6.40625 0.502213 6.85397 0.502213 7.40625C0.502214 7.95854 0.949928 8.40625 1.50221 8.40625L1.50221 6.40625ZM13.4426 6.40625L1.50221 6.40625L1.50221 8.40625L13.4426 8.40625L13.4426 6.40625Z" fill="black" />
+                                            </svg>
+                                        </div>
+
+                                        <div className="translate-x-0 absolute transition-all duration-500 ease-in-out group-hover:translate-x-8 ">
+                                            <svg className="hover-white" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M14.1497 8.11336C14.5403 7.72283 14.5403 7.08967 14.1497 6.69914L7.78577 0.335183C7.39525 -0.0553417 6.76208 -0.0553416 6.37156 0.335183C5.98103 0.725707 5.98103 1.35887 6.37156 1.7494L12.0284 7.40625L6.37156 13.0631C5.98104 13.4536 5.98104 14.0868 6.37156 14.4773C6.76208 14.8678 7.39525 14.8678 7.78577 14.4773L14.1497 8.11336ZM1.50221 6.40625C0.949928 6.40625 0.502213 6.85397 0.502213 7.40625C0.502214 7.95854 0.949928 8.40625 1.50221 8.40625L1.50221 6.40625ZM13.4426 6.40625L1.50221 6.40625L1.50221 8.40625L13.4426 8.40625L13.4426 6.40625Z" fill="white" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="border hover:scale-110 transition-all duration-500 relative z-50 ease-in-out  rounded-[36px] px-6 lg:px-10 flex justify-center items-center  border-white">
+                                <div className="border hover:bg-black hover:border-black transition-all duration-500 relative z-50 ease-in-out  rounded-[36px] px-6 lg:px-10 flex justify-center items-center  border-white">
                                     <p className=" font-semibold text-sm lg:text-base poppins text-white">Read Docs</p>
                                 </div>
 
@@ -605,8 +621,8 @@ const About = () => {
                                             <div className="h-full items-end pt-24 resp-social-padding-about pl-32 ">
                                                 <div className="flex">
                                                     <p className="text-white lg:ml-4 res-follow text-xs lg:text-base font-medium whitespace-nowrap opacity-60">Follow on  socials</p>
-                                                    <div className="flex ml-6 gap-6">
-                                                        <div className="hover:scale-125 transition-all duration-500 relative z-50 ease-in-out">
+                                                    <div className="flex items-center ml-6 gap-6">
+                                                        {/* <div className="hover:scale-125 transition-all duration-500 relative z-50 ease-in-out">
                                                             <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M1.06533 2.01935C0.783203 2.57427 0.783203 3.30034 0.783203 4.75248V10.9759C0.783203 12.4281 0.783203 13.1541 1.06533 13.709C1.31416 14.1968 1.71102 14.5933 2.19904 14.8417C2.75396 15.1249 3.48003 15.1249 4.93216 15.1249H17.379C18.8312 15.1249 19.5572 15.1249 20.1122 14.8417C20.5998 14.5931 20.9963 14.1967 21.2448 13.709C21.528 13.1541 21.528 12.4281 21.528 10.9759V4.75248C21.528 3.30034 21.528 2.57427 21.2448 2.01935C20.9965 1.53133 20.6 1.13447 20.1122 0.885645C19.5572 0.603515 18.8312 0.603516 17.379 0.603516H4.93216C3.48003 0.603516 2.75396 0.603515 2.19904 0.885645C1.71086 1.1343 1.31398 1.53117 1.06533 2.01935ZM3.52878 2.678H18.7824C18.8938 2.67786 19.0022 2.71357 19.0917 2.77985C19.1812 2.84612 19.247 2.93944 19.2793 3.046C19.3117 3.15256 19.3089 3.2667 19.2713 3.37153C19.2337 3.47637 19.1634 3.56633 19.0708 3.62811L11.7323 8.53633C11.5616 8.65049 11.3609 8.71143 11.1556 8.71143C10.9503 8.71143 10.7496 8.65049 10.5789 8.53633L3.24042 3.62811C3.14777 3.56633 3.07747 3.47637 3.03991 3.37153C3.00235 3.2667 2.99953 3.15256 3.03187 3.046C3.06421 2.93944 3.12999 2.84612 3.21948 2.77985C3.30897 2.71357 3.41742 2.67786 3.52878 2.678Z" fill="white" />
                                                             </svg>
@@ -625,14 +641,19 @@ const About = () => {
                                                             <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M18.3294 1.61668C16.9626 0.95763 15.5201 0.487488 14.038 0.218025C14.0245 0.215295 14.0104 0.217143 13.9979 0.223306C13.9854 0.229468 13.9751 0.239628 13.9685 0.252328C13.7839 0.598671 13.5783 1.04903 13.4349 1.40422C11.8369 1.14948 10.2113 1.14948 8.61328 1.40422C8.45255 1.01045 8.27128 0.626274 8.07028 0.253434C8.06345 0.24116 8.05327 0.231325 8.04104 0.225207C8.02882 0.21909 8.01513 0.216973 8.00174 0.219132C6.51961 0.487705 5.07706 0.957495 3.71043 1.61668C3.69825 1.62163 3.68791 1.63055 3.68091 1.64213C0.946909 5.92771 0.198301 10.1093 0.566279 14.2377C0.567303 14.2479 0.570257 14.2577 0.574966 14.2666C0.579674 14.2756 0.586042 14.2834 0.593693 14.2897C2.1854 15.5274 3.96593 16.4721 5.85925 17.0837C5.87255 17.088 5.88678 17.0878 5.89999 17.0833C5.9132 17.0787 5.92475 17.07 5.93305 17.0583C6.33899 16.4762 6.70064 15.8632 7.01063 15.2192C7.01493 15.2104 7.01738 15.2007 7.01782 15.1908C7.01826 15.1809 7.01668 15.171 7.01319 15.1618C7.00969 15.1525 7.00437 15.1442 6.99756 15.1373C6.99076 15.1304 6.98263 15.1252 6.97372 15.1218C6.40558 14.8935 5.85558 14.6182 5.3289 14.2986C5.31933 14.2928 5.31127 14.2845 5.30543 14.2747C5.2996 14.2648 5.29617 14.2536 5.29544 14.242C5.29471 14.2304 5.29671 14.2188 5.30125 14.2082C5.3058 14.1976 5.31276 14.1884 5.32152 14.1813C5.43223 14.0939 5.54294 14.0043 5.64837 13.9124C5.65777 13.9042 5.66917 13.8989 5.68128 13.8971C5.6934 13.8954 5.70574 13.8972 5.71691 13.9025C9.16788 15.5567 12.9046 15.5567 16.3144 13.9025C16.3256 13.8968 16.3381 13.8947 16.3505 13.8963C16.3628 13.8978 16.3744 13.903 16.384 13.9113C16.4895 14.0031 16.5991 14.0939 16.7109 14.1813C16.7197 14.1882 16.7269 14.1973 16.7316 14.2078C16.7363 14.2183 16.7385 14.2298 16.738 14.2414C16.7374 14.253 16.7342 14.2643 16.7286 14.2742C16.7229 14.2842 16.7151 14.2926 16.7056 14.2986C16.1795 14.6206 15.6333 14.8928 15.0597 15.1207C15.0509 15.1243 15.0429 15.1298 15.0362 15.1368C15.0295 15.1439 15.0243 15.1523 15.0209 15.1616C15.0175 15.1709 15.016 15.1808 15.0165 15.1907C15.0171 15.2007 15.0196 15.2104 15.0239 15.2192C15.3402 15.8632 15.7019 16.4751 16.0994 17.0561C16.1073 17.0683 16.1187 17.0776 16.132 17.0825C16.1452 17.0875 16.1597 17.0879 16.1732 17.0837C18.0702 16.4743 19.8542 15.5294 21.4482 14.2897C21.456 14.2838 21.4624 14.2762 21.4672 14.2674C21.4719 14.2586 21.4748 14.2489 21.4756 14.2388C21.9153 9.46528 20.7386 5.31912 18.3578 1.64213C18.3519 1.63048 18.3411 1.62145 18.3294 1.61668ZM7.52622 11.7237C6.48766 11.7237 5.6315 10.7223 5.6315 9.49294C5.6315 8.26469 6.47079 7.26329 7.52622 7.26329C8.59114 7.26329 9.43886 8.27244 9.42199 9.49294C9.42199 10.7223 8.5827 11.7237 7.52622 11.7237ZM14.5336 11.7237C13.494 11.7237 12.6389 10.7223 12.6389 9.49294C12.6389 8.26469 13.4782 7.26329 14.5336 7.26329C15.5975 7.26329 16.4452 8.27244 16.4283 9.49294C16.4283 10.7223 15.5975 11.7237 14.5336 11.7237Z" fill="white" />
                                                             </svg>
-                                                        </div>
-
+                                                        </div> */}
+                                                        <Icon href="https://twitter.com/NexusLaunchpad" target="_blank">
+                                                            <FaXTwitter />
+                                                        </Icon>
+                                                        <Icon href="https://t.me/NexusLaunchpad" target="_blank">
+                                                            <FaTelegramPlane />
+                                                        </Icon>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div className="h-full pb-6 justify-end pr-16 flex items-end w-1/2 ">
-                                                <div className="flex hover:scale-110 hide-connect transition-all duration-500 relative z-50 ease-in-out justify-between items-center gap-10 font-semibold text-base text-white">
+                                                <div className="flex hover:scale-110  transition-all duration-500 relative z-50 ease-in-out justify-between items-center gap-10 font-semibold text-base text-white">
                                                     <p className="whitespace-nowrap">Connect with us</p>
                                                     <div>
                                                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -660,9 +681,9 @@ const About = () => {
                                 <Background>
                                     {/* <img src={"/Images/Bottom.png"} width={"100%"} /> */}
                                     <IconWrapper style={{ width: "80%" }}>
-                                        <div className="flex justify-between w-full">
+                                        <div className="flex justify-start gap-6 w-full">
                                             <p className="text-white res-mob-footer-ml lg:ml-4 text-xs lg:text-base font-medium opacity-60">Follow on our socials</p>
-                                            <div className="flex res-mob-footer-social-gap gap-6">
+                                            {/* <div className="flex res-mob-footer-social-gap gap-6">
                                                 <div>
                                                     <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M1.07834 1.64226C0.889648 2.01341 0.889648 2.49903 0.889648 3.47026V7.63268C0.889648 8.60391 0.889648 9.08952 1.07834 9.46067C1.24477 9.78692 1.5102 10.0521 1.8366 10.2182C2.20775 10.4076 2.69336 10.4076 3.66459 10.4076H11.9894C12.9607 10.4076 13.4463 10.4076 13.8174 10.2182C14.1436 10.052 14.4087 9.78681 14.575 9.46067C14.7644 9.08952 14.7644 8.60391 14.7644 7.63268V3.47026C14.7644 2.49903 14.7644 2.01341 14.575 1.64226C14.4089 1.31586 14.1437 1.05043 13.8174 0.884009C13.4463 0.695312 12.9607 0.695312 11.9894 0.695312H3.66459C2.69336 0.695312 2.20775 0.695312 1.8366 0.884009C1.51009 1.05031 1.24465 1.31576 1.07834 1.64226ZM2.72597 2.08279H12.9281C13.0025 2.08269 13.0751 2.10658 13.1349 2.15091C13.1948 2.19523 13.2388 2.25765 13.2604 2.32892C13.282 2.40019 13.2801 2.47653 13.255 2.54664C13.2299 2.61676 13.1829 2.67693 13.1209 2.71825L8.21273 6.00101C8.09858 6.07736 7.96434 6.11812 7.82701 6.11812C7.68968 6.11812 7.55544 6.07736 7.44129 6.00101L2.53311 2.71825C2.47114 2.67693 2.42412 2.61676 2.399 2.54664C2.37388 2.47653 2.37199 2.40019 2.39362 2.32892C2.41525 2.25765 2.45925 2.19523 2.5191 2.15091C2.57896 2.10658 2.65149 2.08269 2.72597 2.08279Z" fill="white" />
@@ -686,7 +707,13 @@ const About = () => {
 
                                                 </div>
 
-                                            </div>
+                                            </div> */}
+                                            <Icon href="https://twitter.com/NexusLaunchpad" target="_blank">
+                                                <FaXTwitter />
+                                            </Icon>
+                                            <Icon href="https://t.me/NexusLaunchpad" target="_blank">
+                                                <FaTelegramPlane />
+                                            </Icon>
                                         </div>
                                     </IconWrapper>
                                 </Background>
@@ -701,10 +728,10 @@ const About = () => {
                                 <Background>
                                     {/* <img src={"/Images/Bottom.png"} width={"100%"} /> */}
                                     <IconWrapper style={{ width: "80%" }}>
-                                        <div className="flex justify-between w-full">
+                                        <div className="flex start gap-4 w-full">
                                             <p className="text-white res-mob-footer-ml lg:ml-4 text-xs lg:text-base font-medium opacity-60">Follow on our socials</p>
                                             <div className="flex res-mob-footer-social-gap gap-6">
-                                                <div>
+                                                {/* <div>
                                                     <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M1.07834 1.64226C0.889648 2.01341 0.889648 2.49903 0.889648 3.47026V7.63268C0.889648 8.60391 0.889648 9.08952 1.07834 9.46067C1.24477 9.78692 1.5102 10.0521 1.8366 10.2182C2.20775 10.4076 2.69336 10.4076 3.66459 10.4076H11.9894C12.9607 10.4076 13.4463 10.4076 13.8174 10.2182C14.1436 10.052 14.4087 9.78681 14.575 9.46067C14.7644 9.08952 14.7644 8.60391 14.7644 7.63268V3.47026C14.7644 2.49903 14.7644 2.01341 14.575 1.64226C14.4089 1.31586 14.1437 1.05043 13.8174 0.884009C13.4463 0.695312 12.9607 0.695312 11.9894 0.695312H3.66459C2.69336 0.695312 2.20775 0.695312 1.8366 0.884009C1.51009 1.05031 1.24465 1.31576 1.07834 1.64226ZM2.72597 2.08279H12.9281C13.0025 2.08269 13.0751 2.10658 13.1349 2.15091C13.1948 2.19523 13.2388 2.25765 13.2604 2.32892C13.282 2.40019 13.2801 2.47653 13.255 2.54664C13.2299 2.61676 13.1829 2.67693 13.1209 2.71825L8.21273 6.00101C8.09858 6.07736 7.96434 6.11812 7.82701 6.11812C7.68968 6.11812 7.55544 6.07736 7.44129 6.00101L2.53311 2.71825C2.47114 2.67693 2.42412 2.61676 2.399 2.54664C2.37388 2.47653 2.37199 2.40019 2.39362 2.32892C2.41525 2.25765 2.45925 2.19523 2.5191 2.15091C2.57896 2.10658 2.65149 2.08269 2.72597 2.08279Z" fill="white" />
                                                     </svg>
@@ -725,8 +752,13 @@ const About = () => {
                                                         <path d="M12.5141 1.70191C11.6 1.26112 10.6352 0.946671 9.64396 0.766447C9.63489 0.76462 9.6255 0.765856 9.61714 0.769978C9.60877 0.7741 9.60187 0.780895 9.59742 0.789389C9.47401 1.02103 9.33649 1.32225 9.24059 1.55981C8.17176 1.38943 7.08455 1.38943 6.01572 1.55981C5.90822 1.29645 5.78698 1.0395 5.65254 0.790129C5.64798 0.78192 5.64116 0.775342 5.63299 0.77125C5.62481 0.767158 5.61566 0.765743 5.6067 0.767187C4.61541 0.946816 3.65059 1.26103 2.73655 1.70191C2.7284 1.70522 2.72148 1.71119 2.7168 1.71893C0.888225 4.58525 0.387535 7.382 0.633649 10.1432C0.634334 10.15 0.63631 10.1566 0.639459 10.1626C0.642608 10.1686 0.646867 10.1738 0.651984 10.178C1.71656 11.0058 2.90743 11.6377 4.17374 12.0467C4.18264 12.0496 4.19216 12.0495 4.20099 12.0464C4.20983 12.0434 4.21755 12.0375 4.22311 12.0297C4.49461 11.6404 4.73649 11.2304 4.94382 10.7997C4.94669 10.7938 4.94833 10.7873 4.94863 10.7807C4.94892 10.774 4.94787 10.7674 4.94553 10.7613C4.94319 10.7551 4.93963 10.7495 4.93508 10.7449C4.93053 10.7403 4.92509 10.7368 4.91914 10.7346C4.53914 10.5818 4.17129 10.3977 3.81903 10.1839C3.81263 10.18 3.80724 10.1745 3.80333 10.1679C3.79943 10.1614 3.79714 10.1538 3.79665 10.1461C3.79616 10.1383 3.7975 10.1306 3.80054 10.1235C3.80358 10.1164 3.80823 10.1102 3.81409 10.1055C3.88814 10.047 3.96218 9.98708 4.0327 9.92565C4.03898 9.92015 4.04661 9.91661 4.05471 9.91544C4.06282 9.91426 4.07107 9.91549 4.07854 9.91899C6.38665 11.0254 8.88587 11.0254 11.1665 9.91899C11.174 9.91524 11.1823 9.9138 11.1906 9.91485C11.1988 9.9159 11.2066 9.91939 11.213 9.92491C11.2835 9.98634 11.3569 10.047 11.4316 10.1055C11.4376 10.1101 11.4423 10.1162 11.4455 10.1232C11.4486 10.1302 11.4501 10.138 11.4497 10.1457C11.4494 10.1534 11.4472 10.161 11.4435 10.1677C11.4397 10.1743 11.4344 10.1799 11.4281 10.1839C11.0762 10.3993 10.7109 10.5814 10.3273 10.7338C10.3214 10.7362 10.316 10.7399 10.3115 10.7446C10.307 10.7493 10.3036 10.7549 10.3013 10.7611C10.299 10.7674 10.2981 10.774 10.2984 10.7806C10.2987 10.7873 10.3004 10.7938 10.3033 10.7997C10.5149 11.2304 10.7568 11.6397 11.0226 12.0282C11.0279 12.0364 11.0356 12.0426 11.0444 12.0459C11.0533 12.0492 11.063 12.0495 11.072 12.0467C12.3408 11.6391 13.534 11.0071 14.6001 10.178C14.6053 10.174 14.6096 10.1689 14.6128 10.1631C14.6159 10.1572 14.6179 10.1507 14.6184 10.144C14.9125 6.95128 14.1255 4.17821 12.5332 1.71893C12.5292 1.71114 12.522 1.7051 12.5141 1.70191ZM5.28866 8.46178C4.59404 8.46178 4.02142 7.79201 4.02142 6.96978C4.02142 6.14829 4.58276 5.47852 5.28866 5.47852C6.00091 5.47852 6.56789 6.15347 6.5566 6.96978C6.5566 7.79201 5.99527 8.46178 5.28866 8.46178ZM9.9754 8.46178C9.28008 8.46178 8.70816 7.79201 8.70816 6.96978C8.70816 6.14829 9.2695 5.47852 9.9754 5.47852C10.6869 5.47852 11.2539 6.15347 11.2426 6.96978C11.2426 7.79201 10.6869 8.46178 9.9754 8.46178Z" fill="white" />
                                                     </svg>
 
-                                                </div>
-
+                                                </div> */}
+                                                <Icon href="https://twitter.com/NexusLaunchpad" target="_blank">
+                                                    <FaXTwitter />
+                                                </Icon>
+                                                <Icon href="https://t.me/NexusLaunchpad" target="_blank">
+                                                    <FaTelegramPlane />
+                                                </Icon>
                                             </div>
                                         </div>
                                     </IconWrapper>
@@ -872,7 +904,7 @@ const About = () => {
                 </div>
 
                 {/* fifth section */}
-                <div className="w-full hideTopAnimationnodelay flex mt-16 flex-col lg:px-20 lg:py-20  px-10 py-6">
+                {/* <div className="w-full hideTopAnimationnodelay flex mt-16 flex-col lg:px-20 lg:py-20  px-10 py-6">
                     <div className="flex w-full justify-center items-center">
                         <p className="text-white grad-text-gray font-bold lg:text-6xl text-2xl">Who we are</p>
                     </div>
@@ -942,6 +974,116 @@ const About = () => {
                                 </svg>
                             </div>
                             <p className="lg:text-xl text-white opacity-50 lg:opacity-80 font-bold text-sm">Blast contributors have raised $20m from Paradigm, Standard Crypto, eGirl Capital, Primitive Ventures, Andrew Kang, Hasu, Foobar, Blurr, Will Price, Hsaka, Santiago Santos, Larry Cermak, Manifold, Jeff Lo, and other cryptonatives.</p>
+                        </div>
+                    </div>
+                </div> */}
+
+                <div className="w-full hideTopAnimationnodelay flex mt-16 flex-col lg:px-20 lg:py-20  px-10 py-6">
+                    <div className="flex w-full justify-center items-center">
+                        <p className="text-white grad-text-gray font-bold lg:text-6xl text-2xl">Who we are</p>
+                    </div>
+
+                    <div className="lg:mt-16 mt-6 w-full lg:px-32 flex flex-col  lg:gap-0 relative">
+                        {/* <div className="lg:flex res-arrow left-44 top-16 flex-col justify-center hidden absolute">
+                            <div>
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7.50806" cy="7.64819" r="6.89429" fill="#0075FF" />
+                                </svg>
+                            </div>
+                            <div className="ml-[1.5px] res-arrow -mt-[1.5px]">
+                                <svg width="12" height="146" viewBox="0 0 12 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.04218 144.945C5.33507 145.238 5.80995 145.238 6.10284 144.945L10.8758 140.172C11.1687 139.88 11.1687 139.405 10.8758 139.112C10.5829 138.819 10.108 138.819 9.81515 139.112L5.57251 143.354L1.32987 139.112C1.03698 138.819 0.562102 138.819 0.269209 139.112C-0.0236845 139.405 -0.0236845 139.88 0.269209 140.172L5.04218 144.945ZM4.82251 0.211914V144.415H6.32251V0.211914H4.82251Z" fill="#0075FF" />
+                                </svg>
+                            </div>
+                        </div> */}
+                        {/* <div className="lg:flex res-arrow-2 left-44 top-60 flex-col justify-center hidden absolute">
+                            <div>
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7.50806" cy="7.64819" r="6.89429" fill="#0075FF" />
+                                </svg>
+                            </div>
+                            <div className="ml-[1.5px] res-arrow-2 -mt-[1.5px]">
+                                <svg width="12" height="146" viewBox="0 0 12 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.04218 144.945C5.33507 145.238 5.80995 145.238 6.10284 144.945L10.8758 140.172C11.1687 139.88 11.1687 139.405 10.8758 139.112C10.5829 138.819 10.108 138.819 9.81515 139.112L5.57251 143.354L1.32987 139.112C1.03698 138.819 0.562102 138.819 0.269209 139.112C-0.0236845 139.405 -0.0236845 139.88 0.269209 140.172L5.04218 144.945ZM4.82251 0.211914V144.415H6.32251V0.211914H4.82251Z" fill="#0075FF" />
+                                </svg>
+                            </div>
+                        </div> */}
+                        <div className="who-we-are-steps hover:scale-1 transition-all duration-500 ease-in-out pb-10  rounded-[20px] lg:rounded-[36px] lg:text-left text-center lg:px-10 lg:pl-24 lg:py-10 px-6 py-4  border-[1.5px] border-[#FFFFFF] border-opacity-20">
+                            <p className="lg:text-xl text-white opacity-50 lg:opacity-80 font-bold text-sm">Pacman created Blur, the top NFT marketplace protocol on Ethereum with over 333,063 users and $7b worth of NFTs traded. Blur distributed the 5th largest airdrop in Ethereum history.</p>
+                        </div>
+
+                        <div className="lg:hidden -mt-6 flex-col flex w-full justify-center items-center">
+                            <div>
+                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="5.70776" cy="5.8606" r="5.02368" fill="#0075FF" />
+                                </svg>
+                            </div>
+                            <div className="ml-[1.5px]">
+                                <svg width="12" height="51" viewBox="0 0 12 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.04218 50.2715C5.33508 50.5644 5.80995 50.5644 6.10284 50.2715L10.8758 45.4986C11.1687 45.2057 11.1687 44.7308 10.8758 44.4379C10.5829 44.145 10.108 44.145 9.81515 44.4379L5.57251 48.6806L1.32987 44.4379C1.03698 44.145 0.562104 44.145 0.269211 44.4379C-0.0236826 44.7308 -0.0236826 45.2057 0.269211 45.4986L5.04218 50.2715ZM4.82251 0.860352L4.82251 49.7412L6.32251 49.7412L6.32251 0.860352L4.82251 0.860352Z" fill="#0075FF" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div className="lg:flex -mt-20 flex-col justify-center items-center w-[10%] res-path-width  hidden">
+                            <div>
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7.50806" cy="7.64819" r="6.89429" fill="#0075FF" />
+                                </svg>
+                            </div>
+                            <div>
+                                <svg width="12" height="146" viewBox="0 0 12 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.04218 144.945C5.33507 145.238 5.80995 145.238 6.10284 144.945L10.8758 140.172C11.1687 139.88 11.1687 139.405 10.8758 139.112C10.5829 138.819 10.108 138.819 9.81515 139.112L5.57251 143.354L1.32987 139.112C1.03698 138.819 0.562102 138.819 0.269209 139.112C-0.0236845 139.405 -0.0236845 139.88 0.269209 140.172L5.04218 144.945ZM4.82251 0.211914V144.415H6.32251V0.211914H4.82251Z" fill="#0075FF" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div className="who-we-are-steps pb-10 lg:-mt-16 rounded-[20px] lg:rounded-[36px] lg:text-left text-center lg:px-10 lg:pl-24 lg:py-10 px-6 py-4  border-[1.5px] border-[#FFFFFF] border-opacity-20">
+                            <p className="lg:text-xl text-white opacity-50 lg:opacity-80 font-bold text-sm">Our team members come from FAANG, Yale, MIT, Nanyang Technological University, Seoul National University and have worked on some of the largest protocols in Defi and Web3, primarily on Ethereum but also on other chains like Solana as well.</p>
+                        </div>
+
+                        <div className="lg:hidden -mt-6 flex-col flex w-full justify-center items-center">
+                            <div>
+                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="5.70776" cy="5.8606" r="5.02368" fill="#0075FF" />
+                                </svg>
+                            </div>
+                            <div className="ml-[1.5px]">
+                                <svg width="12" height="51" viewBox="0 0 12 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.04218 50.2715C5.33508 50.5644 5.80995 50.5644 6.10284 50.2715L10.8758 45.4986C11.1687 45.2057 11.1687 44.7308 10.8758 44.4379C10.5829 44.145 10.108 44.145 9.81515 44.4379L5.57251 48.6806L1.32987 44.4379C1.03698 44.145 0.562104 44.145 0.269211 44.4379C-0.0236826 44.7308 -0.0236826 45.2057 0.269211 45.4986L5.04218 50.2715ZM4.82251 0.860352L4.82251 49.7412L6.32251 49.7412L6.32251 0.860352L4.82251 0.860352Z" fill="#0075FF" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div className="lg:flex new-res-who-we-are-sec -mt-20 flex-col justify-center items-center w-[10%] res-path-width  hidden">
+                            <div>
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7.50806" cy="7.64819" r="6.89429" fill="#0075FF" />
+                                </svg>
+                            </div>
+                            <div>
+                                <svg width="12" height="146" viewBox="0 0 12 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.04218 144.945C5.33507 145.238 5.80995 145.238 6.10284 144.945L10.8758 140.172C11.1687 139.88 11.1687 139.405 10.8758 139.112C10.5829 138.819 10.108 138.819 9.81515 139.112L5.57251 143.354L1.32987 139.112C1.03698 138.819 0.562102 138.819 0.269209 139.112C-0.0236845 139.405 -0.0236845 139.88 0.269209 140.172L5.04218 144.945ZM4.82251 0.211914V144.415H6.32251V0.211914H4.82251Z" fill="#0075FF" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div className="who-we-are-steps lg:-mt-16 relative pb-10  rounded-[20px] lg:rounded-[36px] lg:text-left text-center lg:px-10 lg:pl-24 lg:py-10 px-6 py-4  border-[1.5px] border-[#FFFFFF] border-opacity-20">
+                            {/* <div className="absolute lg:block hidden left-12 top-20">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7.50806" cy="7.73315" r="6.89429" fill="#0075FF" />
+                                </svg>
+                            </div> */}
+
+
+                            <p className="lg:text-xl text-white opacity-50 lg:opacity-80 font-bold text-sm">Blast contributors have raised $20m from Paradigm, Standard Crypto, eGirl Capital, Primitive Ventures, Andrew Kang, Hasu, Foobar, Blurr, Will Price, Hsaka, Santiago Santos, Larry Cermak, Manifold, Jeff Lo, and other cryptonatives.</p>
+                        </div>
+                        <div className="lg:flex new-res-who-we-are-third -mt-20 flex-col justify-center items-center w-[10%] res-path-width  hidden">
+                            <div>
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7.50806" cy="7.64819" r="6.89429" fill="#0075FF" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1031,13 +1173,20 @@ const About = () => {
                             </div>
 
                             <div className="px-10 lg:px-0">
-                                <div className="flex justify-between mt-6 lg:mt-0 items-center gap-10 lg:p-2 p-1 pl-6 lg:pl-6 hover:scale-105 duration-500 ease-in-out rounded-[36px] bg-white">
-                                    <p className="font-semibold whitespace-nowrap lg:block hidden text-xl text-black">Claim your Airdrop</p>
-                                    <p className="font-semibold lg:hidden block text-xl text-black">Register now</p>
-                                    <div className="h-[43px] flex justify-center items-center w-[43px] rounded-[50%] bg-[#0075FF]">
-                                        <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16.8241 8.35945C17.2146 7.96893 17.2146 7.33576 16.8241 6.94524L10.4601 0.581276C10.0696 0.190752 9.4364 0.190752 9.04587 0.581277C8.65535 0.971801 8.65535 1.60497 9.04588 1.99549L14.7027 7.65234L9.04588 13.3092C8.65535 13.6997 8.65535 14.3329 9.04588 14.7234C9.4364 15.1139 10.0696 15.1139 10.4601 14.7234L16.8241 8.35945ZM1.73761 6.65235C1.18532 6.65235 0.737607 7.10006 0.737607 7.65235C0.737607 8.20463 1.18532 8.65235 1.73761 8.65235L1.73761 6.65235ZM16.1169 6.65234L1.73761 6.65235L1.73761 8.65235L16.1169 8.65234L16.1169 6.65234Z" fill="white" />
-                                        </svg>
+                                <div className="flex group  justify-between mt-6 lg:mt-0 items-center gap-10 lg:p-2 p-1 pl-6 lg:pl-6 transition-all hover:bg-black group duration-500 ease-in-out rounded-[36px] bg-white">
+                                    <p className="font-semibold whitespace-nowrap lg:block hidden group-hover:text-white  duration-500 ease-in-out transition-all text-xl text-black">Claim your Airdrop</p>
+                                    <p className="font-semibold group-hover:text-white  duration-500 ease-in-out transition-all lg:hidden block text-xl text-black">Claim your Airdrop</p>
+                                    <div className="h-[43px] overflow-hidden relative flex justify-center items-center w-[43px] rounded-[50%] bg-[#0075FF]">
+                                        <div className="-translate-x-8 absolute transition-all duration-500 ease-in-out group-hover:translate-x-0 ">
+                                            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.8241 8.35945C17.2146 7.96893 17.2146 7.33576 16.8241 6.94524L10.4601 0.581276C10.0696 0.190752 9.4364 0.190752 9.04587 0.581277C8.65535 0.971801 8.65535 1.60497 9.04588 1.99549L14.7027 7.65234L9.04588 13.3092C8.65535 13.6997 8.65535 14.3329 9.04588 14.7234C9.4364 15.1139 10.0696 15.1139 10.4601 14.7234L16.8241 8.35945ZM1.73761 6.65235C1.18532 6.65235 0.737607 7.10006 0.737607 7.65235C0.737607 8.20463 1.18532 8.65235 1.73761 8.65235L1.73761 6.65235ZM16.1169 6.65234L1.73761 6.65235L1.73761 8.65235L16.1169 8.65234L16.1169 6.65234Z" fill="white" />
+                                            </svg>
+                                        </div>
+                                        <div className="translate-x-0 absolute transition-all duration-500 ease-in-out group-hover:translate-x-8 ">
+                                            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.8241 8.35945C17.2146 7.96893 17.2146 7.33576 16.8241 6.94524L10.4601 0.581276C10.0696 0.190752 9.4364 0.190752 9.04587 0.581277C8.65535 0.971801 8.65535 1.60497 9.04588 1.99549L14.7027 7.65234L9.04588 13.3092C8.65535 13.6997 8.65535 14.3329 9.04588 14.7234C9.4364 15.1139 10.0696 15.1139 10.4601 14.7234L16.8241 8.35945ZM1.73761 6.65235C1.18532 6.65235 0.737607 7.10006 0.737607 7.65235C0.737607 8.20463 1.18532 8.65235 1.73761 8.65235L1.73761 6.65235ZM16.1169 6.65234L1.73761 6.65235L1.73761 8.65235L16.1169 8.65234L16.1169 6.65234Z" fill="white" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1063,23 +1212,12 @@ const About = () => {
                             </div>
 
                             <div className="bg-black rounded-[36px] flex items-center justify-between gap-6 px-8 py-6">
-                                <div className="hover:scale-125 transition-all duration-500 ease-in-out">
-                                    <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19.3287 18.1422C19.3287 18.1422 22.9079 3.68965 23.0414 1.75611L23.0435 1.75402C23.0435 1.53293 23.0643 1.39944 23.0643 1.2868C23.0643 1.08657 23.0414 0.909274 23.0205 0.819585C22.9309 0.59849 22.8412 0.531745 22.6868 0.464999C22.3531 0.354452 21.7962 0.531745 21.7962 0.531745C21.7962 0.531745 2.07285 7.62555 0.938176 8.4265C0.694137 8.58085 0.627391 8.69348 0.583589 8.80403C0.383352 9.35885 0.984063 9.60289 0.984063 9.60289L6.0755 11.2715C6.0755 11.2715 6.27574 11.2924 6.34248 11.2507C7.49802 10.5165 17.9729 3.88988 18.5736 3.68965C18.6842 3.64584 18.7488 3.68965 18.728 3.73345C18.4839 4.60114 9.38984 12.694 9.38984 12.694C9.38984 12.694 9.34395 12.717 9.32101 12.7837L9.30015 12.8296V12.8734L8.83293 17.9649C8.83293 18.2756 8.92262 18.8764 9.78823 18.1651C9.92923 18.0541 10.0636 17.935 10.1908 17.8084L10.2116 17.7876C10.4651 17.5367 10.7245 17.2919 10.9896 17.0534C11.6342 16.4318 12.2349 15.9187 12.6353 15.5641C12.7147 15.5031 12.7893 15.4361 12.8585 15.3639C14.6148 16.5861 16.4816 17.9211 17.3054 18.6094C17.438 18.7443 17.5976 18.8498 17.7737 18.9188C17.9498 18.9878 18.1385 19.0188 18.3275 19.0098C19.1055 18.989 19.3287 18.1422 19.3287 18.1422Z" fill="white" />
-                                    </svg>
-                                </div>
-
-                                <div className="hover:scale-125 transition-all duration-500 ease-in-out">
-                                    <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M7.5004 19.0329C15.7769 19.0329 20.3076 11.8961 20.3076 5.7111C20.3076 5.51306 20.3076 5.31502 20.2954 5.10461C21.1808 4.4397 21.942 3.61937 22.5431 2.68235C21.7349 3.05367 20.8658 3.30122 19.9504 3.425C20.8975 2.82774 21.6024 1.90556 21.9373 0.825741C21.0682 1.37035 20.1052 1.75405 19.0704 1.96446C18.6588 1.49372 18.1537 1.11687 17.5884 0.858726C17.023 0.600581 16.4102 0.467005 15.7903 0.466797C13.3025 0.466797 11.2803 2.56972 11.2803 5.15412C11.2803 5.52544 11.3278 5.87201 11.3997 6.21857C7.66495 6.03291 4.34706 4.15279 2.12375 1.32084C1.72336 2.04135 1.51419 2.85514 1.51673 3.68245C1.51673 5.30388 2.3139 6.73842 3.51575 7.57885C2.80137 7.55427 2.10342 7.35469 1.48138 6.99711V7.059C1.48138 9.32406 3.03916 11.2277 5.0845 11.6485C4.7042 11.7599 4.31171 11.8094 3.89484 11.8094C3.60961 11.8094 3.32438 11.7847 3.05135 11.7228C3.6218 13.5906 5.28684 14.9385 7.26027 14.9756C5.67856 16.2743 3.70564 16.9822 1.67153 16.9807C1.31439 16.9807 0.946272 16.9683 0.601318 16.9188C2.64524 18.2993 5.04567 19.0348 7.5004 19.0329Z" fill="white" />
-                                    </svg>
-                                </div>
-
-                                <div className="hover:scale-125 transition-all duration-500 ease-in-out">
-                                    <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M20.5793 2.00749C19.0751 1.28215 17.4875 0.764716 15.8564 0.468149C15.8415 0.465143 15.826 0.467178 15.8122 0.47396C15.7985 0.480743 15.7871 0.491925 15.7798 0.505902C15.5767 0.887082 15.3504 1.38274 15.1926 1.77366C13.4338 1.4933 11.6448 1.4933 9.88596 1.77366C9.70907 1.34028 9.50956 0.917462 9.28833 0.50712C9.28082 0.493611 9.26961 0.482786 9.25616 0.476053C9.24271 0.46932 9.22764 0.466991 9.21291 0.469367C7.58169 0.764954 5.99405 1.282 4.48995 2.00749C4.47654 2.01294 4.46516 2.02276 4.45745 2.0355C1.44845 6.75215 0.624546 11.3543 1.02954 15.898C1.03066 15.9092 1.03392 15.92 1.0391 15.9299C1.04428 15.9397 1.05129 15.9483 1.05971 15.9553C2.81152 17.3174 4.77115 18.3572 6.85491 19.0303C6.86955 19.035 6.88521 19.0348 6.89975 19.0298C6.91429 19.0248 6.927 19.0152 6.93614 19.0023C7.38291 18.3617 7.78093 17.687 8.1221 16.9783C8.12683 16.9685 8.12953 16.9579 8.13001 16.947C8.1305 16.9361 8.12876 16.9252 8.12492 16.915C8.12107 16.9049 8.11521 16.8957 8.10772 16.8881C8.10023 16.8806 8.09129 16.8748 8.08149 16.8711C7.45619 16.6198 6.85087 16.3168 6.27121 15.965C6.26068 15.9586 6.25181 15.9496 6.24539 15.9387C6.23897 15.9279 6.23519 15.9155 6.23438 15.9028C6.23358 15.89 6.23578 15.8772 6.24079 15.8656C6.24579 15.8539 6.25345 15.8438 6.26309 15.8359C6.38493 15.7397 6.50678 15.6411 6.62282 15.54C6.63316 15.531 6.64571 15.5251 6.65904 15.5232C6.67238 15.5213 6.68596 15.5233 6.69825 15.529C10.4963 17.3497 14.6089 17.3497 18.3618 15.529C18.3741 15.5229 18.3878 15.5205 18.4014 15.5222C18.415 15.524 18.4278 15.5297 18.4383 15.5388C18.5544 15.6399 18.6751 15.7397 18.7981 15.8359C18.8078 15.8436 18.8156 15.8536 18.8208 15.8651C18.826 15.8767 18.8285 15.8894 18.8279 15.9021C18.8273 15.9148 18.8238 15.9273 18.8176 15.9382C18.8113 15.9492 18.8027 15.9584 18.7923 15.965C18.2132 16.3194 17.6121 16.619 16.9808 16.8699C16.9711 16.8738 16.9623 16.8798 16.9549 16.8876C16.9475 16.8953 16.9418 16.9046 16.9381 16.9148C16.9343 16.9251 16.9327 16.936 16.9333 16.9469C16.9339 16.9578 16.9366 16.9685 16.9414 16.9783C17.2895 17.687 17.6875 18.3605 18.125 18.9999C18.1337 19.0133 18.1463 19.0235 18.1609 19.029C18.1755 19.0345 18.1914 19.0349 18.2063 19.0303C20.2941 18.3595 22.2576 17.3196 24.0119 15.9553C24.0204 15.9487 24.0276 15.9404 24.0328 15.9307C24.038 15.921 24.0411 15.9103 24.0421 15.8993C24.526 10.6455 23.2309 6.08234 20.6107 2.0355C20.6041 2.02268 20.5923 2.01274 20.5793 2.00749ZM8.68955 13.1311C7.54653 13.1311 6.60426 12.029 6.60426 10.676C6.60426 9.3242 7.52796 8.22207 8.68955 8.22207C9.86159 8.22207 10.7946 9.33273 10.776 10.676C10.776 12.029 9.85231 13.1311 8.68955 13.1311ZM16.4018 13.1311C15.2576 13.1311 14.3165 12.029 14.3165 10.676C14.3165 9.3242 15.2402 8.22207 16.4018 8.22207C17.5727 8.22207 18.5056 9.33273 18.4871 10.676C18.4871 12.029 17.5727 13.1311 16.4018 13.1311Z" fill="white" />
-                                    </svg>
-                                </div>
+                            <Icon href="https://twitter.com/NexusLaunchpad" target="_blank">
+                                <FaXTwitter />
+                            </Icon>
+                            <Icon href="https://t.me/NexusLaunchpad" target="_blank">
+                                <FaTelegramPlane />
+                            </Icon>
 
                             </div>
                         </div>
@@ -1102,7 +1240,7 @@ const About = () => {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <div>
+                            {/* <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M10.3845 10.0296C10.3845 10.0296 12.2222 2.6089 12.2908 1.61613L12.2918 1.61505C12.2918 1.50153 12.3025 1.43299 12.3025 1.37516C12.3025 1.27235 12.2908 1.18132 12.2801 1.13527C12.234 1.02174 12.1879 0.987473 12.1087 0.953203C11.9373 0.896442 11.6514 0.987473 11.6514 0.987473C11.6514 0.987473 1.52442 4.6298 0.941815 5.04105C0.816513 5.1203 0.782242 5.17813 0.759752 5.23489C0.65694 5.51977 0.965375 5.64507 0.965375 5.64507L3.57958 6.50184C3.57958 6.50184 3.6824 6.51255 3.71667 6.49113C4.30998 6.11415 9.68833 2.71172 9.99677 2.6089C10.0535 2.58641 10.0867 2.6089 10.076 2.63139C9.95072 3.07691 5.28134 7.23223 5.28134 7.23223C5.28134 7.23223 5.25778 7.24401 5.246 7.27828L5.23529 7.30184V7.32433L4.99539 9.93854C4.99539 10.0981 5.04144 10.4066 5.48589 10.0414C5.55829 9.98438 5.6273 9.92323 5.69259 9.85822L5.7033 9.84751C5.83342 9.71868 5.96661 9.59298 6.10276 9.47054C6.43369 9.15139 6.74213 8.88793 6.94775 8.70587C6.98848 8.67453 7.02679 8.64016 7.06234 8.60306C7.96409 9.23064 8.9226 9.91605 9.34562 10.2695C9.41369 10.3388 9.49561 10.3929 9.58605 10.4283C9.67648 10.4638 9.77338 10.4797 9.87039 10.4751C10.2699 10.4644 10.3845 10.0296 10.3845 10.0296Z" fill="white" />
                                 </svg>
@@ -1119,8 +1257,13 @@ const About = () => {
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M10.4525 1.74517C9.68015 1.37274 8.86501 1.10707 8.0275 0.954796C8.01983 0.953253 8.0119 0.954297 8.00483 0.95778C7.99777 0.961262 7.99193 0.967003 7.98817 0.97418C7.8839 1.1699 7.76772 1.42439 7.68668 1.62511C6.78362 1.48116 5.86503 1.48116 4.96197 1.62511C4.87114 1.4026 4.7687 1.1855 4.65512 0.974805C4.65126 0.967869 4.64551 0.962311 4.6386 0.958854C4.63169 0.955397 4.62395 0.954201 4.61639 0.955421C3.77884 1.10719 2.96366 1.37267 2.19138 1.74517C2.18449 1.74797 2.17865 1.75301 2.17469 1.75955C0.629716 4.18133 0.206679 6.54433 0.414622 8.87731C0.415201 8.88304 0.41687 8.8886 0.419531 8.89365C0.422192 8.8987 0.42579 8.90313 0.430114 8.9067C1.32958 9.60608 2.33576 10.14 3.40567 10.4856C3.41319 10.488 3.42123 10.4879 3.42869 10.4853C3.43616 10.4827 3.44269 10.4778 3.44738 10.4712C3.67677 10.1423 3.88114 9.79587 4.05631 9.43195C4.05874 9.42695 4.06013 9.42147 4.06038 9.41588C4.06063 9.41028 4.05973 9.40469 4.05776 9.39948C4.05579 9.39427 4.05278 9.38956 4.04893 9.38567C4.04508 9.38178 4.04049 9.3788 4.03546 9.37692C3.7144 9.24787 3.4036 9.09231 3.10597 8.9117C3.10056 8.9084 3.09601 8.90377 3.09271 8.89819C3.08941 8.89261 3.08747 8.88627 3.08706 8.87972C3.08665 8.87318 3.08778 8.86662 3.09035 8.86064C3.09292 8.85466 3.09685 8.84943 3.1018 8.84542C3.16436 8.79602 3.22692 8.74537 3.28651 8.69347C3.29181 8.68882 3.29826 8.68583 3.3051 8.68484C3.31195 8.68384 3.31892 8.68488 3.32523 8.68784C5.27537 9.62266 7.38698 9.62266 9.31388 8.68784C9.32022 8.68467 9.32728 8.68346 9.33424 8.68434C9.3412 8.68523 9.34778 8.68818 9.35321 8.69285C9.41279 8.74475 9.47476 8.79602 9.53792 8.84542C9.54292 8.84933 9.54693 8.85448 9.5496 8.8604C9.55227 8.86633 9.55351 8.87285 9.55322 8.87939C9.55292 8.88593 9.5511 8.8923 9.54792 8.89794C9.54473 8.90357 9.54027 8.9083 9.53494 8.9117C9.23762 9.09366 8.92898 9.24748 8.60485 9.3763C8.59985 9.37831 8.59531 9.3814 8.59153 9.38538C8.58774 9.38936 8.5848 9.39413 8.58289 9.39938C8.58098 9.40463 8.58014 9.41024 8.58044 9.41585C8.58073 9.42146 8.58215 9.42695 8.58459 9.43195C8.76334 9.79587 8.96771 10.1417 9.19234 10.4699C9.19681 10.4768 9.20326 10.4821 9.21076 10.4849C9.21826 10.4877 9.22641 10.4879 9.23404 10.4856C10.3061 10.1412 11.3142 9.60721 12.215 8.9067C12.2193 8.90334 12.223 8.89903 12.2257 8.89407C12.2283 8.88911 12.23 8.88361 12.2305 8.87793C12.4789 6.1804 11.814 3.83741 10.4686 1.75955C10.4652 1.75297 10.4591 1.74787 10.4525 1.74517ZM4.34767 7.45663C3.76078 7.45663 3.27697 6.89074 3.27697 6.19603C3.27697 5.50196 3.75125 4.93606 4.34767 4.93606C4.94946 4.93606 5.4285 5.50633 5.41897 6.19603C5.41897 6.89074 4.94469 7.45663 4.34767 7.45663ZM8.30753 7.45663C7.72005 7.45663 7.23683 6.89074 7.23683 6.19603C7.23683 5.50196 7.71111 4.93606 8.30753 4.93606C8.90872 4.93606 9.38777 5.50633 9.37823 6.19603C9.37823 6.89074 8.90872 7.45663 8.30753 7.45663Z" fill="white" />
                                 </svg>
-                            </div>
-
+                            </div> */}
+                            <Icon href="https://twitter.com/NexusLaunchpad" target="_blank">
+                                <FaXTwitter />
+                            </Icon>
+                            <Icon href="https://t.me/NexusLaunchpad" target="_blank">
+                                <FaTelegramPlane />
+                            </Icon>
                         </div>
                     </div>
 

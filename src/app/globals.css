@@ -226,8 +226,62 @@ body {
   }
 }
 
+.gradient-background {
+  animation: rotateGradient 10s linear infinite;
+  min-height: 95vh;
+  background: linear-gradient(115.03deg,
+      #ffffff 0.5%,
+      #0075ff 10.97%,
+      rgba(0, 70, 153, 0.25) 100.25%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1rem;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 150% 150%;
+}
 
-@media screen and (min-width:720px) {
+@media screen and (max-width:719px) {
+  .recent-box-padding {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media screen and (min-width:720px) and (max-width:1080px) {
+  .recent-box-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width:1281px) and (max-width:1400px) {
+  .recent-box-padding {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+@media screen and (min-width:1081px) and (max-width:1280px) {
+  .recent-box-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media screen and (min-width:1401px){
+  .recent-box-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* @media screen and (min-width:720px) {
   .gradient-background {
     animation: rotateGradient 10s linear infinite;
     min-height: 95vh;
@@ -256,7 +310,7 @@ body {
     background-size: 100% 100%;
     margin: 1rem;
   }
-}
+} */
 
 
 
@@ -414,7 +468,7 @@ body {
 
 @media screen and (min-width:1080px) {
   .grad-text-gray {
-    background: -webkit-linear-gradient(right, #3b3b3bc9 1%, #ffffff 50%);
+    background: -webkit-linear-gradient(right, #3b3b3bc9 1%, #ffffff 15%);
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -600,7 +654,7 @@ body {
   }
 }
 
-@media screen and (min-width:1024px) and (max-width:1500px) {
+@media screen and (min-width:1024px) and (max-width:1499px) {
   .resp-head-logo {
     margin-left: 7% !important;
   }
@@ -614,6 +668,19 @@ body {
     gap: 2rem;
   }
 
+  .responsive-steps-head {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (min-width:1080px) and (max-width:1330px) {
+  .responsive-steps-head {
+    font-size: 12px !important;
+  }
+}
+
+
+@media screen and (min-width:1500px) and (max-width:1837px) {
   .responsive-steps-head {
     font-size: 16px !important;
   }
@@ -807,26 +874,36 @@ body {
   }
 }
 
-@media screen and (min-width:767px) and (max-width:1024px) {
+@media screen and (min-width:767px) and (max-width:849px) {
   .res-headlogo-ml {
-    margin-left: 24% !important;
+    margin-left: 20% !important;
   }
 }
-@media screen and (max-width:400px){
-  .res-about-mob-head{
+
+@media screen and (min-width:850px) and (max-width:1024px) {
+  .res-headlogo-ml {
+    margin-left: 22% !important;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .res-about-mob-head {
     margin-left: 12% !important;
   }
 }
+
 @media screen and (min-width:460px) and (max-width:559px) {
-  .res-about-mob-head{
+  .res-about-mob-head {
     margin-left: 16% !important;
   }
 }
-@media screen and (min-width:530px) and (max-width:559px){
-  .res-about-mob-modal-btn{
+
+@media screen and (min-width:530px) and (max-width:559px) {
+  .res-about-mob-modal-btn {
     top: 1rem !important;
   }
 }
+
 @media screen and (min-width:560px) and (max-width:1024px) {
   .res-about-mob-head {
     margin-left: 20% !important;
@@ -844,7 +921,7 @@ body {
 }
 
 @media screen and (min-width:710px) {
-  .res-about-mob-modal-btn{
+  .res-about-mob-modal-btn {
     margin-top: -0.8rem !important;
   }
 }
@@ -896,11 +973,13 @@ body {
     width: 75%;
   }
 }
+
 @media screen and (min-width:1023px) and (max-width:1240px) {
-  .res-powerby-mb{
+  .res-powerby-mb {
     margin-bottom: 3rem !important;
   }
 }
+
 @media screen and (min-width:1024px) {
   .sm-footer {
     display: none !important
@@ -927,17 +1006,54 @@ body {
   }
 }
 
-@media screen and (max-width:1500px){
-  .res-arrow{
+@media screen and (max-width:1500px) {
+  .res-arrow {
     margin-top: 1rem;
   }
-  .res-arrow-2{
+
+  .res-arrow-2 {
     margin-top: 2rem;
   }
 }
 
 @media screen and (min-width:1024px) and (max-width:1280px) {
-  .footer-resp-margin{
+  .footer-resp-margin {
     margin-top: -4rem !important;
+  }
+}
+
+@media screen and (min-width:1024px) and (max-width:1203px) {
+  .nexus-hero-head {
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (min-width:1204px) and (max-width:1343px) {
+  .nexus-hero-head {
+    font-size: 3rem !important;
+  }
+}
+
+@media screen and (min-width:1344px) and (max-width:1645px) {
+  .nexus-hero-head {
+    font-size: 3.5rem !important;
+  }
+}
+
+@media screen and (min-width:1700px) {
+  .new-res-who-we-are-third{
+    margin-top: -3.5rem;
+  }
+}
+
+@media screen and (min-width:1700px) {
+  .new-res-who-we-are-sec{
+    margin-top: -3.5rem;
+  }
+}
+
+@media screen and (min-width:2000px) {
+  .res-path-width{
+    width: 5% !important;
   }
 }

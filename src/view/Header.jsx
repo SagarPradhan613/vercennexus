@@ -26,7 +26,7 @@ const Background = styled.div`
   height: 70px;
   position: relative;
   @media screen and (max-width: 720px) {
-    width: 200px;
+    width: 300px;
     height: 50px;
   }
   @media screen and (min-width:720px) and (max-width: 760px) {
@@ -41,14 +41,14 @@ const IconWrapper = styled.a`
   left: 50%;
   transform: translate(-50%, -50%);
   @media screen and (max-width: 720px) {
-    top: 40%;
+    top: 50%;
   }
 `;
 
 const Navbar = styled.div`
   background:black;
+  gap:5px;
   border-radius:36px;
-  display:flex;
   align-items:center;
   margin-left:-3.5rem;
   padding:10px;
@@ -56,6 +56,12 @@ const Navbar = styled.div`
   margin-top:1.5rem;
   @media only screen and (max-width: 760px) {
    margin-left:-2rem;
+  }
+  @media screen and (max-width: 1024px) {
+    display:none;
+  }
+  @media screen and (min-width: 1024px) {
+    display:flex;
   }
 `
 const LeaderBoard = styled.a`
@@ -170,7 +176,6 @@ const Header = ({pathname}) => {
           <About pathname={pathname} href="/about">
             About
           </About>
-
         </Navbar>
       </BgWrapp>
     </HeaderWrapper>
