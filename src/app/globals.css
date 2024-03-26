@@ -938,6 +938,6 @@ body {
 
 @media screen and (min-width:1024px) and (max-width:1280px) {
   .footer-resp-margin{
-    margin-top: -5rem !important;
+    margin-top: -4rem !important;
   }
 }
