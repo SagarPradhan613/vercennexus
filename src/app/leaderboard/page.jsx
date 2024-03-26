@@ -760,7 +760,7 @@ const LeaderBoard = () => {
                         </div>
                     </div>
                     {/* footer */}
-                    <div className="lg:flex relative z-50  hidden footer-resp-margin -mt-10 items-center w-full justify-end gap-6">
+                    <div className="lg:flex relative z-50  hidden footer-resp-margin -mt-16 items-center w-full justify-end gap-6">
                         <div>
                             <p className="text-white text-xs lg:font-medium lg:text-base responsive-social-text-hide opacity-60">Follow on our socials</p>
                         </div>
