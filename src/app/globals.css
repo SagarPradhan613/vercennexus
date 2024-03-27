@@ -398,7 +398,7 @@ body {
   pointer-events: none;
   z-index: 111;
   background-color: white;
-  /* transition: all 0.2s ease-out; */
+  transition: all 0.1s ease-out;
   animation: moveCursor1 0.5s infinite alternate;
 }
 

@@ -21,6 +21,14 @@ const LeaderBoard = () => {
     const isTab = useIsTab();
     const isBig = useIsBig();
     const [textAnim, setTextAnim] = useState([]);
+    const [opac, setOpac] = useState(0);
+
+  useEffect(() => {
+    setOpac(0);
+    setTimeout(() => {
+      setOpac(1);
+    }, 100);
+  }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -41,15 +49,15 @@ const LeaderBoard = () => {
         document.addEventListener("mousemove", (e) => {
             cursor?.setAttribute(
                 "style",
-                "top: " + (e.pageY - 20) + "px; left: " + (e.pageX - 20) + "px;"
+                "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
             );
             if (e.target.tagName.toLowerCase() === "button") {
                 cursor?.setAttribute(
                     "style",
                     "top: " +
-                    (e.pageY - 20) +
+                    (e.pageY - 5) +
                     "px; left: " +
-                    (e.pageX - 20) +
+                    (e.pageX - 5) +
                     "px; background-color: " +
                     (e.target.tagName.toLowerCase() === "button"
                         ? "#0075FF"
@@ -160,7 +168,7 @@ const LeaderBoard = () => {
 
     return (
         <>
-            <div className="overflow-hidden sen  relative" style={{ minHeight: "100vh", minWidth: "100vw", position: "relative" }}>
+            <div className="overflow-hidden sen  relative" style={{ minHeight: "100vh", minWidth: "100vw", position: "relative" , opacity: opac }}>
                 {!isMobile && <div class="cursor"></div>}
                 <div className="lg:block hidden" style={{ position: "absolute", height: "100%", width: "100%", top: "0", left: "0" }}>
                     <img className="opacity-70" style={{ height: "100%", width: "100%" }} src="/Images/topmask.png"></img>

@@ -169,15 +169,15 @@ const About = () => {
         document.addEventListener("mousemove", (e) => {
             cursor?.setAttribute(
                 "style",
-                "top: " + (e.pageY - 20) + "px; left: " + (e.pageX - 20) + "px;"
+                "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
             );
             if (e.target.tagName.toLowerCase() === "button") {
                 cursor?.setAttribute(
                     "style",
                     "top: " +
-                    (e.pageY - 20) +
+                    (e.pageY - 5) +
                     "px; left: " +
-                    (e.pageX - 20) +
+                    (e.pageX - 5) +
                     "px; background-color: " +
                     (e.target.tagName.toLowerCase() === "button"
                         ? "#0075FF"
