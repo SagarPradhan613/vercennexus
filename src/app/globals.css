@@ -398,7 +398,7 @@ body {
   pointer-events: none;
   z-index: 111;
   background-color: white;
-  transition: all 0.2s ease-out;
+  /* transition: all 0.2s ease-out; */
   animation: moveCursor1 0.5s infinite alternate;
 }
 
@@ -466,9 +466,9 @@ body {
 }
 
 
-@media screen and (min-width:1080px) {
+/* @media screen and (min-width:1080px) {
   .grad-text-gray {
-    background: -webkit-linear-gradient(right, #3b3b3bc9 1%, #ffffff 15%);
+    background: -webkit-linear-gradient(right, #3b3b3bc9 1%, #ffffff 10%);
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -482,7 +482,15 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+} */
+
+.grad-text-gray {
+  background: linear-gradient(112.01deg, #FFFFFF 54.35%, rgba(255, 255, 255, 0) 132.74%);
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text;
+  color: transparent;
 }
+
 
 .MuiOtpInput-Box {
   gap: 1rem;
@@ -544,7 +552,7 @@ body {
 
 @media screen and (min-width:720px) and (max-height:1000px) {
   .custom-scroller {
-    height: 58vh;
+    min-height: 58vh;
   }
 }
 
@@ -1055,5 +1063,11 @@ body {
 @media screen and (min-width:2000px) {
   .res-path-width{
     width: 5% !important;
+  }
+}
+
+@media screen and (min-width:1024px) and (max-width:1080px) {
+  .res-gap{
+    gap: 1rem !important;
   }
 }
