@@ -32,6 +32,7 @@ import Button from "@mui/material";
 import Flex from "@/components/Flex";
 import Heading from "@/components/Heading";
 import InviteModal from '@/view/InviteModal';
+import './page.css';
  
 
 
