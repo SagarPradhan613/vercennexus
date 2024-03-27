@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { usePathname } from 'next/navigation';
@@ -53,7 +53,7 @@ const style = {
     }
   };
 
-const Airdrop = () => {
+const Content = () => {
     const pathname = usePathname();
     const [isActive, setIsActive] = useState(false);
 
@@ -950,4 +950,12 @@ const Airdrop = () => {
     )
 }
 
+
+const Airdrop = () => {
+    return (
+        <Suspense>
+            <Content />
+        </Suspense>
+    )
+}
 export default Airdrop;

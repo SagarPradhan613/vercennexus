@@ -32,6 +32,7 @@ import Button from "@mui/material";
 import Flex from "@/components/Flex";
 import Heading from "@/components/Heading";
 import InviteModal from '@/view/InviteModal';
+ 
 
 
 
@@ -169,10 +170,11 @@ const style = {
     }
   };
 
-const About = () => {
+const Content = () => {
 
     const pathname = usePathname();
     const [isActive, setIsActive] = useState(false);
+    const searchParams = useSearchParams()
 
     const isMobile = useIsMobile();
     const isTab = useIsTab();
@@ -194,7 +196,6 @@ const About = () => {
 
     const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
     const API_URL = process.env.NEXT_PUBLIC_API_URL
-    const searchParams = useSearchParams()
     const refId = searchParams ? searchParams.get('refId') : null;
     const adminOverride = searchParams ? searchParams.get('adminOverride') : null;
     const [accessToken, setAccessToken] = useState<string | null>(null);
@@ -1965,6 +1966,15 @@ const About = () => {
             </div>
 
         </>
+    )
+}
+
+
+const About = () => {
+    return (
+        <Suspense>
+            <Content />
+        </Suspense>
     )
 }
 

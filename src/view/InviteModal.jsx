@@ -1,6 +1,3 @@
-
-
-
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -48,15 +45,15 @@ const BackButton = styled.button`
   }
 `;
 
-export default function BasicModal({
+const BasicModal = ({
   open,
-  login,
+   login,
   handleSubmit,
   inviteError,
   setOtp,
   otp,
   handleClose,
-}) {
+}) => {
   const handleChange = (newValue) => {
     setOtp(newValue);
   };
@@ -111,3 +108,5 @@ export default function BasicModal({
     </div>
   );
 }
+
+export default BasicModal; 

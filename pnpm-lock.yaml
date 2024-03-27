@@ -36,8 +36,8 @@ dependencies:
     specifier: ^1.6.7
     version: 1.6.7
   mui-one-time-password-input:
-    specifier: ^2.0.2
-    version: 2.0.2(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@mui/material@5.15.12)(@types/react@18.2.64)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.2.5
+    version: 1.2.5(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@mui/material@5.15.12)(@types/react@18.2.64)(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: 14.1.3
     version: 14.1.3(react-dom@18.2.0)(react@18.2.0)
@@ -931,6 +931,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: false
     bundledDependencies:
       - napi-wasm
@@ -4616,8 +4617,8 @@ packages:
   /ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  /mui-one-time-password-input@2.0.2(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@mui/material@5.15.12)(@types/react@18.2.64)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-KALEh0fIxMOioGU5xUYBZ4bCoUE6/apERw0xo62JdHjnd6VM0Dux70LsMDUeQ4aHtvOMZV3o9tH21wIrPjucug==}
+  /mui-one-time-password-input@1.2.5(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@mui/material@5.15.12)(@types/react@18.2.64)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-D1KkHiwO1r1qFtNN9wWAkwb9pALEUPDuqrbfABZ0sbd7Tzzr28xQ3ljtDvH6nsoswX9XbZyf/sKCYGlnFkSeEw==}
     peerDependencies:
       '@emotion/react': ^11.5.0
       '@emotion/styled': ^11.3.0
@@ -4653,6 +4654,10 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: false
 
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}

@@ -192,7 +192,8 @@ body {
     margin-left: 13% !important;
   }
 
-}
+} 
+
 .newgradient-background {
   animation: rotateGradient 10s linear infinite;
   background: linear-gradient(115.03deg,
