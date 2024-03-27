@@ -1176,7 +1176,7 @@ const About = () => {
                         </div>
 
                         <div className="l2-box hover:scale-105 transition-all duration-500 ease-in-out rounded-[20px] lg:rounded-[36px] text-center lg:px-16 lg:py-16 px-6 py-4 border-[1.5px] border-[#FFFFFF] border-opacity-20">
-                            <p className="lg:text-xl text-white opacity-50 lg:opacity-80 font-bold text-sm">Nexus prioritizes the privacy and security of users above all else. Whether you're transacting or participating in launches, Nexus believes in providing a no-free experience for users.
+                            <p className="lg:text-xl text-white opacity-50 lg:opacity-80 font-bold text-sm">Nexus prioritizes the privacy and security of users above all else. Whether you&apos;re transacting or participating in launches, Nexus believes in providing a no-free experience for users.
                             </p>
                         </div>
                     </div>
