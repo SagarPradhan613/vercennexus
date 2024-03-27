@@ -290,8 +290,11 @@ const Airdrop = () => {
                         <div className="w-full responsive-airdrop-padding responsive-airdrop-gap rounded-[28px] mt-4 lg:mt-0 px-4 py-6 lg:px-20 lg:py-12 relative z-50 flex lg:flex-row flex-col border-2 border-[#FFFFFF0D] bg-[#191F25]">
                             <div className="lg:w-1/2 mb-8 lg:mb-0 flex flex-col justify-between w-full">
                                 <div>
-                                    <div className="lg:block hidden py-4 max-w-[264px]">
+                                    {/* <div className="lg:block hidden py-4 max-w-[264px]">
                                         <img src="/Images/whiteheadtexthd.png" className="h-full w-full"></img>
+                                    </div> */}
+                                    <div className="mb-6">
+                                        <p className="font-bold text-base new-text-bg  lg:text-3xl">Follow simple steps</p>
                                     </div>
                                     <div className="w-full pt-4 flex justify-center items-center lg:hidden">
                                         <div className="max-w-[141px]">
@@ -329,7 +332,7 @@ const Airdrop = () => {
                                         </div>
 
                                         <div className="border max-w-[113px] hover:bg-[#0075FF] hover:border-[#0075FF] transition-all duration-300 ease-in-out resp-btn-width-docs border-white rounded-[36px] flex justify-center items-center px-6 lg:px-10">
-                                            <p className="font-semibold  text-sm lg:text-base whitespace-nowrap text-white">Read Docs</p>
+                                            <p className="font-semibold  text-sm lg:text-base whitespace-nowrap text-white">Open DAPP</p>
                                         </div>
                                     </div>
 
@@ -453,7 +456,7 @@ const Airdrop = () => {
 
                                         <div className="lg:w-1/2 mt-4 lg:mt-0 flex justify-end w-full">
                                             <div className="flex overflow-hidden group transition-all duration-500 ease-in-out center items-center py-2 lg:py-0 lg:max-w-[250px] res-air-right-btn w-full rounded-[36px] h-full px-2 lg:px-4 lg:pl-8 pl-6 gap-4 justify-between bg-[#0075FF]">
-                                                <p className=" font-semibold text-sm   lg:text-base whitespace-nowrap text-white">Follow on Telegram</p>
+                                                <p className=" font-semibold text-sm   lg:text-base whitespace-nowrap text-white">Join Telegram</p>
                                                 <div className="rounded-[50%] overflow-hidden relative hide-arrow bg-white w-[36px] h-[36px] flex justify-center items-center">
                                                     <div className="-translate-x-8 absolute transition-all duration-500 ease-in-out group-hover:translate-x-0 ">
                                                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">

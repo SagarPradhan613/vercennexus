@@ -501,7 +501,9 @@ body {
     -webkit-text-fill-color: transparent;
   }
 } */
-
+.drop{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 17.02%, #000000 88.87%);
+}
 .grad-text-gray {
   background: linear-gradient(112.01deg, #FFFFFF 54.35%, rgba(255, 255, 255, 0) 132.74%);
   -webkit-background-clip: text; /* For Safari */
@@ -509,6 +511,12 @@ body {
   color: transparent;
 }
 
+.new-text-bg{
+  background: linear-gradient(99.32deg, #FFFFFF 9.48%, #FFFFFF 59.66%, rgba(255, 255, 255, 0) 108.09%) !important;
+  -webkit-background-clip: text !important; /* For Safari */
+  background-clip: text !important;
+  color: transparent !important;
+}
 
 .MuiOtpInput-Box {
   gap: 1rem;
