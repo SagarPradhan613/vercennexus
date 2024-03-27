@@ -10,7 +10,48 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { COLORS } from '@/utils/colors';
 import styled from "styled-components";
+import RegisterButton from "@/components/RegisterButton";
+import IconButton from "@/components/IconButton";
+import { IoMdLogOut } from "react-icons/io";
+import { Box, Modal, Typography } from '@mui/material';
+import Text from "@/components/Text";
+import { Web3Auth } from "@web3auth/modal";
+import { CHAIN_NAMESPACES, IProvider, WEB3AUTH_NETWORK } from "@web3auth/base";
+import axios from 'axios';
+import { useSearchParams } from 'next/navigation';
+import { Person } from '@mui/icons-material';
+import ReferralModal from "@/view/RefferalModal";
+import Button from "@mui/material";
+import Flex from "@/components/Flex";
+import Heading from "@/components/Heading";
+import InviteModal from '@/view/InviteModal';
 
+
+const Icon = styled.a`
+color: ${COLORS.white};
+cursor: pointer;
+transition: transform 1s ease;
+&:hover {
+  color: ${COLORS.blue};
+}
+`;
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    borderColor: "white",
+    padding: '10px',
+    borderRadius: '15px',
+    width: '100%',
+    maxWidth: '1000px',
+    '@media (max-width: 768px)': {
+      width: '90%',
+      maxWidth: '90%'
+    }
+  };
 
 const Airdrop = () => {
     const pathname = usePathname();
@@ -19,52 +60,25 @@ const Airdrop = () => {
     const isMobile = useIsMobile();
     const isTab = useIsTab();
     const isBig = useIsBig();
-    const [textAnim, setTextAnim] = useState([]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setTextAnim((prev) => [...prev, 1]);
-        }, 250);
+    const [copied, setCopied] = useState(false)
+    const [isModal, setIsmodal] = useState<boolean>(false);
+    const [referrals, setReferrals] = useState<any>([]);
+    const [profile, setProfile] = useState<any>(null);
+    const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
+    const [provider, setProvider] = useState<any>(null);
+    const [errorText, setErrorText] = useState<any>(null);
+    const [codes, setCodes] = useState<Array<string>>([]);
+    const [totalCodes, setTotalCodes] = useState<Array<string>>([]);
 
-        // Clear the interval when the array length reaches 3
-        if (textAnim.length === 3) {
-            clearInterval(interval);
-        }
-        console.log(textAnim);
-        // Clean up the interval when the component unmounts
-        return () => clearInterval(interval);
-    }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
-    if (typeof window !== "undefined") {
-        const cursor = document.querySelector(".cursor");
-
-        document.addEventListener("mousemove", (e) => {
-            cursor?.setAttribute(
-                "style",
-                "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
-            );
-            if (e.target.tagName.toLowerCase() === "button") {
-                cursor?.setAttribute(
-                    "style",
-                    "top: " +
-                    (e.pageY - 5) +
-                    "px; left: " +
-                    (e.pageX - 5) +
-                    "px; background-color: " +
-                    (e.target.tagName.toLowerCase() === "button"
-                        ? "#0075FF"
-                        : "transparent") +
-                    ";"
-                );
-            }
-        });
-
-        document.addEventListener("click", (e) => {
-            cursor?.classList.add("expand");
-            setTimeout(() => {
-                cursor?.classList.remove("expand");
-            }, 500);
-        });
-    }
+    const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
+    const API_URL = process.env.NEXT_PUBLIC_API_URL
+    const searchParams = useSearchParams()
+    const refId = searchParams ? searchParams.get('refId') : null;
+    const adminOverride = searchParams ? searchParams.get('adminOverride') : null;
+    const [accessToken, setAccessToken] = useState<string | null>(null);
+    const [otp, setOtp] = React.useState("");
+    const [inviteError, setInviteError] = React.useState("");
 
 
 
@@ -76,18 +90,367 @@ const Airdrop = () => {
         }
     }, [isActive]);
 
-    const Icon = styled.a`
-    color: ${COLORS.white};
-    cursor: pointer;
-    transition: transform 1s ease;
-    &:hover {
-      color: ${COLORS.blue};
+
+
+    useEffect(() => {
+        // Check if window object is defined (i.e., we're on the client side)
+        if (typeof window !== 'undefined') {
+            // Access localStorage
+            const storedAccessToken = localStorage.getItem('access_token');
+            setAccessToken(storedAccessToken);
+        }
+    }, []); // Empty dependency array ensures this effect runs only once, after mount
+
+
+    useEffect(() => {
+        // setWeb3auth(1)
+        // console.log(web3auth); 
+
+        const init = async () => {
+            try {
+                const web3auth = new Web3Auth({
+                    clientId,
+                    web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET, // import {WEB3AUTH_NETWORK} from "@web3auth/base";
+                    chainConfig: {
+                        chainNamespace: CHAIN_NAMESPACES.EIP155,
+                        chainId: "0x1",
+                        rpcTarget: "https://rpc.ankr.com/eth",
+                    },
+
+                    uiConfig: {
+                        //   appName: "Nexus",
+                        //   mode: "light", // light, dark or auto
+                        //   loginMethodsOrder: ["google", "twitter", "facebook", "apple",],
+                        //   logoLight: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
+                        //   logoDark: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
+                        //   defaultLanguage: "en", // en, de, ja, ko, zh, es, fr, pt, nl
+                        //   loginGridCol: 3,
+                        //   primaryButton: "socialLogin", // "externalLogin" | "socialLogin" | "emailLogin"
+                    },
+                });
+                //   console.log(web3auth);
+
+                await web3auth.initModal();
+                setWeb3auth(web3auth);
+
+                if (web3auth.status === "connected") {
+                    setProvider(web3auth.provider);
+                    loginSignup(web3auth, web3auth.provider);
+
+                    // getUserInfo();
+                    // getAccounts();
+                }
+                else {
+                    // await web3auth?.connect();
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        init();
+
+
+    }, []);
+
+
+    useEffect(() => {
+        try {
+
+            if (web3auth) {
+                loginSignup(web3auth, web3auth?.provider);
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+
+    }, [web3auth?.status])
+
+
+    useEffect(() => {
+        if (accessToken) {
+            getUser();
+            getCodes();
+        }
+    }, [accessToken])
+
+    useEffect(() => {
+        if (refId) {
+            getReferer()
+        }
+    }, [refId])
+
+    const copy = (text: any) => {
+        navigator.clipboard.writeText(text)
+        setCopied(true)
+        setTimeout(() => { setCopied(false) }, 10000)
     }
-  `;
+
+    const getReferer = async () => {
+
+
+        try {
+            let config = {
+                method: "get",
+                url: API_URL + `/get/referer?id=${refId}`,
+                maxBodyLength: Infinity,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            axios
+                .request(config)
+                .then((response) => {
+                    if (response.data.status === "OK") {
+                        // setProfile(response.data.profile)
+                    }
+                    if (response.data.status === "NOT OK") {
+                        setErrorText(response.data.message)
+                    }
+                })
+                .catch((error) => {
+
+                    console.log("axios", error);
+                    // setStatusText("Internal Error");
+                });
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+    const getCodes = async () => {
+        try {
+            let config = {
+                method: "get",
+                url: API_URL + `/get/codes?token=${accessToken}`,
+                maxBodyLength: Infinity,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            axios
+                .request(config)
+                .then((response) => {
+                    if (response.data.status === "OK") {
+                        setCodes(response.data.data)
+                        setTotalCodes(response.data.totalCodes)
+
+                        // setReferrals(response.data.referrals)
+                    }
+                })
+                .catch((error) => {
+
+                    console.log("axios", error);
+                    // setStatusText("Internal Error");
+                });
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+
+    const getUser = async () => {
+
+        if (!accessToken) {
+            return false;
+        }
+        try {
+            let config = {
+                method: "get",
+                url: API_URL + `/get/me?token=${accessToken}`,
+                maxBodyLength: Infinity,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            axios
+                .request(config)
+                .then((response) => {
+                    if (response.data.status === "OK") {
+                        setProfile(response.data.profile)
+                        setReferrals(response.data.referrals)
+                    }
+                })
+                .catch((error) => {
+
+                    console.log("axios", error);
+                    // setStatusText("Internal Error");
+                });
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+
+    const isConnected = async () => {
+        if (!web3auth) {
+            console.log("web3auth not initialized yet");
+            return false;
+        }
+        return web3auth.status === "connected";
+    };
+
+    const login = async () => {
+        const _isConnected = await isConnected();
+        // alert(_isConnected)
+        handleCloseInvite()
+        if (_isConnected) {
+            // alert("Already loggedin");
+            loginSignup(web3auth, provider)
+            return;
+        }
+        try {
+            const web3authProvider = await web3auth?.connect();
+            setProvider(web3authProvider);
+            // loginSignup(web3auth,web3authProvider)
+        }
+        catch (e) {
+            console.log(e)
+        }
+
+
+    }
+
+    const loginSignup = async (_web3auth: Web3Auth | null, _provider: IProvider | null | undefined) => {
+        const userInfo = await _web3auth?.getUserInfo();
+        // const accounts = await provider?.();
+
+        const eth_address: string = await _provider?.request({ method: "eth_accounts" }) || "";
+        if (userInfo) {
+
+            try {
+                let config = {
+                    method: "post",
+                    url: API_URL + `/login`,
+                    maxBodyLength: Infinity,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: {
+                        email: userInfo?.email,
+                        fullName: userInfo?.name,
+                        address: eth_address[0],
+                        code: otp || 0
+                    },
+                };
+
+                axios
+                    .request(config)
+                    .then(async (response) => {
+                        if (response.data.status === "OK") {
+                            localStorage.setItem('access_token', response.data.access_token)
+                            setAccessToken(response.data.access_token)
+                            getUser()
+                        }
+                        if (response.data.status === "NOT OK") {
+                            setErrorText(response.data.data)
+                            await web3auth?.logout();
+
+                        }
+                    })
+                    .catch((error) => {
+
+                        console.log("axios", error);
+                        // setStatusText("Internal Error");
+                    });
+            } catch (e) {
+                console.log(e);
+
+            }
+        }
+    }
+
+    const logout = async () => {
+        const _isConnected = await isConnected();
+
+        if (_isConnected) {
+            await web3auth?.logout();
+            setProvider(null);
+            localStorage.clear()
+            setProfile(false)
+            return;
+        }
+
+
+    }
+
+    const handleSubmit = () => {
+        console.log(otp);
+
+
+        if (otp == "") {
+            setInviteError("Please enter valid OTP.")
+            return false;
+        }
+        try {
+            let config = {
+                method: "get",
+                url: API_URL + `/verify/codes?code=${otp}`,
+                maxBodyLength: Infinity,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            axios
+                .request(config)
+                .then((response) => {
+                    if (response.data.status === "OK") {
+                        login()
+                    }
+                    if (response.data.status === "NOT OK") {
+                        setInviteError(response.data.message)
+                    }
+                })
+                .catch((error) => {
+
+                    console.log("axios", error);
+                    // setStatusText("Internal Error");
+                });
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+    const handleClose = () => {
+        setIsmodal(false)
+    }
+
+
+    const [openInvite, setOpenInvite] = React.useState(false);
+    const handleOpenInvite = () => setOpenInvite(true);
+    const handleCloseInvite = () => setOpenInvite(false);
     return (
         <>
+         {isModal && (
+        <Modal
+          open={isModal}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <ReferralModal totalCodes={totalCodes} setTotalCodes={setTotalCodes} adminOverride={adminOverride} setCodes={setCodes} accessToken={accessToken} referrals={referrals} codes={codes} setIsmodal={setIsmodal} id={profile?._id} />
+          </Box>
+        </Modal>
+      )}
+
+      {
+        openInvite && (
+          <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login} handleClose={handleCloseInvite} />
+        )
+      }
             <div className="overflow-hidden sen  relative min-h-screen min-w-screen">
-                {!isMobile && <div class="cursor"></div>}
+                {!isMobile && <div className="cursor"></div>}
                 <div className="lg:block hidden absolute h-full w-full top-0 left-0">
                     <img className="opacity-70 h-full w-full" src="/Images/topmask.png"></img>
                 </div>
@@ -316,7 +679,7 @@ const Airdrop = () => {
 
                                 <div>
                                     <div className="flex justify-center lg:justify-start mt-4 lg:mb-20 gap-2 w-full lg:gap-6">
-                                        <div className="bg-white max-w-[160px] model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out resp-btn-width-register items-center lg:pl-7 res-padding-btn lg:gap-6 pl-4 gap-4 flex justify-between p-2 rounded-[36px]">
+                                        <div onClick={handleOpenInvite} className="bg-white max-w-[160px] model-nav group hover:bg-[#0075FF] transition-all duration-300 ease-in-out resp-btn-width-register items-center lg:pl-7 res-padding-btn lg:gap-6 pl-4 gap-4 flex justify-between p-2 rounded-[36px]">
                                             <p className="font-semibold group-hover:text-white transition-all duration-300 ease-in-out whitespace-nowrap text-sm poppins lg:text-base text-black">Register now</p>
 
                                             <div className="bg-[#0075FF] w-[34px] relative overflow-hidden group-hover:bg-[white] transition-all duration-300 ease-in-out flex justify-center items-center rounded-[50%] h-[34px] lg:h-[36px] lg:w-[36px]">
@@ -342,8 +705,8 @@ const Airdrop = () => {
                             </div>
 
                             <div className="lg:w-1/2 flex-col flex gap-6 w-full">
-                                <div className="relative group airdrop-steps ">
-                                    <div className="flex responsive-airdrop-steps-flex lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
+                                <div onClick={handleOpenInvite} className="relative group airdrop-steps ">
+                                    <div  className="flex responsive-airdrop-steps-flex lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
                                         <div className="lg:w-1/2 gap-5 flex  w-full">
                                             <div className="lg:block group-hover:scale-110 transition-all duration-500 ease-in-out hidden">
                                                 <svg width="61" height="61" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -477,7 +840,7 @@ const Airdrop = () => {
                                     </div>
                                 </div>
 
-                                <div className="relative group airdrop-steps">
+                                <div onClick={() => setIsmodal(true)} className="relative group airdrop-steps">
                                     <div className="flex  lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
                                         <div className="lg:w-1/2 gap-5 flex  w-full">
                                             <div className="lg:block group-hover:scale-110 transition-all duration-500 ease-in-out hidden">

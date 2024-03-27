@@ -5,7 +5,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Flex from "@/components/Flex";
-// import { MuiOtpInput } from "mui-one-time-password-input";
+import { MuiOtpInput } from "mui-one-time-password-input";
 import Text from "@/components/Text";
 import { COLORS } from "@/utils/colors";
 import RegisterButton from "@/components/RegisterButton";
@@ -79,7 +79,7 @@ export default function BasicModal({
                 Enter Invite Code
               </Text>
             </Flex>
-            {/* <MuiOtpInput value={otp} onChange={handleChange} length={5} /> */}
+            <MuiOtpInput value={otp} onChange={handleChange} length={5} />
             <Flex mt={"3rem"} width={"100%"}>
               <RegisterButton
                 bg={COLORS.blue}

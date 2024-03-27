@@ -1,13 +1,9 @@
 'use client'
 
 import React, { Suspense, useState, useEffect, useRef } from "react";
-import Heading from "@/components/Heading";
 import styled, { keyframes } from "styled-components";
-import Flex from "@/components/Flex";
-import IconButton from "@/components/IconButton";
 import { FaArrowRight } from "react-icons/fa";
 import { COLORS } from '@/utils/colors';
-import Text from "@/components/Text";
 import useIsMobile from "@/hooks/useIsMobile";
 import useIsTab from "@/hooks/useIsTab";
 import Header from "@/view/Header";
@@ -21,6 +17,22 @@ import Nav from '@/components/Nav';
 import { usePathname } from 'next/navigation';
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import RegisterButton from "@/components/RegisterButton";
+import IconButton from "@/components/IconButton";
+import { IoMdLogOut } from "react-icons/io";
+import { Box, Modal, Typography } from '@mui/material';
+import Text from "@/components/Text";
+import { Web3Auth } from "@web3auth/modal";
+import { CHAIN_NAMESPACES, IProvider, WEB3AUTH_NETWORK } from "@web3auth/base";
+import axios from 'axios';
+import { useSearchParams } from 'next/navigation';
+import { Person } from '@mui/icons-material';
+import ReferralModal from "@/view/RefferalModal";
+import Button from "@mui/material";
+import Flex from "@/components/Flex";
+import Heading from "@/components/Heading";
+import InviteModal from '@/view/InviteModal';
+
 
 
 
@@ -139,6 +151,24 @@ const Icon = styled.a`
   }
 `;
 
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    borderColor: "white",
+    padding: '10px',
+    borderRadius: '15px',
+    width: '100%',
+    maxWidth: '1000px',
+    '@media (max-width: 768px)': {
+      width: '90%',
+      maxWidth: '90%'
+    }
+  };
+
 const About = () => {
 
     const pathname = usePathname();
@@ -148,6 +178,368 @@ const About = () => {
     const isTab = useIsTab();
     const isBig = useIsBig();
     const [textAnim, setTextAnim] = useState([]);
+
+    const [viewMore, setViewMore] = useState(false)
+
+
+    const [copied, setCopied] = useState(false);
+    const [isModal, setIsmodal] = useState<boolean>(false);
+    const [referrals, setReferrals] = useState<any>([]);
+    const [profile, setProfile] = useState<any>(null);
+    const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
+    const [provider, setProvider] = useState<any>(null);
+    const [errorText, setErrorText] = useState<any>(null);
+    const [codes, setCodes] = useState<Array<string>>([]);
+    const [totalCodes, setTotalCodes] = useState<Array<string>>([]);
+
+    const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
+    const API_URL = process.env.NEXT_PUBLIC_API_URL
+    const searchParams = useSearchParams()
+    const refId = searchParams ? searchParams.get('refId') : null;
+    const adminOverride = searchParams ? searchParams.get('adminOverride') : null;
+    const [accessToken, setAccessToken] = useState<string | null>(null);
+    const [otp, setOtp] = React.useState("");
+    const [inviteError, setInviteError] = React.useState("");
+
+
+    useEffect(() => {
+        // Check if window object is defined (i.e., we're on the client side)
+        if (typeof window !== 'undefined') {
+            // Access localStorage
+            const storedAccessToken = localStorage.getItem('access_token');
+            setAccessToken(storedAccessToken);
+        }
+    }, []); // Empty dependency array ensures this effect runs only once, after mount
+
+
+    useEffect(() => {
+        // setWeb3auth(1)
+        // console.log(web3auth); 
+
+        const init = async () => {
+            try {
+                const web3auth = new Web3Auth({
+                    clientId,
+                    web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET, // import {WEB3AUTH_NETWORK} from "@web3auth/base";
+                    chainConfig: {
+                        chainNamespace: CHAIN_NAMESPACES.EIP155,
+                        chainId: "0x1",
+                        rpcTarget: "https://rpc.ankr.com/eth",
+                    },
+
+                    uiConfig: {
+                        //   appName: "Nexus",
+                        //   mode: "light", // light, dark or auto
+                        //   loginMethodsOrder: ["google", "twitter", "facebook", "apple",],
+                        //   logoLight: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
+                        //   logoDark: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
+                        //   defaultLanguage: "en", // en, de, ja, ko, zh, es, fr, pt, nl
+                        //   loginGridCol: 3,
+                        //   primaryButton: "socialLogin", // "externalLogin" | "socialLogin" | "emailLogin"
+                    },
+                });
+                //   console.log(web3auth);
+
+                await web3auth.initModal();
+                setWeb3auth(web3auth);
+
+                if (web3auth.status === "connected") {
+                    setProvider(web3auth.provider);
+                    loginSignup(web3auth, web3auth.provider);
+
+                    // getUserInfo();
+                    // getAccounts();
+                }
+                else {
+                    // await web3auth?.connect();
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        init();
+
+
+    }, []);
+
+
+    useEffect(() => {
+        try {
+
+            if (web3auth) {
+                loginSignup(web3auth, web3auth?.provider);
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+
+    }, [web3auth?.status])
+
+
+    useEffect(() => {
+        if (accessToken) {
+            getUser();
+            getCodes();
+        }
+    }, [accessToken])
+
+    useEffect(() => {
+        if (refId) {
+            getReferer()
+        }
+    }, [refId])
+
+    const copy = (text: any) => {
+        navigator.clipboard.writeText(text)
+        setCopied(true)
+        setTimeout(() => { setCopied(false) }, 10000)
+    }
+
+    const getReferer = async () => {
+
+
+        try {
+            let config = {
+                method: "get",
+                url: API_URL + `/get/referer?id=${refId}`,
+                maxBodyLength: Infinity,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            axios
+                .request(config)
+                .then((response) => {
+                    if (response.data.status === "OK") {
+                        // setProfile(response.data.profile)
+                    }
+                    if (response.data.status === "NOT OK") {
+                        setErrorText(response.data.message)
+                    }
+                })
+                .catch((error) => {
+
+                    console.log("axios", error);
+                    // setStatusText("Internal Error");
+                });
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+    const getCodes = async () => {
+        try {
+            let config = {
+                method: "get",
+                url: API_URL + `/get/codes?token=${accessToken}`,
+                maxBodyLength: Infinity,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            axios
+                .request(config)
+                .then((response) => {
+                    if (response.data.status === "OK") {
+                        setCodes(response.data.data)
+                        setTotalCodes(response.data.totalCodes)
+
+                        // setReferrals(response.data.referrals)
+                    }
+                })
+                .catch((error) => {
+
+                    console.log("axios", error);
+                    // setStatusText("Internal Error");
+                });
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+
+    const getUser = async () => {
+
+        if (!accessToken) {
+            return false;
+        }
+        try {
+            let config = {
+                method: "get",
+                url: API_URL + `/get/me?token=${accessToken}`,
+                maxBodyLength: Infinity,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            axios
+                .request(config)
+                .then((response) => {
+                    if (response.data.status === "OK") {
+                        setProfile(response.data.profile)
+                        setReferrals(response.data.referrals)
+                    }
+                })
+                .catch((error) => {
+
+                    console.log("axios", error);
+                    // setStatusText("Internal Error");
+                });
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+
+    const isConnected = async () => {
+        if (!web3auth) {
+            console.log("web3auth not initialized yet");
+            return false;
+        }
+        return web3auth.status === "connected";
+    };
+
+    const login = async () => {
+        const _isConnected = await isConnected();
+        // alert(_isConnected)
+        handleCloseInvite()
+        if (_isConnected) {
+            // alert("Already loggedin");
+            loginSignup(web3auth, provider)
+            return;
+        }
+        try {
+            const web3authProvider = await web3auth?.connect();
+            setProvider(web3authProvider);
+            // loginSignup(web3auth,web3authProvider)
+        }
+        catch (e) {
+            console.log(e)
+        }
+
+
+    }
+
+    const loginSignup = async (_web3auth: Web3Auth | null, _provider: IProvider | null | undefined) => {
+        const userInfo = await _web3auth?.getUserInfo();
+        // const accounts = await provider?.();
+
+        const eth_address: string = await _provider?.request({ method: "eth_accounts" }) || "";
+        if (userInfo) {
+
+            try {
+                let config = {
+                    method: "post",
+                    url: API_URL + `/login`,
+                    maxBodyLength: Infinity,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: {
+                        email: userInfo?.email,
+                        fullName: userInfo?.name,
+                        address: eth_address[0],
+                        code: otp || 0
+                    },
+                };
+
+                axios
+                    .request(config)
+                    .then(async (response) => {
+                        if (response.data.status === "OK") {
+                            localStorage.setItem('access_token', response.data.access_token)
+                            setAccessToken(response.data.access_token)
+                            getUser()
+                        }
+                        if (response.data.status === "NOT OK") {
+                            setErrorText(response.data.data)
+                            await web3auth?.logout();
+
+                        }
+                    })
+                    .catch((error) => {
+
+                        console.log("axios", error);
+                        // setStatusText("Internal Error");
+                    });
+            } catch (e) {
+                console.log(e);
+
+            }
+        }
+    }
+
+    const logout = async () => {
+        const _isConnected = await isConnected();
+
+        if (_isConnected) {
+            await web3auth?.logout();
+            setProvider(null);
+            localStorage.clear()
+            setProfile(false)
+            return;
+        }
+
+
+    }
+
+    const handleSubmit = () => {
+        console.log(otp);
+
+
+        if (otp == "") {
+            setInviteError("Please enter valid OTP.")
+            return false;
+        }
+        try {
+            let config = {
+                method: "get",
+                url: API_URL + `/verify/codes?code=${otp}`,
+                maxBodyLength: Infinity,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            axios
+                .request(config)
+                .then((response) => {
+                    if (response.data.status === "OK") {
+                        login()
+                    }
+                    if (response.data.status === "NOT OK") {
+                        setInviteError(response.data.message)
+                    }
+                })
+                .catch((error) => {
+
+                    console.log("axios", error);
+                    // setStatusText("Internal Error");
+                });
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+    const handleClose = () => {
+        setIsmodal(false)
+    }
+
+
+    const [openInvite, setOpenInvite] = React.useState(false);
+    const handleOpenInvite = () => setOpenInvite(true);
+    const handleCloseInvite = () => setOpenInvite(false);
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -298,6 +690,24 @@ const About = () => {
     return (
         <>
             <div>
+            {isModal && (
+        <Modal
+          open={isModal}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <ReferralModal totalCodes={totalCodes} setTotalCodes={setTotalCodes} adminOverride={adminOverride} setCodes={setCodes} accessToken={accessToken} referrals={referrals} codes={codes} setIsmodal={setIsmodal} id={profile?._id} />
+          </Box>
+        </Modal>
+      )}
+
+      {
+        openInvite && (
+          <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login} handleClose={handleCloseInvite} />
+        )
+      }
                 {/* modal */}
                 {isActive ?
                     <>
@@ -822,7 +1232,7 @@ const About = () => {
 
 
                             <div className=" mt-6 justify-center lg:justify-start lg:mt-20 flex gap-4 lg:gap-6">
-                                <div className="flex model-nav overflow-hidden group hover:bg-black transition-all duration-500 relative z-50 ease-in-out bg-white lg:pl-7 pl-6 rounded-[36px] p-1 lg:p-[7px] items-center gap-4 lg:gap-6">
+                                <div onClick={handleOpenInvite} className="flex model-nav overflow-hidden group hover:bg-black transition-all duration-500 relative z-50 ease-in-out bg-white lg:pl-7 pl-6 rounded-[36px] p-1 lg:p-[7px] items-center gap-4 lg:gap-6">
                                     <p className="font-semibold group-hover:text-white text-black poppins text-sm lg:text-base">Sign Up</p>
 
                                     <div className="flex relative overflow-hidden group-hover:bg-white transition-all duration-500 ease-in-out items-center justify-center rounded-[50%] bg-[#0075FF] h-[36px] w-[36px]">
@@ -1019,11 +1429,11 @@ const About = () => {
                         <p className="font-bold text-[25px] leading-6 grad-text-gray lg:leading-[53px] text-white lg:text-5xl">Leading the way, how Nexus redefines launch excellence with its radical tools.</p>
 
                         <div className="w-full slowly-visible mt-6 flex flex-col lg:hidden">
-                        <div className="relative">
-                            <img src="/Images/newgraph.png" className="w-full  h-full"></img>
-                            <div className="absolute w-full bottom-0 h-1/2 drop">
+                            <div className="relative">
+                                <img src="/Images/newgraph.png" className="w-full  h-full"></img>
+                                <div className="absolute w-full bottom-0 h-1/2 drop">
+                                </div>
                             </div>
-                        </div>
                         </div>
 
                         <p className="text-white mt-10 font-bold text-base leading-5 lg:leading-9 lg:text-2xl grad-text-gray">Empowering innovators with seamless launch experiences and community backed solutions.
@@ -1392,7 +1802,7 @@ const About = () => {
                             </div>
                             <div className="flex absolute -bottom-4 lg:-bottom-6 w-full justify-center items-center">
                                 <div className="res-available bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
-                                Available
+                                    Available
                                 </div>
                             </div>
                             <div className="absolute lg:block hidden -bottom-4 -right-10">
@@ -1414,7 +1824,7 @@ const About = () => {
                             </div>
                             <div className="flex absolute -bottom-4 lg:-bottom-6 w-full justify-center items-center">
                                 <div className="res-available bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
-                                Available
+                                    Available
                                 </div>
                             </div>
                             <div className="absolute lg:block hidden -bottom-4 -right-10">
@@ -1435,7 +1845,7 @@ const About = () => {
                             </div>
                             <div className="flex absolute -bottom-4 lg:-bottom-6 w-full justify-center items-center">
                                 <div className="res-available bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
-                                Coming Soon
+                                    Coming Soon
                                 </div>
                             </div>
                         </div>
