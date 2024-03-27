@@ -1146,17 +1146,15 @@ body {
 }
 
 
-@media screen and (min-width:1080px) and (max-height:1080px) {
-  .fixed-landing{
-    max-height: 92vh;
-  }
-  .res-fix-airdrop-height{
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-  }
-}
+/* @media screen and (min-width:1080px) and (max-height:1080px) {
+  
+ 
+} */
 
 @media screen and (min-width:1920px) and (min-height:1080px) {
+  .fixed-landing{
+    max-height: 90vh;
+  }
   .gradient-background{
     min-height: 92vh !important;
   }
@@ -1167,6 +1165,10 @@ body {
     height: 70vh !important;
   }
   .mainpage-bg{
-    min-height: 92vh !important;
+    min-height: 90vh !important;
+  }
+  .res-fix-airdrop-height{
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
   }
 }
