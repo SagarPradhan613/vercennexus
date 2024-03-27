@@ -338,7 +338,7 @@ const Airdrop = () => {
 
                             <div className="lg:w-1/2 flex-col flex gap-6 w-full">
                                 <div className="relative group airdrop-steps ">
-                                    <div className="flex responsive-airdrop-steps-flex lg:py-8 lg:px-8 res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
+                                    <div className="flex responsive-airdrop-steps-flex lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
                                         <div className="lg:w-1/2 gap-5 flex  w-full">
                                             <div className="lg:block group-hover:scale-110 transition-all duration-500 ease-in-out hidden">
                                                 <svg width="61" height="61" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -381,7 +381,7 @@ const Airdrop = () => {
                                 </div>
 
                                 <div className="relative group airdrop-steps">
-                                    <div className="flex  lg:py-8 lg:px-8 res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
+                                    <div className="flex  lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
                                         <div className="lg:w-1/2 gap-5 flex  w-full">
                                             <div className="lg:block group-hover:scale-110 transition-all duration-500 ease-in-out hidden">
                                                 <svg width="60" height="60" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -426,7 +426,7 @@ const Airdrop = () => {
                                 </div>
 
                                 <div className="relative group airdrop-steps">
-                                    <div className="flex  lg:py-8 lg:px-8 res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
+                                    <div className="flex  lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
                                         <div className="lg:w-1/2 gap-5 flex  w-full">
                                             <div className="lg:block group-hover:scale-110 transition-all duration-500 ease-in-out hidden">
                                                 <svg width="60" height="60" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -473,7 +473,7 @@ const Airdrop = () => {
                                 </div>
 
                                 <div className="relative group airdrop-steps">
-                                    <div className="flex  lg:py-8 lg:px-8 res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
+                                    <div className="flex  lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
                                         <div className="lg:w-1/2 gap-5 flex  w-full">
                                             <div className="lg:block group-hover:scale-110 transition-all duration-500 ease-in-out hidden">
                                                 <svg width="60" height="60" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">

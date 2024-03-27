@@ -755,132 +755,112 @@ const Landing = () => {
         :
         null
       }
-      <div className="gradient-background" style={{ opacity: opac }}>
-        {!isMobile && <div class="cursor"></div>}
+      <div className="fixed-landing">
+        <div className="gradient-background" style={{ opacity: opac }}>
+          {!isMobile && <div class="cursor"></div>}
 
-        <div className="flex justify-between">
-          <Header />
+          <div className="flex justify-between">
+            <Header />
 
-          <div onClick={() => { setIsActive(true) }} className="lg:hidden z-50 flex right-7 top-4 justify-end absolute">
-            <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.914551" y="0.243652" width="30.39" height="30.3931" rx="15.195" fill="#0075FF" />
-              <path d="M10.8301 10.3413H21.3301" stroke="white" stroke-width="2" stroke-linecap="round" />
-              <path d="M10.8301 14.9194H16.0801" stroke="white" stroke-width="2" stroke-linecap="round" />
-              <path d="M10.8301 19.7046H21.3301" stroke="white" stroke-width="2" stroke-linecap="round" />
-            </svg>
+            <div onClick={() => { setIsActive(true) }} className="lg:hidden z-50 flex right-7 top-4 justify-end absolute">
+              <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.914551" y="0.243652" width="30.39" height="30.3931" rx="15.195" fill="#0075FF" />
+                <path d="M10.8301 10.3413H21.3301" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <path d="M10.8301 14.9194H16.0801" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <path d="M10.8301 19.7046H21.3301" stroke="white" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+
+
+
           </div>
 
-
-
-        </div>
-
-        <Flex direction={"column"} gap={isTab ? "3rem" : "5rem"}>
-          <Flex
-            justify={isTab ? "center" : "space-between"}
-            items={isMobile ? "center" : isTab ? "center" : "start"}
-            width={"95%"}
-            maxWidth={"1440px"}
-            direction={isTab ? "column" : "row"}
-          >
+          <Flex direction={"column"} gap={isTab ? "3rem" : "5rem"}>
             <Flex
-              direction={"column"}
+              justify={isTab ? "center" : "space-between"}
               items={isMobile ? "center" : isTab ? "center" : "start"}
-              gap={"0px"}
-              height={isTab ? "fit-content" : "100%"}
-              m={isMobile ? "0px 0px 0px 0px" : "0px"}
+              width={"95%"}
+              maxWidth={"1440px"}
+              direction={isTab ? "column" : "row"}
             >
-              <div
-                className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
+              <Flex
+                direction={"column"}
+                items={isMobile ? "center" : isTab ? "center" : "start"}
+                gap={"0px"}
+                height={isTab ? "fit-content" : "100%"}
+                m={isMobile ? "0px 0px 0px 0px" : "0px"}
+              >
+                <div
+                  className={textAnim.length >= 1 ? "swiftup" : "swiftupdisable"}
 
-              >
-                <Heading lineHeight={"80px"} isGradient={true} >Nexus</Heading>
-              </div>
-              <div
-                className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
-
-              >
-                <Heading lineHeight={"115px"} isGradient={true} >Leading</Heading>
-              </div>
-              <div
-                className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}
-              >
-                <Flex
-                  height={"fit-content"}
-                  justify={"space-between"}
-                  gap={isMobile ? "1rem" : "3rem"}
-                  m={
-                    isMobile
-                      ? "0px 0px 0px 60px"
-                      : isTab
-                        ? "0px 0px 0px 60px"
-                        : "0px"
-                  }
                 >
-                  <Heading lineHeight={"80px"} isGradient={true} >Launches</Heading>
-                  <IconButtonWrapper>
-                    <IconButton
-                      width={isMobile ? "35px" : "65px"}
-                      icon={isMobile ? "25px" : "30px"}
-                      color={COLORS.blue}
-                      hoverbg={COLORS.black}
-                      hovercolor={COLORS.white}
-                    >
-                      <FaArrowRight />
-                    </IconButton>
-                  </IconButtonWrapper>
-                </Flex>
-              </div>
+                  <Heading lineHeight={"80px"} isGradient={true} >Nexus</Heading>
+                </div>
+                <div
+                  className={textAnim.length >= 2 ? "swiftup" : "swiftupdisable"}
+
+                >
+                  <Heading lineHeight={"115px"} isGradient={true} >Leading</Heading>
+                </div>
+                <div
+                  className={textAnim.length >= 3 ? "swiftup" : "swiftupdisable"}
+                >
+                  <Flex
+                    height={"fit-content"}
+                    justify={"space-between"}
+                    gap={isMobile ? "1rem" : "3rem"}
+                    m={
+                      isMobile
+                        ? "0px 0px 0px 60px"
+                        : isTab
+                          ? "0px 0px 0px 60px"
+                          : "0px"
+                    }
+                  >
+                    <Heading lineHeight={"80px"} isGradient={true} >Launches</Heading>
+                    <IconButtonWrapper>
+                      <IconButton
+                        width={isMobile ? "35px" : "65px"}
+                        icon={isMobile ? "25px" : "30px"}
+                        color={COLORS.blue}
+                        hoverbg={COLORS.black}
+                        hovercolor={COLORS.white}
+                      >
+                        <FaArrowRight />
+                      </IconButton>
+                    </IconButtonWrapper>
+                  </Flex>
+                </div>
+              </Flex>
+              <Flex
+                direction={"column"}
+                height={isTab ? "fit-content" : "100%"}
+                items={isTab ? "center" : "start"}
+              >
+                <Text
+                  align={isMobile ? "center" : isTab ? "center" : "start"}
+                  maxWidth={isMobile ? "300px" : "500px"}
+                  size={"25px"}
+                  color={COLORS.light}
+                  m={isMobile ? "0px 0px 10px 0px" : "0px 0px 30px 0px"}
+                >
+                  Community backed launches with perfectly crafted tools infused
+                  into an innovative platform.
+                </Text>
+                <Suspense fallback={<SearchBarFallback />}>
+                  <SignInComponent />
+                </Suspense>
+              </Flex>
             </Flex>
             <Flex
-              direction={"column"}
-              height={isTab ? "fit-content" : "100%"}
-              items={isTab ? "center" : "start"}
+              justify={"space-between"}
+              items={isBig ? "center" : "start"}
+              width={"100%"}
+              maxWidth={"1440px"}
+              direction={isBig ? "column" : "row"}
             >
-              <Text
-                align={isMobile ? "center" : isTab ? "center" : "start"}
-                maxWidth={isMobile ? "300px" : "500px"}
-                size={"25px"}
-                color={COLORS.light}
-                m={isMobile ? "0px 0px 10px 0px" : "0px 0px 30px 0px"}
-              >
-                Community backed launches with perfectly crafted tools infused
-                into an innovative platform.
-              </Text>
-              <Suspense fallback={<SearchBarFallback />}>
-                <SignInComponent />
-              </Suspense>
-            </Flex>
-          </Flex>
-          <Flex
-            justify={"space-between"}
-            items={isBig ? "center" : "start"}
-            width={"100%"}
-            maxWidth={"1440px"}
-            direction={isBig ? "column" : "row"}
-          >
-            {isBig ? (
-              <SliderCarousal>
-                <Card
-                  title={"Engage"}
-                  description={"Users engage in community"}
-                />
-                <Card
-                  title={"Snapshot"}
-                  description={"Competitors snapshots are taken"}
-                />
-                <Card
-                  title={"Lottery"}
-                  description={"Random lottery gets distributed"}
-                />
-                <Card
-                  title={"Contribute"}
-                  description={"Winners contribute in launches"}
-                  isTail={false}
-                />
-              </SliderCarousal>
-            ) : (
-              <MoveFromLeftWrapper>
-                <Flex gap={"0px"}>
+              {isBig ? (
+                <SliderCarousal>
                   <Card
                     title={"Engage"}
                     description={"Users engage in community"}
@@ -898,17 +878,40 @@ const Landing = () => {
                     description={"Winners contribute in launches"}
                     isTail={false}
                   />
-                </Flex>
-              </MoveFromLeftWrapper>
-            )}
+                </SliderCarousal>
+              ) : (
+                <MoveFromLeftWrapper>
+                  <Flex gap={"0px"}>
+                    <Card
+                      title={"Engage"}
+                      description={"Users engage in community"}
+                    />
+                    <Card
+                      title={"Snapshot"}
+                      description={"Competitors snapshots are taken"}
+                    />
+                    <Card
+                      title={"Lottery"}
+                      description={"Random lottery gets distributed"}
+                    />
+                    <Card
+                      title={"Contribute"}
+                      description={"Winners contribute in launches"}
+                      isTail={false}
+                    />
+                  </Flex>
+                </MoveFromLeftWrapper>
+              )}
 
-            <Flex width={"100%"}>
-              <BlueCard />
+              <Flex width={"100%"}>
+                <BlueCard />
+              </Flex>
             </Flex>
           </Flex>
-        </Flex>
-        <Footer />
+          <Footer />
+        </div>
       </div>
+
     </>
 
   );
