@@ -1340,7 +1340,7 @@ const Content = () => {
                                                         <a className="text-white cursor-pointer transition-transform duration-1000 ease-in-out hover:text-blue" href="https://twitter.com/NexusLaunchpad" target="_blank">
                                                             <FaXTwitter />
                                                         </a>
-                                                        <a className href="https://t.me/NexusLaunchpad" target="_blank">
+                                                        <a className="text-white cursor-pointer transition-transform duration-1000 ease-in-out hover:text-blue" href="https://t.me/NexusLaunchpad" target="_blank">
                                                             <FaTelegramPlane />
                                                         </a>
                                                     </div>
