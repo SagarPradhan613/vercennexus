@@ -571,6 +571,7 @@ body {
 
 }
 
+
 .relative.airdrop-steps:hover::after {
   opacity: 0;
 }
