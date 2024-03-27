@@ -156,29 +156,29 @@ border-radius:36px;
   font-size:16px;
 }
 `
-const Header = ({pathname}) => {
+const Header = ({ pathname }) => {
   return (
-    <HeaderWrapper>
-      <BgWrapp>
-        <Background>
+    <div className="headwrapper">
+      <div className="BgWrapp">
+        <div className="Background">
           <img src={"/Images/Top.png"} width={"100%"} />
-          <IconWrapper href="/">
+          <a className="IconWrapper" href="/">
             <img src={"/Images/nexus-icon.svg"} width={"100%"} />
-          </IconWrapper>
-        </Background>
-        <Navbar>
-          <LeaderBoard href="/leaderboard">
+          </a>
+        </div>
+        <div className="Navbar">
+          <a className={`${pathname === 'leaderboard' ? 'bg-[#0075FF] LeaderBoard' : 'LeaderBoard black'}`} href="/leaderboard">
             Leaderboard
-          </LeaderBoard>
-          <AirDrop href="/airdrop">
+          </a>
+          <a className="AirDrop" href="/airdrop">
             Airdrop
-          </AirDrop>
-          <About pathname={pathname} href="/about">
+          </a>
+          <a className={`${pathname === 'about' ? 'bg-[#0075FF] About' : 'About black'}`} pathname={pathname} href="/about">
             About
-          </About>
-        </Navbar>
-      </BgWrapp>
-    </HeaderWrapper>
+          </a>
+        </div>
+      </div>
+    </div>
   );
 };
 

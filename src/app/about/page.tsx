@@ -1327,9 +1327,9 @@ const Content = () => {
 
                         <div className="desk-footer h-full w-full absolute  ">
 
-                            <NewHeaderWrapper>
-                                <NewBgWrapp>
-                                    <NewBackground>
+                            <div className="NewHeaderWrapper">
+                                <div className="NewBgWrapp">
+                                    <div className="NewBackground">
                                         <img className="h-full w-full absolute" src={"/Images/Bottom.png"} />
                                         <div className="w-full h-full flex absolute z-50 justify-between ">
                                             <div className="h-full items-end pt-24 resp-social-padding-about pl-32 ">
@@ -1337,12 +1337,12 @@ const Content = () => {
                                                     <p className="text-white lg:ml-4 res-follow text-xs lg:text-base font-medium whitespace-nowrap opacity-60">Follow on  socials</p>
                                                     <div className="flex items-center ml-6 gap-6">
 
-                                                        <Icon href="https://twitter.com/NexusLaunchpad" target="_blank">
+                                                        <a className="text-white cursor-pointer transition-transform duration-1000 ease-in-out hover:text-blue" href="https://twitter.com/NexusLaunchpad" target="_blank">
                                                             <FaXTwitter />
-                                                        </Icon>
-                                                        <Icon href="https://t.me/NexusLaunchpad" target="_blank">
+                                                        </a>
+                                                        <a className href="https://t.me/NexusLaunchpad" target="_blank">
                                                             <FaTelegramPlane />
-                                                        </Icon>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1367,9 +1367,9 @@ const Content = () => {
                                                 </a>
                                             </div>
                                         </div>
-                                    </NewBackground>
-                                </NewBgWrapp>
-                            </NewHeaderWrapper>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
