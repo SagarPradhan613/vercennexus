@@ -1151,7 +1151,7 @@ body {
  
 } */
 
-@media screen and (min-width:1920px) and (min-height:1080px) {
+@media screen and (min-width:1920px){
   .fixed-landing{
     max-height: 90vh;
   }
