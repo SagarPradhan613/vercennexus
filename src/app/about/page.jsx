@@ -1048,8 +1048,8 @@ const About = () => {
                         <p className="text-white grad-text-gray font-bold lg:text-6xl text-2xl">What Makes Us Better</p>
                     </div>
 
-                    <div className="flex w-full lg:py-16 py-6  lg:flex-row flex-col lg:gap-8 gap-3">
-                        <div className="flex group hover:scale-105 transition-all duration-500 ease-in-out rounded-[20px] lg:rounded-[38px] lg:min-h-[380px] working-step-box justify-between flex-col lg:px-12 lg:py-10 px-8 py-8">
+                    <div className="flex w-full lg:py-16 py-6 res-better-flex lg:flex-row flex-col lg:gap-8 gap-3">
+                        <div className="flex group hover:scale-105 transition-all duration-500 ease-in-out rounded-[20px] lg:rounded-[38px] better-height working-step-box justify-between flex-col lg:px-12 lg:py-10 px-8 py-8">
                             <div className="lg:block hidden">
                                 {/* <svg className=" group-hover:scale-90 transition-all duration-500 ease-in-out" width="75" height="78" viewBox="0 0 75 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M37.0898 45.7881L24.5898 58.2881L37.0898 70.7881" stroke="#0075FF" stroke-width="5" />
@@ -1085,7 +1085,7 @@ const About = () => {
                             </div>
                         </div>
 
-                        <div className="flex group hover:scale-105 transition-all duration-500 ease-in-out rounded-[20px] lg:rounded-[38px] lg:min-h-[380px] working-step-box justify-between flex-col lg:px-12 lg:py-10 px-8 py-8">
+                        <div className="flex group hover:scale-105 transition-all duration-500 ease-in-out rounded-[20px] lg:rounded-[38px] better-height working-step-box justify-between flex-col lg:px-12 lg:py-10 px-8 py-8">
                             <div className="lg:block hidden">
                                 {/* <svg className="group-hover:scale-90 transition-all duration-500 ease-in-out" width="74" height="75" viewBox="0 0 74 75" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <ellipse cx="37.0001" cy="18.5391" rx="21.5833" ry="9.25" stroke="#0075FF" stroke-width="5" />
@@ -1122,7 +1122,7 @@ const About = () => {
                             </div>
                         </div>
 
-                        <div className="flex group hover:scale-105 transition-all duration-500 ease-in-out rounded-[20px] lg:rounded-[38px] lg:min-h-[380px] working-step-box justify-between flex-col lg:px-12 lg:py-10 px-8 py-8">
+                        <div className="flex group hover:scale-105 transition-all duration-500 ease-in-out rounded-[20px] lg:rounded-[38px] better-height working-step-box justify-between flex-col lg:px-12 lg:py-10 px-8 py-8">
                             <div className="lg:block hidden">
                                 {/* <svg className="group-hover:scale-90 transition-all duration-500 ease-in-out" width="74" height="75" viewBox="0 0 74 75" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="15.4166" y="12.3721" width="43.1667" height="52.4167" rx="2" stroke="#0075FF" stroke-width="5" />

@@ -512,7 +512,7 @@ body {
 }
 
 .grad-text-gray-new {
-  background: linear-gradient(283.18deg, #000000 -8.16%, #FFFFFF 87.21%);
+  background: linear-gradient(283.18deg, #000000 -8.16%, #FFFFFF 100.21%);
 
   -webkit-background-clip: text; /* For Safari */
   background-clip: text;
@@ -1193,21 +1193,40 @@ body {
   }
 }
 
-@media screen and (min-width:1024px) and (max-width:1349px) {
+@media screen and (max-width:1530px) {
+  .res-better-flex{
+    flex-direction:  column !important;
+  }
+
+}
+
+@media screen and (min-width:1024px) and (max-width:1530px) {
+  .res-better-head{
+    margin-top:2rem !important;
+  }
+}
+
+@media screen and (min-width:1530px)  {
+  .better-height{
+    min-height: 380px !important;
+  }
+}
+
+/* @media screen and (min-width:1024px) and (max-width:1349px) {
   .res-better-head{
     font-size: 1.5rem !important;
   }
   .res-better-head{
     font-size: 1rem !important;
   }
-}
+} */
 
 
-@media screen and (min-width:1350px) and (max-width:1442px) {
+/* @media screen and (min-width:1350px) and (max-width:1442px) {
   .res-better-head{
     font-size: 1.8rem !important;
   }
-}
+} */
 
 @media screen and (min-width:1442px) and (max-width:1558px) {
   .res-better-head{
