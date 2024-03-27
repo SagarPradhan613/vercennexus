@@ -838,7 +838,7 @@ const About = () => {
                     :
                     null
                 }
-                {!isMobile && <div class="cursor"></div>}
+                {!isMobile && <div className="cursor"></div>}
 
                 {/* first section */}
                 {/* <div className="newgradient-background" style={{ opacity: opac }}>
