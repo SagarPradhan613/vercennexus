@@ -1155,3 +1155,18 @@ body {
     padding-bottom: 1.5rem !important;
   }
 }
+
+@media screen and (min-width:1920px) and (min-height:1080px) {
+  .gradient-background{
+    min-height: 92vh !important;
+  }
+  .responsive-leaderboard-table-height{
+    margin-bottom: 0 !important;
+  }
+  .responsive-leaderboard-table-height{
+    height: 70vh !important;
+  }
+  .mainpage-bg{
+    min-height: 92vh !important;
+  }
+}
