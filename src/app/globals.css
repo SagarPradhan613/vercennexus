@@ -511,6 +511,14 @@ body {
   color: transparent;
 }
 
+.grad-text-gray-new {
+  background: linear-gradient(283.18deg, #000000 -8.16%, #FFFFFF 87.21%);
+
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text;
+  color: transparent;
+}
+
 .new-text-bg{
   background: linear-gradient(99.32deg, #FFFFFF 9.48%, #FFFFFF 59.66%, rgba(255, 255, 255, 0) 108.09%) !important;
   -webkit-background-clip: text !important; /* For Safari */
@@ -1095,13 +1103,17 @@ body {
 
 @media screen and (min-width:1204px) and (max-width:1343px) {
   .nexus-hero-head {
-    font-size: 3rem !important;
+    font-size: 2.5rem !important;
+  }
+  .res-about-hero-para{
+    font-size: 1.3rem !important;
+    line-height: 1.8rem !important;
   }
 }
 
 @media screen and (min-width:1344px) and (max-width:1645px) {
   .nexus-hero-head {
-    font-size: 3.5rem !important;
+    font-size: 3rem !important;
   }
 }
 
@@ -1178,5 +1190,33 @@ body {
   .res-fix-airdrop-height{
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
+  }
+}
+
+@media screen and (min-width:1024px) and (max-width:1349px) {
+  .res-better-head{
+    font-size: 1.5rem !important;
+  }
+  .res-better-head{
+    font-size: 1rem !important;
+  }
+}
+
+
+@media screen and (min-width:1350px) and (max-width:1442px) {
+  .res-better-head{
+    font-size: 1.8rem !important;
+  }
+}
+
+@media screen and (min-width:1442px) and (max-width:1558px) {
+  .res-better-head{
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (min-width:1024px) and (max-width:1280px) {
+  .res-available{
+    font-size: 1rem !important;
   }
 }

@@ -293,9 +293,11 @@ const Airdrop = () => {
                                     {/* <div className="lg:block hidden py-4 max-w-[264px]">
                                         <img src="/Images/whiteheadtexthd.png" className="h-full w-full"></img>
                                     </div> */}
-                                    <div className="mb-6">
-                                        <p className="font-bold text-base new-text-bg  lg:text-3xl">Follow simple steps</p>
-                                    </div>
+                                    {/* <div className="mb-6 grad-text-gray">
+                                        <p className="font-bold grad-text-gray-new text-base new-text-bg  lg:text-3xl">Your’e almost there</p>
+                                    </div> */}
+                                     <p className="text-white mt-10 font-bold text-base leading-5 lg:leading-9 lg:text-2xl grad-text-gray-new">Follow simple steps
+                        </p>
                                     <div className="w-full pt-4 flex justify-center items-center lg:hidden">
                                         <div className="max-w-[141px]">
                                             <img src="/Images/mobwhiteheadtext.png" className="h-full w-full"></img>

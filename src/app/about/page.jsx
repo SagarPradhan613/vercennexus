@@ -936,7 +936,7 @@ const About = () => {
                                             </div>
 
                                             <div className="h-full pb-6 justify-end pr-16 flex items-end w-1/2 ">
-                                                <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FNexusLaunchpad" target="_blank" className="flex group  transition-all duration-500 relative z-50 ease-in-out justify-between items-center gap-10 font-semibold text-base text-white">
+                                                <a href="https://twitter.com/NexusLaunchpad" target="_blank" className="flex group  transition-all duration-500 relative z-50 ease-in-out justify-between items-center gap-10 font-semibold text-base text-white">
                                                     <p className="whitespace-nowrap">Connect with us</p>
                                                     <div>
                                                         <div className="bg-white h-[30px] w-[30px] rounded-[50%] overflow-hidden flex justify-center items-center">
@@ -1019,7 +1019,11 @@ const About = () => {
                         <p className="font-bold text-[25px] leading-6 grad-text-gray lg:leading-[53px] text-white lg:text-5xl">Leading the way, how Nexus redefines launch excellence with its radical tools.</p>
 
                         <div className="w-full slowly-visible mt-6 flex flex-col lg:hidden">
-                            <img src="/Images/graph.png" className="w-full h-full"></img>
+                        <div className="relative">
+                            <img src="/Images/newgraph.png" className="w-full  h-full"></img>
+                            <div className="absolute w-full bottom-0 h-1/2 drop">
+                            </div>
+                        </div>
                         </div>
 
                         <p className="text-white mt-10 font-bold text-base leading-5 lg:leading-9 lg:text-2xl grad-text-gray">Empowering innovators with seamless launch experiences and community backed solutions.
@@ -1075,9 +1079,9 @@ const About = () => {
 
                             </div>
                             <div>
-                                <p className="lg:text-4xl text-xl text-white font-bold">Community Support</p>
+                                <p className="lg:text-4xl text-xl text-white font-bold res-better-head">Community Support</p>
 
-                                <p className="lg:text-lg text-xs text-white  font-bold mt-2 lg:mt-4 opacity-50 lg:grad-text-gray">Experience the synergy of community backed launches integrated into Nexus platform. A space where investors and enthusiasts come together.</p>
+                                <p className="res-better-para lg:text-lg text-xs text-white  font-bold mt-2 lg:mt-4 opacity-50 lg:grad-text-gray">Experience the synergy of community backed launches integrated into Nexus platform. A space where investors and enthusiasts come together.</p>
                             </div>
                         </div>
 
@@ -1112,9 +1116,9 @@ const About = () => {
                             </div>
 
                             <div>
-                                <p className="lg:text-4xl text-xl text-white font-bold">Premium Experience</p>
+                                <p className="lg:text-4xl text-xl text-white font-bold res-better-head">Premium Experience</p>
 
-                                <p className="lg:text-lg text-xs text-white  font-bold mt-2 lg:mt-4 opacity-50 lg:grad-text-gray">Enjoy premium experience on all devices with user-friendly interface. Nexus prioritizes ease of use and makes the platform seamlessly accessible.</p>
+                                <p className="res-better-para lg:text-lg text-xs text-white  font-bold mt-2 lg:mt-4 opacity-50 lg:grad-text-gray">Enjoy premium experience on all devices with user-friendly interface. Nexus prioritizes ease of use and makes the platform seamlessly accessible.</p>
                             </div>
                         </div>
 
@@ -1148,9 +1152,9 @@ const About = () => {
 
                             </div>
                             <div>
-                                <p className="lg:text-4xl text-xl text-white font-bold">Perfect Tools</p>
+                                <p className="lg:text-4xl text-xl text-white font-bold res-better-head">Perfect Tools</p>
 
-                                <p className="lg:text-lg text-xs text-white  font-bold mt-2 lg:mt-4 opacity-50 lg:grad-text-gray">Explore our meticulously crafted suite of tools, created to elevate your launchpad experience and to take your portfolio to new heights.</p>
+                                <p className="res-better-para lg:text-lg text-xs text-white  font-bold mt-2 lg:mt-4 opacity-50 lg:grad-text-gray">Explore our meticulously crafted suite of tools, created to elevate your launchpad experience and to take your portfolio to new heights.</p>
                             </div>
                         </div>
                     </div>
@@ -1387,7 +1391,7 @@ const About = () => {
                                 {/* <p className="lg:text-xl text-base opacity-50 text-white mt-2">Available</p> */}
                             </div>
                             <div className="flex absolute -bottom-4 lg:-bottom-6 w-full justify-center items-center">
-                                <div className="bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
+                                <div className="res-available bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
                                 Available
                                 </div>
                             </div>
@@ -1404,12 +1408,12 @@ const About = () => {
 
                         <div className="relative timeline-box hover:scale-105 transition-all duration-500 ease-in-out">
                             <div className="l2-box res-airdrop-box rounded-[20px] lg:rounded-[36px] text-center lg:px-20 lg:pb-20 pb-16 lg:pt-10 px-6 py-8  border-[1.5px] border-[#FFFFFF] border-opacity-20">
-                                <p className="text-white lg:text-4xl text-3xl grad-text-gray whitespace-nowrap font-bold">Follow Steps</p>
+                                <p className="text-white lg:text-4xl text-3xl grad-text-gray whitespace-nowrap font-bold">Participate</p>
                                 {/* <p className="lg:text-xl text-base opacity-50 text-white mt-2">Available</p> */}
 
                             </div>
                             <div className="flex absolute -bottom-4 lg:-bottom-6 w-full justify-center items-center">
-                                <div className="bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
+                                <div className="res-available bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
                                 Available
                                 </div>
                             </div>
@@ -1430,7 +1434,7 @@ const About = () => {
 
                             </div>
                             <div className="flex absolute -bottom-4 lg:-bottom-6 w-full justify-center items-center">
-                                <div className="bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
+                                <div className="res-available bg-[#0075FF] w-[70%] text-white text-xl lg:text-2xl font-bold flex justify-center items-center rounded-[36px] py-2 lg:py-4 px-6">
                                 Coming Soon
                                 </div>
                             </div>
