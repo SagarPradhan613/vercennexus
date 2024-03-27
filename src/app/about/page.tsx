@@ -177,7 +177,7 @@ const About = () => {
     const isMobile = useIsMobile();
     const isTab = useIsTab();
     const isBig = useIsBig();
-    const [textAnim, setTextAnim] = useState([]);
+    // const [textAnim, setTextAnim] = useState([]);
 
     const [viewMore, setViewMore] = useState(false)
 
@@ -541,51 +541,51 @@ const About = () => {
     const handleCloseInvite = () => setOpenInvite(false);
 
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setTextAnim((prev) => [...prev, 1]);
-        }, 250);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setTextAnim((prev) => [...prev, 1]);
+    //     }, 250);
 
-        // Clear the interval when the array length reaches 3
-        if (textAnim.length === 3) {
-            clearInterval(interval);
-        }
-        console.log(textAnim);
-        // Clean up the interval when the component unmounts
-        return () => clearInterval(interval);
-    }, [textAnim]);
-    // Add textAnim to dependencies to ensure effect is updated
-    if (typeof window !== "undefined") {
-        const cursor = document.querySelector(".cursor");
+    //     // Clear the interval when the array length reaches 3
+    //     if (textAnim.length === 3) {
+    //         clearInterval(interval);
+    //     }
+    //     console.log(textAnim);
+    //     // Clean up the interval when the component unmounts
+    //     return () => clearInterval(interval);
+    // }, [textAnim]);
+    // // Add textAnim to dependencies to ensure effect is updated
+    // if (typeof window !== "undefined") {
+    //     const cursor = document.querySelector(".cursor");
 
-        document.addEventListener("mousemove", (e) => {
-            cursor?.setAttribute(
-                "style",
-                "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
-            );
-            if (e.target.tagName.toLowerCase() === "button") {
-                cursor?.setAttribute(
-                    "style",
-                    "top: " +
-                    (e.pageY - 5) +
-                    "px; left: " +
-                    (e.pageX - 5) +
-                    "px; background-color: " +
-                    (e.target.tagName.toLowerCase() === "button"
-                        ? "#0075FF"
-                        : "transparent") +
-                    ";"
-                );
-            }
-        });
+    //     document.addEventListener("mousemove", (e) => {
+    //         cursor?.setAttribute(
+    //             "style",
+    //             "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
+    //         );
+    //         if (e.target.tagName.toLowerCase() === "button") {
+    //             cursor?.setAttribute(
+    //                 "style",
+    //                 "top: " +
+    //                 (e.pageY - 5) +
+    //                 "px; left: " +
+    //                 (e.pageX - 5) +
+    //                 "px; background-color: " +
+    //                 (e.target.tagName.toLowerCase() === "button"
+    //                     ? "#0075FF"
+    //                     : "transparent") +
+    //                 ";"
+    //             );
+    //         }
+    //     });
 
-        document.addEventListener("click", (e) => {
-            cursor?.classList.add("expand");
-            setTimeout(() => {
-                cursor?.classList.remove("expand");
-            }, 500);
-        });
-    }
+    //     document.addEventListener("click", (e) => {
+    //         cursor?.classList.add("expand");
+    //         setTimeout(() => {
+    //             cursor?.classList.remove("expand");
+    //         }, 500);
+    //     });
+    // }
 
     const [opac, setOpac] = useState(0);
 
