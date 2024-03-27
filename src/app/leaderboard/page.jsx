@@ -10,7 +10,7 @@ import useIsTab from "@/hooks/useIsTab"
 import useIsBig from "@/hooks/useIsBig"
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { COLORS } from '@/utils/colors'
+import { COLORS } from '@/utils/colors';
 
 const LeaderBoard = () => {
     const [expand, setExpand] = useState(false);

@@ -171,7 +171,7 @@ const Header = ({pathname}) => {
             Leaderboard
           </LeaderBoard>
           <AirDrop href="/airdrop">
-            AirDrop
+            Airdrop
           </AirDrop>
           <About pathname={pathname} href="/about">
             About
