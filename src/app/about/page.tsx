@@ -33,7 +33,7 @@ import Flex from "@/components/Flex";
 import Heading from "@/components/Heading";
 import InviteModal from '@/view/InviteModal';
 import './page.css';
- 
+
 
 
 
@@ -166,10 +166,10 @@ const style = {
     width: '100%',
     maxWidth: '1000px',
     '@media (max-width: 768px)': {
-      width: '90%',
-      maxWidth: '90%'
+        width: '90%',
+        maxWidth: '90%'
     }
-  };
+};
 
 const Content = () => {
 
@@ -202,36 +202,25 @@ const Content = () => {
     const [accessToken, setAccessToken] = useState<string | null>(null);
     const [otp, setOtp] = React.useState("");
     const [inviteError, setInviteError] = React.useState("");
-    // const [textAnim, setTextAnim] = useState([]);
+    const [textAnim, setTextAnim] = useState([]);
 
-  useEffect(() => {
-    setOpac(0);
-    setTimeout(() => {
-      setOpac(1);
-    }, 100);
-  }, []);
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setTextAnim((prev) => [...prev, 1]);
-    //     }, 250);
-
-    //     if (textAnim.length === 3) {
-    //         clearInterval(interval);
-    //     }
-    //     console.log(textAnim);
-    //     return () => clearInterval(interval);
-    // }, [textAnim]); 
+    useEffect(() => {
+        setOpac(0);
+        setTimeout(() => {
+            setOpac(1);
+        }, 100);
+    }, []);
 
     if (typeof window !== "undefined") {
         const cursor = document.querySelector(".cursor");
-
+    
         document.addEventListener("mousemove", (e) => {
+            const target = e.target as HTMLElement; // Type assertion to HTMLElement
             cursor?.setAttribute(
                 "style",
                 "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
             );
-            if (e.target.tagName.toLowerCase() === "button") {
+            if (target && target.tagName.toLowerCase() === "button") {
                 cursor?.setAttribute(
                     "style",
                     "top: " +
@@ -239,14 +228,15 @@ const Content = () => {
                     "px; left: " +
                     (e.pageX - 5) +
                     "px; background-color: " +
-                    (e.target.tagName.toLowerCase() === "button"
+                    (target.tagName.toLowerCase() === "button"
                         ? "#0075FF"
                         : "transparent") +
                     ";"
                 );
             }
         });
-
+        
+    
         document.addEventListener("click", (e) => {
             cursor?.classList.add("expand");
             setTimeout(() => {
@@ -254,6 +244,8 @@ const Content = () => {
             }, 500);
         });
     }
+    
+    
 
 
     useEffect(() => {
@@ -744,24 +736,25 @@ const Content = () => {
     return (
         <>
             <div>
-            {isModal && (
-        <Modal
-          open={isModal}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <ReferralModal totalCodes={totalCodes} setTotalCodes={setTotalCodes} adminOverride={adminOverride} setCodes={setCodes} accessToken={accessToken} referrals={referrals} codes={codes} setIsmodal={setIsmodal} id={profile?._id} />
-          </Box>
-        </Modal>
-      )}
+            {!isMobile && <div className="cursor"></div>}
+                {isModal && (
+                    <Modal
+                        open={isModal}
+                        onClose={handleClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                    >
+                        <Box sx={style}>
+                            <ReferralModal totalCodes={totalCodes} setTotalCodes={setTotalCodes} adminOverride={adminOverride} setCodes={setCodes} accessToken={accessToken} referrals={referrals} codes={codes} setIsmodal={setIsmodal} id={profile?._id} />
+                        </Box>
+                    </Modal>
+                )}
 
-      {
-        openInvite && (
-          <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login} handleClose={handleCloseInvite} />
-        )
-      }
+                {
+                    openInvite && (
+                        <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login} handleClose={handleCloseInvite} />
+                    )
+                }
                 {/* modal */}
                 {isActive ?
                     <>
@@ -892,7 +885,8 @@ const Content = () => {
                     :
                     null
                 }
-                {!isMobile && <div className="cursor"></div>}
+                
+               
 
                 {/* first section */}
                 {/* <div className="newgradient-background" style={{ opacity: opac }}>

@@ -50,7 +50,7 @@ const LeaderBoard = () => {
                 "style",
                 "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
             );
-            if (e.target.tagName.toLowerCase() === "button") {
+            if (e.target && e.target.tagName.toLowerCase() === "button") {
                 cursor?.setAttribute(
                     "style",
                     "top: " +
@@ -73,6 +73,7 @@ const LeaderBoard = () => {
             }, 500);
         });
     }
+
 
 
 

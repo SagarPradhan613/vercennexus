@@ -103,13 +103,14 @@ const Content = () => {
 
     if (typeof window !== "undefined") {
         const cursor = document.querySelector(".cursor");
-
+    
         document.addEventListener("mousemove", (e) => {
+            const target = e.target as HTMLElement; // Type assertion to HTMLElement
             cursor?.setAttribute(
                 "style",
                 "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
             );
-            if (e.target.tagName.toLowerCase() === "button") {
+            if (target && target.tagName.toLowerCase() === "button") {
                 cursor?.setAttribute(
                     "style",
                     "top: " +
@@ -117,14 +118,15 @@ const Content = () => {
                     "px; left: " +
                     (e.pageX - 5) +
                     "px; background-color: " +
-                    (e.target.tagName.toLowerCase() === "button"
+                    (target.tagName.toLowerCase() === "button"
                         ? "#0075FF"
                         : "transparent") +
                     ";"
                 );
             }
         });
-
+        
+    
         document.addEventListener("click", (e) => {
             cursor?.classList.add("expand");
             setTimeout(() => {
@@ -132,6 +134,7 @@ const Content = () => {
             }, 500);
         });
     }
+    
 
 
 

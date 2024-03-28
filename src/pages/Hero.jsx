@@ -1015,6 +1015,7 @@ const Landing = () => {
     // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
   }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
+ 
   if (typeof window !== "undefined") {
     const cursor = document.querySelector(".cursor");
 
