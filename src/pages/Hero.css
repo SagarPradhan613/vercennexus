@@ -1,0 +1,463 @@
+.HeroFirstFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    width: auto;
+    height: 100%;
+    max-width: auto;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+/* tab */
+@media screen and (min-width:600px) and (min-width:1240px) {
+    /* .HeroFirstFlex {
+        gap: 3rem !important;
+    } */
+}
+
+/* mob */
+@media screen and (max-width:600px) {
+    /* .HeroFirstFlex {
+        gap: 3rem !important;
+    } */
+}
+
+/* desk */
+@media screen and (min-width:1241px) {
+    /* .HeroFirstFlex {
+        gap: 5rem;
+    } */
+}
+
+@media screen and (min-width: 1241px) {
+    .HeroFirstFlex {
+        gap: 5rem;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .HeroFirstFlex {
+        gap: 3rem;
+    }
+}
+
+
+.HeroSecFlex {
+    display: flex;
+
+    gap: 1rem;
+
+    width: 95%;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+/* desk */
+@media screen and (min-width:1241px) {
+    .HeroSecFlex {
+        justify-content: space-between;
+        align-items: start;
+        flex-direction: row;
+    }
+
+    .HeroThirdFlex {
+        align-items: start;
+    }
+
+    .HeroThirdFlex {
+        height: 100%;
+    }
+
+    .HeroForthFlex {
+        gap: 3rem;
+    }
+
+    .HeroThirdFlex {
+        margin: 0px 0px 0px 0px;
+    }
+
+
+
+    .CommunityContainer {
+        height: 100%;
+    }
+
+    .CommunityContainer {
+        align-items: start;
+    }
+
+    .CommunityText {
+        align-items: start;
+    }
+
+    .CommunityText {
+        max-width: 500px;
+    }
+
+    .CommunityText {
+        margin: 0px 0px 30px 0px;
+    }
+
+}
+
+@media screen and (min-width:1451px) {
+    .BelowFlex {
+        align-items: start;
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width:1450px) {
+    .BelowFlex {
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+/* tab */
+@media screen and (min-width:600px) and (max-width:1240px) {
+    .HeroSecFlex {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .HeroThirdFlex {
+        align-items: center;
+    }
+
+    .HeroThirdFlex {
+        height: fit-content;
+    }
+
+    .HeroForthFlex {
+        gap: 3rem;
+    }
+
+    .HeroForthFlex {
+        margin: 0px 0px 0px 60px;
+    }
+
+
+    .CommunityContainer {
+        height: fit-content;
+    }
+
+    .CommunityContainer {
+        align-items: center;
+    }
+
+    .CommunityText {
+        align-items: center;
+    }
+
+    .CommunityText {
+        max-width: 500px;
+    }
+
+    .CommunityText {
+        margin: 0px 0px 30px 0px;
+    }
+
+}
+
+@media screen and (min-width:601px) {
+    .HeroIconButton {
+        width: 65px;
+        height: 65px
+    }
+    .HeroIconButton svg{
+        width: 30px;
+        height: 30px
+    }
+}
+
+/* mob */
+@media screen and (max-width:600px) {
+    .HeroSecFlex {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .HeroThirdFlex {
+        align-items: center;
+    }
+
+    .HeroThirdFlex {
+        height: fit-content;
+    }
+
+    .HeroForthFlex {
+        gap: 1rem;
+    }
+
+    .HeroForthFlex {
+        margin: 0px 0px 0px 60px;
+    }
+
+    .HeroIconButton {
+        width: 35px;
+        height: 35px;
+    }
+
+    .HeroIconButton svg {
+        height: 25px;
+        width: 25px;
+    }
+
+    .CommunityContainer {
+        height: fit-content;
+    }
+
+    .CommunityContainer {
+        align-items: center;
+    }
+
+    .CommunityText {
+        align-items: center;
+    }
+
+    .CommunityText {
+        max-width: 300px;
+    }
+
+    .CommunityText {
+        margin: 0px 0px 10px 0px;
+    }
+
+}
+
+.HeroThirdFlex {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    flex-direction: column;
+    width: auto;
+    max-width: auto;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+.HeroFirstHead {
+    font-family: "Sen-Regular";
+
+    font-weight: 700;
+    max-width: 100%;
+    color: #ffffff;
+    text-align: start;
+    white-space: normal;
+    margin: 0px;
+
+}
+
+@media screen and (max-width: 1300px) and (min-width: 520px) {
+    .HeroFirstHead {
+        font-size: 75px;
+        line-height: 80px;
+    }
+
+    .HeroSecHead {
+        font-size: 75px;
+        line-height: 115px;
+    }
+
+    .HeroThirdHead {
+        font-size: 75px;
+        line-height: 80px;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+    .HeroFirstHead {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .HeroSecHead {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .HeroThirdHead {
+        font-size: 40px;
+        line-height: 50px;
+    }
+}
+
+@media screen and (min-width:1301px) {
+    .HeroSecHead {
+        font-size: 100px;
+        line-height: 115px;
+    }
+
+    .HeroFirstHead {
+        font-size: 100px;
+        line-height: 80px;
+    }
+
+    .HeroThirdHead {
+        font-size: 100px;
+        line-height: 80px;
+    }
+}
+
+.HeroSecHead {
+    font-family: "Sen-Regular";
+
+    font-weight: 700;
+    max-width: 100%;
+    color: #ffffff;
+    text-align: start;
+    white-space: normal;
+    margin: 0px;
+
+}
+
+.HeroThirdHead {
+    font-family: "Sen-Regular";
+
+    font-weight: 700;
+    max-width: 100%;
+    color: #ffffff;
+    text-align: start;
+    white-space: normal;
+    margin: 0px;
+
+}
+
+.HeroForthFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: auto;
+    height: fit-content;
+    max-width: auto;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+.HeroIconButtonWrapper {
+    margin-right: 4rem;
+    margin-top: 1rem;
+}
+
+.HeroIconButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    color: #0075FF;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 1s ease;
+    position: relative;
+    z-index: 10;
+    border: none;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+.HeroIconButton:hover {
+    background: black;
+    color: white;
+}
+
+.CommunityContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+    width: auto;
+    max-width: auto;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+.CommunityText {
+    font-family: "Poppins-Regular";
+    font-size: 24px;
+    font-weight: 500;
+    /* max-width: 500px; */
+    line-height: 30px;
+    color: #ffffff9c;
+    /* text-align: start; */
+    white-space: normal;
+    /* margin: 0px 0px 30px 0px; */
+}
+
+.BelowFlex {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+@keyframes MoveFromLeft {
+    from {
+        transform: translateX(-1000px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+.MoveFromLeftWrapper {
+    position: relative;
+    animation: MoveFromLeft 1s;
+}
+
+.MflwFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    flex-direction: row;
+    width: auto;
+    height: 100%;
+    max-width: auto;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+
+.BlueCardFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    max-width: auto;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}

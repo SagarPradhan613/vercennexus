@@ -9,6 +9,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import Text from "../../components/Text";
 import useIsTab from "../../hooks/useIsTab";
 import useIsMobile from "../../hooks/useIsMobile";
+import './Card.css';
 
 const Container = styled.div`
   border-radius: 35px;
@@ -65,41 +66,41 @@ function ConnectedCard({ isTail = true, title, description }) {
   const isMobile = useIsMobile();
   const [hover, setHover] = useState(false);
   return (
-    <Flex gap={"0px"}>
-      <Container
+    <div className="CardContainerFlex">
+      <div className="CardContainer"
         width={isTab ? "240px" : "250px"}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         bg={hover ? COLORS.blue : COLORS.white}
       >
-        <Flex direction={"column"} gap={'1.5rem'}>
-          <Text
+        <div className="CardFlex " direction={"column"} gap={'1.5rem'}>
+          <p className="CardTitle "
             size={"30px"}
             color={hover ? COLORS.white : COLORS.black}
             fontFamily={"bold"}
           >
             {title}
-          </Text>
-          <IconButton
+          </p>
+          <button className="CardIconButton"
             bg={hover ? COLORS.white : COLORS.blue}
             color={hover ? COLORS.blue : COLORS.white}
             isHover={false}
           >
-            <FaArrowRight />
-          </IconButton>
-          <Text
+           <svg className="arrowsvg" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg>
+          </button>
+          <h1 className="CardParaText"
             color={hover ? COLORS.light : COLORS.darkLight}
             align={"center"}
             maxWidth={"190px"}
             size={"15px"}
           >
             {description}
-          </Text>
-        </Flex>
-      </Container>
+          </h1>
+        </div>
+      </div>
 
-      {isTail && !isMobile ? <Connector /> : <ConnectorDisable />}
-    </Flex>
+      {isTail && !isMobile ? <div className="Connector" /> : <div className="ConnectorDisable" />}
+    </div>
   );
 }
 

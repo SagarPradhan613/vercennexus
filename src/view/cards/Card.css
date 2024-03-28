@@ -1,0 +1,341 @@
+.CardContainerFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    flex-direction: row;
+    width: auto;
+    height: 100%;
+    max-width: auto;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+.CardContainer {
+    border-radius: 35px;
+    padding: 2rem;
+    background-color: white;
+    transition: all 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 520px) {
+    .CardContainer {
+        padding: 1rem;
+    }
+}
+
+.CardContainer:hover {
+    background-color: #0075FF;
+}
+
+/* tab */
+@media screen and (min-width:600px) and (max-width:1240px) {
+    .CardContainer {
+        width: 240px;
+    }
+
+
+}
+
+/* desk */
+@media screen and (min-width:1241px) {
+    .CardContainer {
+        width: 250px;
+    }
+
+
+}
+
+/* mob */
+@media screen and (max-width:600px) {
+    .CardContainer {
+        width: 240px;
+    }
+
+
+}
+
+.CardFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-direction: column;
+    width: auto;
+    height: 100%;
+    max-width: auto;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+.CardContainer:hover .CardTitle{
+    color: white;
+}
+.CardContainer:hover .CardParaText{
+    color: white;
+}
+.CardContainer:hover .CardIconButton{
+    background-color: white;
+}
+.CardContainer:hover .CardIconButton{
+    background-color: white;
+}
+.arrowsvg path{
+    fill: white;
+}
+.CardContainer:hover .arrowsvg path{
+    fill: #0075FF !important;
+}
+
+.CardTitle {
+    font-family: "Sen-Regular";
+
+    font-weight: 700;
+    max-width: 100%;
+    color: #000000;
+    text-align: start;
+    white-space: normal;
+    margin: 0px;
+}
+
+@media screen and (max-width: 720px) {
+    .CardTitle {
+        font-size: 18px;
+    }
+
+    .CardParaText {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 721px) {
+    .CardTitle {
+        font-size: 30px;
+    }
+
+    .CardParaText {
+        font-size: 15px;
+    }
+}
+
+.CardTitle:hover {
+    color: white;
+}
+
+@media screen and (max-width: 520px) {}
+
+@media screen and (max-width: 1300px) and (min-width: 520px) {}
+
+@media screen and (min-width:1301px) {}
+
+.CardIconButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0075FF;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 1s ease;
+    position: relative;
+    z-index: 10;
+    border: none;
+    font-size: 25px;
+    overflow: hidden;
+}
+
+.CardIconButton:hover {
+    color: #0075FF;
+    background-color: white;
+}
+
+.CardParaText {
+    font-family: "Poppins-Regular";
+    font-weight: 600;
+    max-width: 190px;
+    color: #000000b5;
+    text-align: center;
+    white-space: normal;
+    margin: 0px;
+}
+
+.CardParaText:hover {
+    color: #ffffff9c;
+}
+
+.Connector {
+    width: 10px;
+    height: 20px;
+    background-color: white;
+    clip-path: polygon(0 0,
+            0% 20%,
+            0 51%,
+            0% 80%,
+            0 100%,
+            50% 70%,
+            100% 100%,
+            100% 80%,
+            100% 51%,
+            100% 20%,
+            100% 0,
+            50% 30%);
+}
+
+.ConnectorDisable {
+    width: 10px;
+    height: 20px;
+    background-color: transparent;
+    clip-path: polygon(0 0,
+            0% 20%,
+            0 51%,
+            0% 80%,
+            0 100%,
+            50% 70%,
+            100% 100%,
+            100% 80%,
+            100% 51%,
+            100% 20%,
+            100% 0,
+            50% 30%);
+}
+
+.BlueCardContainer {
+    border-radius: 35px;
+    padding: 3rem;
+    background-color: #007bff;
+    /* Assuming COLORS.blue resolves to #007bff */
+    width: 100%;
+
+    animation: moveFromLeft 1s;
+    transition: all 0.4s ease-in-out;
+}
+
+@media only screen and (max-width: 1240px) {
+    .BlueCardContainer {
+        margin: 10px 7px;
+    }
+}
+
+@media only screen and (min-width: 1241px) {
+    .BlueCardContainer {
+        margin: 0px;
+    }
+}
+
+@media screen and (min-width:1451px) {
+    .BlueCardContainer {
+        max-width: 720px;
+    }
+}
+
+@media only screen and (min-width:1241px) and (max-width: 1450px) {
+    .BlueCardContainer {
+        max-width: 1040px;
+    }
+}
+
+@media only screen and (max-width: 1240px) {
+    .BlueCardContainer {
+        max-width: 1000px;
+    }
+}
+@media screen and (min-width: 720px){
+    .BlueCardContainer{
+        padding: 3rem;
+    }
+}
+@media screen and (max-width: 720px) {
+    .BlueCardContainer{
+        padding: 2rem;
+    }
+}
+
+.BlueCardContainer:hover {
+    background-color: #000;
+    /* Assuming COLORS.black resolves to #000 */
+}
+
+@keyframes moveFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.BlueCardFlexHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: row;
+    width: auto;
+    height: 100%;
+    max-width: auto;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    position: relative;
+}
+
+.BlueCardHeader {
+    font-family: "Sen-Regular";
+
+    font-weight: 700;
+    /* max-width: 200px; */
+    color: rgb(255, 255, 255);
+    text-align: start;
+    white-space: normal;
+    margin: 0px;
+}
+
+@media screen and (max-width:1450px) {
+    .BlueCardHeader {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width:1451px) {
+    .BlueCardHeader {
+        max-width: 200px;
+    }
+}
+
+@media screen and (min-width:721px) {
+    .BlueCardHeader {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .BlueCardHeader {
+        font-size: 18px;
+    }
+}
+
+.BlueCardIconButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 1s ease 0s;
+    position: relative;
+    z-index: 10;
+    border: none;
+    font-size: 25px;
+    overflow: hidden;
+}
+

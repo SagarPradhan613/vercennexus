@@ -508,9 +508,9 @@ body {
   height: 150px;
   position: relative;
 }
-.footericonwrapper{
-  transform: translate(-50%, -50%);
-}
+/* .footericonwrapper{
+  transform: translate(-50%, -50%) !important;
+} */
 
 @media screen and (max-width: 520px) {
   .footericonwrapper{
@@ -520,23 +520,27 @@ body {
 
 @media screen and (max-width:720px) {
   .headwrapper {
-    height: 80px;
+    height: 80px !important;
   }
 }
 
-@media screen and (max-width: 520px) {
+/* @media screen and (max-width: 520px) {
   .footerbackground {
-    width: 350px;
-    height: 65px;
+    width: 350px !important;
+    height: 65px !important;
   }
 
+} */
+/* .footerheaderwrapper{
+  width:100%;
+  height: 50px;
+  margin-top: 20px;
 }
-
 @media screen and (max-width: 520px) {
   .footerheaderwrapper {
-    height: 80px;
+    height: 80px !important;
   }
-}
+} */
 
 .BgWrapp {
   position: absolute;

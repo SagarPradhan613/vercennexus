@@ -48,10 +48,10 @@ const style = {
     width: '100%',
     maxWidth: '1000px',
     '@media (max-width: 768px)': {
-      width: '90%',
-      maxWidth: '90%'
+        width: '90%',
+        maxWidth: '90%'
     }
-  };
+};
 
 const Content = () => {
     const pathname = usePathname();
@@ -79,6 +79,60 @@ const Content = () => {
     const [accessToken, setAccessToken] = useState<string | null>(null);
     const [otp, setOtp] = React.useState("");
     const [inviteError, setInviteError] = React.useState("");
+    const [opac, setOpac] = useState(0);
+    const [textAnim, setTextAnim] = useState([]);
+
+    useEffect(() => {
+        setOpac(0);
+        setTimeout(() => {
+          setOpac(1);
+        }, 100);
+      }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTextAnim((prev) => [...prev, 1]);
+        }, 250);
+
+        // Clear the interval when the array length reaches 3
+        if (textAnim.length === 3) {
+            clearInterval(interval);
+        }
+        console.log(textAnim);
+        // Clean up the interval when the component unmounts
+        return () => clearInterval(interval);
+    }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
+    if (typeof window !== "undefined") {
+        const cursor = document.querySelector(".cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor?.setAttribute(
+                "style",
+                "top: " + (e.pageY - 5) + "px; left: " + (e.pageX - 5) + "px;"
+            );
+            if (e.target.tagName.toLowerCase() === "button") {
+                cursor?.setAttribute(
+                    "style",
+                    "top: " +
+                    (e.pageY - 5) +
+                    "px; left: " +
+                    (e.pageX - 5) +
+                    "px; background-color: " +
+                    (e.target.tagName.toLowerCase() === "button"
+                        ? "#0075FF"
+                        : "transparent") +
+                    ";"
+                );
+            }
+        });
+
+        document.addEventListener("click", (e) => {
+            cursor?.classList.add("expand");
+            setTimeout(() => {
+                cursor?.classList.remove("expand");
+            }, 500);
+        });
+    }
 
 
 
@@ -431,24 +485,25 @@ const Content = () => {
     const handleCloseInvite = () => setOpenInvite(false);
     return (
         <>
-         {isModal && (
-        <Modal
-          open={isModal}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <ReferralModal totalCodes={totalCodes} setTotalCodes={setTotalCodes} adminOverride={adminOverride} setCodes={setCodes} accessToken={accessToken} referrals={referrals} codes={codes} setIsmodal={setIsmodal} id={profile?._id} />
-          </Box>
-        </Modal>
-      )}
 
-      {
-        openInvite && (
-          <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login} handleClose={handleCloseInvite} />
-        )
-      }
+            {isModal && (
+                <Modal
+                    open={isModal}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <ReferralModal totalCodes={totalCodes} setTotalCodes={setTotalCodes} adminOverride={adminOverride} setCodes={setCodes} accessToken={accessToken} referrals={referrals} codes={codes} setIsmodal={setIsmodal} id={profile?._id} />
+                    </Box>
+                </Modal>
+            )}
+
+            {
+                openInvite && (
+                    <InviteModal inviteError={inviteError} handleSubmit={handleSubmit} setOtp={setOtp} otp={otp} open={openInvite} login={login} handleClose={handleCloseInvite} />
+                )
+            }
             <div className="overflow-hidden sen  relative min-h-screen min-w-screen">
                 {!isMobile && <div className="cursor"></div>}
                 <div className="lg:block hidden absolute h-full w-full top-0 left-0">
@@ -706,7 +761,7 @@ const Content = () => {
 
                             <div className="lg:w-1/2 flex-col flex gap-6 w-full">
                                 <div onClick={handleOpenInvite} className="relative group airdrop-steps ">
-                                    <div  className="flex responsive-airdrop-steps-flex lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
+                                    <div className="flex responsive-airdrop-steps-flex lg:py-8 lg:px-8 res-fix-airdrop-height res-air-steps py-4 px-4 w-full bg-[#30363D] lg:mt-0 border-2 rounded-[19px] border-[#FFFFFF0D] lg:flex-row flex-col">
                                         <div className="lg:w-1/2 gap-5 flex  w-full">
                                             <div className="lg:block group-hover:scale-110 transition-all duration-500 ease-in-out hidden">
                                                 <svg width="61" height="61" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -7,6 +7,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import Text from "../../components/Text";
 import useIsTab from "../../hooks/useIsTab";
 import useIsBig from "../../hooks/useIsBig";
+import './Card.css';
 
 const MoveFromLeft = keyframes`
   from {
@@ -44,20 +45,20 @@ const BlueCard = () => {
   const isTab = useIsTab();
   const isBig = useIsBig()
   return (
-    <Container width={isBig ? "1040px" : "720px"}>
-      <Flex justify={"space-between"}>
-        <Text
+    <div className="BlueCardContainer" width={isBig ? "1040px" : "720px"}>
+      <div className="BlueCardFlexHome">
+        <h1 className="BlueCardHeader"
           size={"30px"}
           maxWidth={isBig ? "100%" : "200px"}
           fontFamily={"bold"}
         >
           DAPP Coming Soon!
-        </Text>
-        <IconButton>
+        </h1>
+        <div className="BlueCardIconButton">
           <FaArrowRight />
-        </IconButton>
-      </Flex>
-    </Container>
+        </div>
+      </div>
+    </div>
   );
 };
 
