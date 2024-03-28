@@ -167,13 +167,13 @@ const Header = ({ pathname }) => {
           </a>
         </div>
         <div className="Navbar">
-          <a className={`${pathname === 'leaderboard' ? 'bg-[#0075FF] LeaderBoard' : 'LeaderBoard black'}`} href="/leaderboard">
+          <a className={`${pathname === '/leaderboard' ? 'bg-[#0075FF] LeaderBoard' : 'LeaderBoard black'}`} href="/leaderboard">
             Leaderboard
           </a>
           <a className="AirDrop" href="/airdrop">
             Airdrop
           </a>
-          <a className={`${pathname === 'about' ? 'bg-[#0075FF] About' : 'About black'}`} pathname={pathname} href="/about">
+          <a className={`${pathname === '/about' ? 'bg-[#0075FF] About' : 'About black'}`} pathname={pathname} href="/about">
             About
           </a>
         </div>
