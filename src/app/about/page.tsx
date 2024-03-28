@@ -213,7 +213,7 @@ const Content = () => {
 
     if (typeof window !== "undefined") {
         const cursor = document.querySelector(".cursor");
-    
+
         document.addEventListener("mousemove", (e) => {
             const target = e.target as HTMLElement; // Type assertion to HTMLElement
             cursor?.setAttribute(
@@ -235,8 +235,8 @@ const Content = () => {
                 );
             }
         });
-        
-    
+
+
         document.addEventListener("click", (e) => {
             cursor?.classList.add("expand");
             setTimeout(() => {
@@ -244,8 +244,8 @@ const Content = () => {
             }, 500);
         });
     }
-    
-    
+
+
 
 
     useEffect(() => {
@@ -736,7 +736,7 @@ const Content = () => {
     return (
         <>
             <div>
-            {!isMobile && <div className="cursor"></div>}
+                {!isMobile && <div className="cursor"></div>}
                 {isModal && (
                     <Modal
                         open={isModal}
@@ -885,8 +885,8 @@ const Content = () => {
                     :
                     null
                 }
-                
-               
+
+
 
                 {/* first section */}
                 {/* <div className="newgradient-background" style={{ opacity: opac }}>
@@ -1381,14 +1381,14 @@ const Content = () => {
                                             <div className="h-full items-end pt-24 resp-social-padding-about pl-32 ">
                                                 <div className="flex">
                                                     <p className="text-white lg:ml-4 res-follow text-xs lg:text-base font-medium whitespace-nowrap opacity-60">Follow on  socials</p>
-                                                    <div className="flex items-center ml-6 gap-6">
+                                                    <div className="flex items-center relative z-50 ml-6 gap-6">
 
-                                                        <a className="text-white cursor-pointer transition-transform duration-1000 ease-in-out hover:text-blue" href="https://twitter.com/NexusLaunchpad" target="_blank">
+                                                        <Icon href="https://twitter.com/NexusLaunchpad" target="_blank">
                                                             <FaXTwitter />
-                                                        </a>
-                                                        <a className="text-white cursor-pointer transition-transform duration-1000 ease-in-out hover:text-blue" href="https://t.me/NexusLaunchpad" target="_blank">
+                                                        </Icon>
+                                                        <Icon href="https://t.me/NexusLaunchpad" target="_blank">
                                                             <FaTelegramPlane />
-                                                        </a>
+                                                        </Icon>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1914,7 +1914,7 @@ const Content = () => {
                             </div>
 
                             <div className="px-10 lg:px-0">
-                                <div className="flex group  justify-between mt-6 lg:mt-0 items-center gap-10 lg:p-2 p-1 pl-6 lg:pl-6 transition-all hover:bg-black group duration-500 ease-in-out rounded-[36px] bg-white">
+                                <a href="/airdrop" className="flex group  justify-between mt-6 lg:mt-0 items-center gap-10 lg:p-2 p-1 pl-6 lg:pl-6 transition-all hover:bg-black group duration-500 ease-in-out rounded-[36px] bg-white">
                                     <p className="font-semibold whitespace-nowrap lg:block hidden group-hover:text-white  duration-500 ease-in-out transition-all text-xl text-black">Claim your Airdrop</p>
                                     <p className="font-semibold group-hover:text-white  duration-500 ease-in-out transition-all lg:hidden block text-xl text-black">Claim your Airdrop</p>
                                     <div className="h-[43px] overflow-hidden relative flex justify-center items-center w-[43px] group-hover:bg-white rounded-[50%] bg-[#0075FF]">
@@ -1929,7 +1929,7 @@ const Content = () => {
                                             </svg>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div className="lg:flex items-center mt-14 justify-between hidden">
