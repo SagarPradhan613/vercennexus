@@ -20,29 +20,28 @@ const LeaderBoard = () => {
     const isMobile = useIsMobile();
     const isTab = useIsTab();
     const isBig = useIsBig();
-    const [textAnim, setTextAnim] = useState([]);
+    // const [textAnim, setTextAnim] = useState([]);
     const [opac, setOpac] = useState(0);
 
-  useEffect(() => {
-    setOpac(0);
-    setTimeout(() => {
-      setOpac(1);
-    }, 100);
-  }, []);
-
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTextAnim((prev) => [...prev, 1]);
-        }, 250);
+        setOpac(0);
+        setTimeout(() => {
+            setOpac(1);
+        }, 100);
+    }, []);
 
-        // Clear the interval when the array length reaches 3
-        if (textAnim.length === 3) {
-            clearInterval(interval);
-        }
-        console.log(textAnim);
-        // Clean up the interval when the component unmounts
-        return () => clearInterval(interval);
-    }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setTextAnim((prev) => [...prev, 1]);
+    //     }, 250);
+
+    //     if (textAnim.length === 3) {
+    //         clearInterval(interval);
+    //     }
+    //     console.log(textAnim);
+    //     return () => clearInterval(interval);
+    // }, [textAnim]); 
+
     if (typeof window !== "undefined") {
         const cursor = document.querySelector(".cursor");
 
@@ -168,7 +167,7 @@ const LeaderBoard = () => {
 
     return (
         <>
-            <div className="overflow-hidden sen  relative" style={{ minHeight: "100vh", minWidth: "100vw", position: "relative" , opacity: opac }}>
+            <div className="overflow-hidden sen  relative" style={{ minHeight: "100vh", minWidth: "100vw", position: "relative", opacity: opac }}>
                 {!isMobile && <div class="cursor"></div>}
                 <div className="lg:block hidden" style={{ position: "absolute", height: "100%", width: "100%", top: "0", left: "0" }}>
                     <img className="opacity-70" style={{ height: "100%", width: "100%" }} src="/Images/topmask.png"></img>

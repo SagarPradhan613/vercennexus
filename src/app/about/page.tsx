@@ -202,7 +202,7 @@ const Content = () => {
     const [accessToken, setAccessToken] = useState<string | null>(null);
     const [otp, setOtp] = React.useState("");
     const [inviteError, setInviteError] = React.useState("");
-    const [textAnim, setTextAnim] = useState([]);
+    // const [textAnim, setTextAnim] = useState([]);
 
   useEffect(() => {
     setOpac(0);
@@ -211,19 +211,18 @@ const Content = () => {
     }, 100);
   }, []);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setTextAnim((prev) => [...prev, 1]);
-        }, 250);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setTextAnim((prev) => [...prev, 1]);
+    //     }, 250);
 
-        // Clear the interval when the array length reaches 3
-        if (textAnim.length === 3) {
-            clearInterval(interval);
-        }
-        console.log(textAnim);
-        // Clean up the interval when the component unmounts
-        return () => clearInterval(interval);
-    }, [textAnim]); // Add textAnim to dependencies to ensure effect is updated
+    //     if (textAnim.length === 3) {
+    //         clearInterval(interval);
+    //     }
+    //     console.log(textAnim);
+    //     return () => clearInterval(interval);
+    // }, [textAnim]); 
+
     if (typeof window !== "undefined") {
         const cursor = document.querySelector(".cursor");
 
